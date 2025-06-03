@@ -14,7 +14,7 @@ const slides = [
     image:
       slide1,
     title: "Welcome To",
-    subtitle: "Abeer Motion Picture's Pvt Ltd",
+    subtitle: "Abeer Motion Picture Pvt Ltd",
     description:
       "A filmmaking studio & institute",
   },
