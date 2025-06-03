@@ -14,9 +14,9 @@ const slides = [
     image:
       slide1,
     title: "Welcome To",
-    subtitle: "Abeer Motion Picture's Private Limited",
+    subtitle: "Abeer Motion Picture's Pvt Ltd",
     description:
-      "A filmmaking studio and institute",
+      "A filmmaking studio & institute",
   },
   {
     id: 2,
@@ -94,7 +94,7 @@ const HeroSlider: React.FC = () => {
                   <h1 className="text-5xl font-bold mb-6 text-white">
                     {slide.subtitle}
                   </h1>
-                  <p className="text-lg text-gray-200 mb-8">
+                  <p className="text-lg text-gray-200 mb-8 ml-40">
                     {slide.description}
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -104,7 +104,7 @@ const HeroSlider: React.FC = () => {
 
                     <button className="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded flex items-center transition duration-300">
                       <Mail className="mr-2" size={18} />
-                      info@photography.com
+                     reportabeermotionpicture@gmail.com
                     </button>
                   </div>
                 </div>
