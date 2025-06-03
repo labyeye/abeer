@@ -1,5 +1,6 @@
 import React from "react";
 import { Camera, Film, Clock, Image, Award, Users } from "lucide-react";
+import bgImage from "../assets/images/about-bg.jpg";
 
 interface ServiceProps {
   icon: React.ReactNode;
@@ -9,14 +10,19 @@ interface ServiceProps {
 
 const Service: React.FC<ServiceProps> = ({ icon, title, description }) => {
   return (
-    <div className="group bg-white p-6 rounded-lg border border-gray-200 transition-all duration-300 hover:bg-[#263f49] hover:shadow-lg hover:shadow-[#263f49]/40 hover:-translate-y-1 cursor-pointer">
-      <div className="text-[#263f49] group-hover:text-white mb-4 transition-colors duration-300">
+    <div className="group bg-transparent p-6 rounded-lg transition-all duration-300 cursor-pointer hover:border-[#263f49]">
+      <div className="text-[#263f49] mb-4 transition-colors duration-300">
         {icon}
       </div>
-      <h3 className="text-[#263f49] group-hover:text-white text-xl font-semibold mb-3 transition-colors duration-300">
-        {title}
+
+      <h3 className="text-[#263f49] text-xl font-semibold mb-3 relative overflow-hidden">
+        <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
+          {title}
+        </span>
+        <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
       </h3>
-      <p className="text-gray-600 group-hover:text-gray-300 transition-colors duration-300">
+
+      <p className="text-gray-600 transition-colors duration-300">
         {description}
       </p>
     </div>
@@ -25,12 +31,15 @@ const Service: React.FC<ServiceProps> = ({ icon, title, description }) => {
 
 const AboutServices: React.FC = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      ></div>
+
+      <div className="relative z-10 container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* About Section */}
-          <div>
-            <h2 className="text-[#263f49] text-xl mb-2 font-semibold">About</h2>
+          <div className="bg-transparent backdrop-blur-sm p-6 rounded-lg">
             <h3 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-6">
               Abeer Motion Picture
             </h3>
@@ -68,8 +77,6 @@ const AboutServices: React.FC = () => {
               Learn More
             </button>
           </div>
-
-          {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Service
               icon={<Camera size={32} />}
@@ -93,16 +100,17 @@ const AboutServices: React.FC = () => {
             />
           </div>
         </div>
-
-        {/* Additional Services */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-          <div className="flex items-start">
+          <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Award size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2">
-                Award Winning
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
+                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
+                  Award Winning
+                </span>
+                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Recognized with multiple industry awards for excellence in
@@ -110,13 +118,17 @@ const AboutServices: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="flex items-start">
+
+          <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Users size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2">
-                Professional Team
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
+                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
+                  Professional Team
+                </span>
+                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Experienced photographers and videographers with specialized
@@ -124,26 +136,34 @@ const AboutServices: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="flex items-start">
+
+          <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Clock size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2">
-                24/7 Support
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
+                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
+                  24/7 Support
+                </span>
+                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Always available to answer questions and provide guidance
               </p>
             </div>
           </div>
-          <div className="flex items-start">
+
+          <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Camera size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2">
-                Latest Equipment
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
+                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
+                  Latest Equipment
+                </span>
+                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Using cutting-edge cameras, lenses, and lighting technology

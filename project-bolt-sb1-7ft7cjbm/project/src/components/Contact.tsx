@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
                 type="text"
                 id="name"
                 className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded p-3 focus:outline-none focus:border-[#263f49]"
-                placeholder="John Doe"
+                placeholder="Enter Your Name"
               />
             </div>
             <div>
@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
                 type="email"
                 id="email"
                 className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded p-3 focus:outline-none focus:border-[#263f49]"
-                placeholder="john@example.com"
+                placeholder="Enter Your Email"
               />
             </div>
             <div>
@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
                 type="tel"
                 id="phone"
                 className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded p-3 focus:outline-none focus:border-[#263f49]"
-                placeholder="+1 (555) 123-4567"
+                placeholder="Enter Your Phone"
               />
             </div>
             <div>
@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
                 type="text"
                 id="subject"
                 className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded p-3 focus:outline-none focus:border-[#263f49]"
-                placeholder="Photography Inquiry"
+                placeholder="Enter your Enquiry"
               />
             </div>
             <div className="md:col-span-2">
@@ -71,13 +71,13 @@ const Contact: React.FC = () => {
                 id="message"
                 rows={6}
                 className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded p-3 focus:outline-none focus:border-[#263f49]"
-                placeholder="Tell us about your project..."
+                placeholder="Tell us about your enquiry in detail"
               ></textarea>
             </div>
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="bg-[#263f49] hover:bg-[#1b2d34] text-white px-8 py-3 rounded transition duration-300"
+                className="bg-[#263f49] hover:bg-white hover:text-black text-white px-8 py-3 rounded transition duration-300"
               >
                 Send Message
               </button>
@@ -89,11 +89,11 @@ const Contact: React.FC = () => {
           {/* Contact Info */}
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow flex items-start">
-                <div className="bg-[#263f49] p-3 rounded-full mr-4">
+              <div className="bg-white p-6 rounded-lg shadow flex items-start hover:shadow-lg transition-all duration-300 group">
+                <div className="bg-[#263f49] p-3 rounded-full mr-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <MapPin className="text-white" size={24} />
                 </div>
-                <div className="transition-all duration-300 hover:scale-[1.02] hover:translate-x-1">
+                <div className="transition-all duration-300 group-hover:translate-x-1">
                   <h3 className="text-[#263f49] text-lg font-semibold mb-2">
                     Head Office
                   </h3>
@@ -103,12 +103,12 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow flex items-start">
-                <div className="bg-[#263f49] p-3 rounded-full mr-4">
+              <div className="bg-white p-6 rounded-lg shadow flex items-start hover:shadow-lg transition-all duration-300 group">
+                <div className="bg-[#263f49] p-3 rounded-full mr-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <Mail className="text-white" size={24} />
                 </div>
-                <div className="transition-all duration-300 hover:scale-[1.02] hover:translate-x-1">
-                  <h3 className="text-[#263f49] text-lg font-semibold mb-2 ">
+                <div className="transition-all duration-300 group-hover:translate-x-1">
+                  <h3 className="text-[#263f49] text-lg font-semibold mb-2">
                     Email Address
                   </h3>
                   <p className="text-gray-600 font-bold">
@@ -117,11 +117,11 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow flex items-start">
-                <div className="bg-[#263f49] p-3 rounded-full mr-4">
+              <div className="bg-white p-6 rounded-lg shadow flex items-start hover:shadow-lg transition-all duration-300 group">
+                <div className="bg-[#263f49] p-3 rounded-full mr-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <Phone className="text-white" size={24} />
                 </div>
-                <div className="transition-all duration-300 hover:scale-[1.02] hover:translate-x-1">
+                <div className="transition-all duration-300 group-hover:translate-x-1">
                   <h3 className="text-[#263f49] text-lg font-semibold mb-2">
                     Phone Number
                   </h3>

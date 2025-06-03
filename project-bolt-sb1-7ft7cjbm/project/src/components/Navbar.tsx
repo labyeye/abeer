@@ -285,63 +285,7 @@ const Navbar = () => {
         },
       ],
     },
-    {
-      label: "Camping",
-      dropdown: [
-        {
-          category: "Political Campaign",
-          services: [
-            "Election Campaigns",
-            "Door-to-Door",
-            "Rally Organization",
-            "Voter Awareness",
-            "Candidate Promotion",
-            "Political Messaging",
-            "Community Outreach",
-            "Grassroots Mobilization",
-          ],
-        },
-        {
-          category: "Social Campaign",
-          services: [
-            "Health Awareness",
-            "Education Campaigns",
-            "Environmental Initiatives",
-            "Women Empowerment",
-            "Child Safety",
-            "Digital Literacy",
-            "Cleanliness Drives",
-            "Social Justice",
-          ],
-        },
-        {
-          category: "Surveys",
-          services: [
-            "Market Research",
-            "Political Surveys",
-            "Social Research",
-            "Customer Feedback",
-            "Opinion Polls",
-            "Academic Research",
-            "Government Surveys",
-            "Community Assessment",
-          ],
-        },
-        {
-          category: "Religious Campaign",
-          services: [
-            "Festival Celebrations",
-            "Religious Awareness",
-            "Spiritual Programs",
-            "Community Events",
-            "Pilgrimage Organization",
-            "Religious Education",
-            "Cultural Preservation",
-            "Interfaith Harmony",
-          ],
-        },
-      ],
-    },
+    
     {
       label: "Audio Studio",
       dropdown: [
@@ -514,6 +458,63 @@ const Navbar = () => {
       ],
     },
     {
+      label: "Camping",
+      dropdown: [
+        {
+          category: "Political Campaign",
+          services: [
+            "Election Campaigns",
+            "Door-to-Door",
+            "Rally Organization",
+            "Voter Awareness",
+            "Candidate Promotion",
+            "Political Messaging",
+            "Community Outreach",
+            "Grassroots Mobilization",
+          ],
+        },
+        {
+          category: "Social Campaign",
+          services: [
+            "Health Awareness",
+            "Education Campaigns",
+            "Environmental Initiatives",
+            "Women Empowerment",
+            "Child Safety",
+            "Digital Literacy",
+            "Cleanliness Drives",
+            "Social Justice",
+          ],
+        },
+        {
+          category: "Surveys",
+          services: [
+            "Market Research",
+            "Political Surveys",
+            "Social Research",
+            "Customer Feedback",
+            "Opinion Polls",
+            "Academic Research",
+            "Government Surveys",
+            "Community Assessment",
+          ],
+        },
+        {
+          category: "Religious Campaign",
+          services: [
+            "Festival Celebrations",
+            "Religious Awareness",
+            "Spiritual Programs",
+            "Community Events",
+            "Pilgrimage Organization",
+            "Religious Education",
+            "Cultural Preservation",
+            "Interfaith Harmony",
+          ],
+        },
+      ],
+    },
+    {
       label: "Government Tander",
       dropdown: [
         {
@@ -596,77 +597,74 @@ const Navbar = () => {
         <div className="flex items-center">
           <img src={logo} />
         </div>
+        <nav className="hidden lg:flex items-center space-x-6">
+          {navItems.map((item, idx) =>
+            item.dropdown ? (
+              <div className="relative group" key={idx}>
+                <a
+                  href="#"
+                  className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
+                >
+                  {item.label}
+                </a>
 
-        {/* Desktop Navigation */}
-        {/* Desktop Navigation */}
-<nav className="hidden lg:flex items-center space-x-6">
-  {navItems.map((item, idx) =>
-    item.dropdown ? (
-      <div className="relative group" key={idx}>
-        <a
-          href="#"
-          className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
-        >
-          {item.label}
-        </a>
-
-        {/* Main dropdown with animation */}
-        <div className="absolute top-full left-0 mt-2 w-72 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 transform translate-y-[-10px] group-hover:translate-y-0 z-50">
-          <div className="p-4">
-            {item.dropdown.map((category, subIdx) => (
-              <div
-                key={subIdx}
-                className="relative group/sub mb-4 last:mb-0"
-              >
-                <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
-                  <h4 className="text-sm font-semibold text-gray-900 group-hover/sub:text-orange-400">
-                    {category.category}
-                  </h4>
-                  <svg
-                    className="w-2.5 h-2.5 text-gray-500 group-hover/sub:text-orange-400 transition-colors"
-                    viewBox="0 0 10 10"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <polygon points="0,0 10,5 0,10" />
-                  </svg>
-                </div>
-
-                {/* Sub-dropdown with left-to-right animation */}
-                <div className="absolute left-full top-0 ml-2 w-80 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover/sub:opacity-100 invisible group-hover/sub:visible transition-all duration-300 transform translate-x-[-10px] group-hover/sub:translate-x-0 z-60">
+                {/* Main dropdown with animation */}
+                <div className="absolute top-full left-0 mt-2 w-72 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 transform translate-y-[-10px] group-hover:translate-y-0 z-50">
                   <div className="p-4">
-                    <h5 className="text-sm font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
-                      {category.category} Services
-                    </h5>
-                    <div className="grid grid-cols-1 gap-1">
-                      {category.services.map((service, serviceIdx) => (
-                        <a
-                          key={serviceIdx}
-                          href="#"
-                          className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
-                        >
-                          {service}
-                        </a>
-                      ))}
-                    </div>
+                    {item.dropdown.map((category, subIdx) => (
+                      <div
+                        key={subIdx}
+                        className="relative group/sub mb-4 last:mb-0"
+                      >
+                        <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
+                          <h4 className="text-sm font-semibold text-gray-900 group-hover/sub:text-orange-400">
+                            {category.category}
+                          </h4>
+                          <svg
+                            className="w-2.5 h-2.5 text-gray-500 group-hover/sub:text-orange-400 transition-colors"
+                            viewBox="0 0 10 10"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <polygon points="0,0 10,5 0,10" />
+                          </svg>
+                        </div>
+
+                        {/* Sub-dropdown with left-to-right animation */}
+                        <div className="absolute left-full top-0 ml-2 w-80 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover/sub:opacity-100 invisible group-hover/sub:visible transition-all duration-300 transform translate-x-[-10px] group-hover/sub:translate-x-0 z-60">
+                          <div className="p-4">
+                            <h5 className="text-sm font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
+                              {category.category} Services
+                            </h5>
+                            <div className="grid grid-cols-1 gap-1">
+                              {category.services.map((service, serviceIdx) => (
+                                <a
+                                  key={serviceIdx}
+                                  href="#"
+                                  className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
+                                >
+                                  {service}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    ) : (
-      <a
-        key={idx}
-        href={item.link}
-        className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
-      >
-        {item.label}
-      </a>
-    )
-  )}
-</nav>
+            ) : (
+              <a
+                key={idx}
+                href={item.link}
+                className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
+              >
+                {item.label}
+              </a>
+            )
+          )}
+        </nav>
 
         <div className="flex items-center">
           <button

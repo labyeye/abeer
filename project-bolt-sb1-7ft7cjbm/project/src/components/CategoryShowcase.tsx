@@ -167,12 +167,9 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
-                      className={`h-[500px] w-[500px] transition-all duration-300 transform-origin-center ${
-                        isActive ? "scale-100 z-20" : "scale-75 opacity-60 z-10"
+                      className={`aspect-square transition-all duration-300 transform-origin-center ${
+                        isActive ? "scale-140 z-20" : "scale-75 opacity-60 z-10"
                       } w-full rounded-xl overflow-hidden shadow-lg border-4 border-white`}
-                      style={{
-                        transformOrigin: "center center",
-                      }}
                     >
                       <img
                         src={img.image}
