@@ -6,16 +6,17 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import slide1 from "../assets/images/homeslider/slide-1.jpg"
 
 const slides = [
   {
     id: 1,
     image:
-      "https://images.pexels.com/photos/3014019/pexels-photo-3014019.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    title: "Hello",
-    subtitle: "I'm Mithilesh",
+      slide1,
+    title: "Welcome To",
+    subtitle: "Abeer Motion Picture's Private Limited",
     description:
-      "I'm a photographer from New York. I love to capture life as it unfolds and find beauty in the ordinary moments.",
+      "A filmmaking studio and institute",
   },
   {
     id: 2,
