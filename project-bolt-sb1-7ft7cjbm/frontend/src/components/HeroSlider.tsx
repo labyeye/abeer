@@ -90,10 +90,11 @@ const HeroSlider: React.FC = () => {
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-2xl text-white">
-                  <h2 className="text-white-500 text-xl mb-2">{slide.title}</h2>
-                  <h1 className="text-5xl font-bold mb-6 text-white">
-                    {slide.subtitle}
-                  </h1>
+                  <h2 className="text-white-500 text-xl mb-5">{slide.title}</h2>
+                  <h1 className="text-5xl font-bold mb-2 text-white inline-block animate-fadeUp">
+  {slide.subtitle}
+</h1>
+
                   <p className="text-lg text-gray-200 mb-8 ml-40">
                     {slide.description}
                   </p>
