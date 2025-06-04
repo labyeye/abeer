@@ -20,3 +20,16 @@
 .group:hover .hover-underline::after {
   width: 100%;
 }
+.swiper-pagination-bullet {
+  opacity: 1 !important;
+  background-color: white !important; /* or your preferred color */
+  width: 12px;  /* Optional: bigger dots */
+  height: 12px;
+}
+
+/* Optional: make the active bullet bigger or different color */
+.swiper-pagination-bullet-active {
+  background-color: #3b82f6 !important; /* e.g., Tailwind blue-500 */
+  width: 14px;
+  height: 14px;
+}
