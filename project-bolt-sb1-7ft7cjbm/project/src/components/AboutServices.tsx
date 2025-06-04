@@ -40,9 +40,13 @@ const AboutServices: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="bg-transparent backdrop-blur-sm p-6 rounded-lg">
-            <h3 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-6">
-              Abeer Motion Picture
+            <h3 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-6 relative w-fit group cursor-pointer">
+              <span className="inline-block">
+                Abeer Motion Picture
+                <span className="block h-[3px] bg-[#263f49] w-full scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+              </span>
             </h3>
+
             <p className="text-gray-700 mb-6">
               Abeer Motion Picture Pvt. Ltd. (A filmmaking Studio & Institute),
               established on April 14, 2022, in the vibrant city of Muzaffarpur,

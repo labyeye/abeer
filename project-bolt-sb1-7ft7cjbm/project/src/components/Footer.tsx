@@ -36,30 +36,40 @@ const Footer: React.FC = () => {
               <a
                 href="https://m.facebook.com/people/Abeer-Motion-Picture-Pvt-Ltd/61552202668767/"
                 className={socialIconClass}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://x.com/abeer_motion?lang=ar-x-fm"
                 className={socialIconClass}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Twitter size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://www.instagram.com/abeer_motion_picture/"
                 className={socialIconClass}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://www.youtube.com/channel/UCJQKvIkTun6sbTc0dRI6yTA"
                 className={socialIconClass}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Youtube size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://in.linkedin.com/in/abeer-motion-picture-337a14260"
                 className={socialIconClass}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin size={20} stroke="currentColor" />
               </a>

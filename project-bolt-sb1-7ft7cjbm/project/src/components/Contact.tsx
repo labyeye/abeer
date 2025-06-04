@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                   <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative hover-underline">
                     Head Office
                   </h3>
-                  <p className="text-gray-600 font-bold relative hover-underline">
+                  <p className="text-gray-600 font-bold ">
                     DRB MALL, Mothijheel, Muzaffarpur, Bihar-842001, INDIA
                   </p>
                 </div>
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                     Email Address
                   </h3>
                   <div className="space-y-1">
-                    <p className="text-gray-600 font-bold relative hover-underline">
+                    <p className="text-gray-600 font-bold">
                       reportabeermotionpicture@gmail.com
                     </p>
                   </div>
@@ -128,10 +128,12 @@ const Contact: React.FC = () => {
                     Phone Number
                   </h3>
                   <div className="space-y-1">
-                    <p className="text-gray-600 font-bold relative hover-underline">
+                    <p className="text-gray-600 font-bold ">
                       +91 9835654377
                     </p>
-                    <p className="text-gray-600 font-bold relative hover-underline">
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-gray-600 font-bold ">
                       +91 9939392175
                     </p>
                   </div>

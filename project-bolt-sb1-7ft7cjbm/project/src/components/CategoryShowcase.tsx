@@ -144,7 +144,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
               }}
               className="overflow-visible"
               style={{
-                paddingLeft: "30px",
+                paddingLeft: "10px",
                 paddingRight: "0px",
                 marginLeft: "-40px",
                 marginRight: "-40px",
@@ -156,7 +156,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
-                      className={`h-[500px] w-[350px] transition-all duration-300 transform-origin-center ${
+                      className={`h-[500px] w-[370px] transition-all duration-300 transform-origin-center ${
                         isActive ? "scale-100 z-20" : "scale-75 opacity-60 z-10"
                       } w-full rounded-xl overflow-hidden shadow-lg border-4 border-white`}
                     >
