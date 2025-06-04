@@ -1,12 +1,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
-import { ChevronLeft, ChevronRight, Mail } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import slide1 from "../assets/images/homeslider/slide-1.jpg"
+import slide1 from "../../assets/images/homeslider/slide-1.jpg"
 
 const slides = [
   {

@@ -4,11 +4,11 @@ import { Navigation, Pagination } from "swiper/modules"; // Import Pagination
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination"; // Import pagination styles
-import "./css/fonts.css";
-import w1 from "../assets/images/category/wedding/1.png";
-import w2 from "../assets/images/category/wedding/2.png";
-import w3 from "../assets/images/category/wedding/3.png";
-import w4 from "../assets/images/category/wedding/4.png";
+import "../css/fonts.css";
+import w1 from "../../assets/images/category/wedding/1.png";
+import w2 from "../../assets/images/category/wedding/2.png";
+import w3 from "../../assets/images/category/wedding/3.png";
+import w4 from "../../assets/images/category/wedding/4.png";
 
 interface CategoryShowcaseProps {
   title: string;

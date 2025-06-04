@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import HeroSlider from "./components/HeroSlider";
-import Gallery from "./components/Gallery";
-import AboutServices from "./components/AboutServices";
-import CategoryShowcase from "./components/CategoryShowcase";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Navbar from "./components/HomePage/Navbar";
+import HeroSlider from "./components/HomePage/HeroSlider";
+import Gallery from "./components/HomePage/Gallery";
+import AboutServices from "./components/HomePage/AboutServices";
+import CategoryShowcase from "./components/HomePage/CategoryShowcase";
+import Contact from "./components/HomePage/Contact";
+import Footer from "./components/HomePage/Footer";
 
 function App() {
   return (

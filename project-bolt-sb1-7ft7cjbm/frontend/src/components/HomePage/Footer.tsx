@@ -1,6 +1,6 @@
 import React from "react";
 import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
-import logo from "../assets/images/logoblack.png";
+import logo from "../../assets/images/logoblack.png";
 
 const hoverLinkStyle = `
   relative inline-block text-gray-700 transition-colors duration-300 cursor-pointer

@@ -1,6 +1,6 @@
 import React from "react";
 import { Camera, Film, Clock, Image, Award, Users } from "lucide-react";
-import bgImage from "../assets/images/about-bg.jpg";
+import bgImage from "../../assets/images/about-bg.jpg";
 
 interface ServiceProps {
   icon: React.ReactNode;
