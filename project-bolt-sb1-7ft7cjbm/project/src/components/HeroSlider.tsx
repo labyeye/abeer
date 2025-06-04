@@ -101,11 +101,6 @@ const HeroSlider: React.FC = () => {
                     <button className="bg-white text-[#263f49] px-6 py-3 rounded transition duration-300 hover:bg-[#263f49] hover:text-white border border-transparent hover:border-[#263f49]">
                       Learn More
                     </button>
-
-                    <button className="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded flex items-center transition duration-300">
-                      <Mail className="mr-2" size={18} />
-                     reportabeermotionpicture@gmail.com
-                    </button>
                   </div>
                 </div>
               </div>
