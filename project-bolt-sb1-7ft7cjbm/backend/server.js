@@ -19,6 +19,6 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/gallery', galleryRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 2500;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

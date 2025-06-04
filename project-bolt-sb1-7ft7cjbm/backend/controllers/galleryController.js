@@ -53,18 +53,21 @@ exports.updateImage = async (req, res) => {
 
 exports.deleteImage = async (req, res) => {
   try {
-    const image = await GalleryImage.findById(req.params.id);
-    if (!image) {
+    console.log("Attempting to delete image ID:", req.params.id);
+
+    const deletedImage = await GalleryImage.findByIdAndDelete(req.params.id);
+
+    if (!deletedImage) {
       return res.status(404).json({ msg: 'Image not found' });
     }
 
-    await image.remove();
-    res.json({ msg: 'Image removed' });
+    res.json({ msg: 'Image removed successfully' });
   } catch (err) {
-    console.error(err.message);
+    console.error("Error deleting image:", err); // Log full error for debugging
     res.status(500).send('Server Error');
   }
 };
+
 
 exports.reorderImages = async (req, res) => {
   try {
