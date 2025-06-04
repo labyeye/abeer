@@ -15,11 +15,11 @@ const Service: React.FC<ServiceProps> = ({ icon, title, description }) => {
         {icon}
       </div>
 
-      <h3 className="text-[#263f49] text-xl font-semibold mb-3 relative overflow-hidden">
-        <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
-          {title}
+      <h3 className="text-[#263f49] text-xl font-semibold mb-3 relative w-fit overflow-visible">
+        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+          <span className="block">{title}</span>
+          <span className="block h-[2px] bg-[#263f49] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></span>
         </span>
-        <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
       </h3>
 
       <p className="text-gray-600 transition-colors duration-300">
@@ -101,16 +101,17 @@ const AboutServices: React.FC = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+          {/* Award Winning */}
           <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Award size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
-                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
-                  Award Winning
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative w-fit overflow-visible">
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="block">Award Winning</span>
+                  <span className="block h-[2px] bg-[#263f49] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></span>
                 </span>
-                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Recognized with multiple industry awards for excellence in
@@ -119,16 +120,17 @@ const AboutServices: React.FC = () => {
             </div>
           </div>
 
+          {/* Professional Team */}
           <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Users size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
-                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
-                  Professional Team
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative w-fit overflow-visible">
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="block">Professional Team</span>
+                  <span className="block h-[2px] bg-[#263f49] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></span>
                 </span>
-                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Experienced photographers and videographers with specialized
@@ -137,16 +139,17 @@ const AboutServices: React.FC = () => {
             </div>
           </div>
 
+          {/* 24/7 Support */}
           <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Clock size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
-                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
-                  24/7 Support
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative w-fit overflow-visible">
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="block">24/7 Support</span>
+                  <span className="block h-[2px] bg-[#263f49] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></span>
                 </span>
-                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Always available to answer questions and provide guidance
@@ -154,16 +157,17 @@ const AboutServices: React.FC = () => {
             </div>
           </div>
 
+          {/* Latest Equipment */}
           <div className="flex items-start group cursor-pointer">
             <div className="bg-[#263f49] p-2 rounded-md mr-4">
               <Camera size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative overflow-hidden">
-                <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-1">
-                  Latest Equipment
+              <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative w-fit overflow-visible">
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="block">Latest Equipment</span>
+                  <span className="block h-[2px] bg-[#263f49] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></span>
                 </span>
-                <span className="block h-[2px] w-0 bg-[#263f49] transition-all duration-300 group-hover:w-full"></span>
               </h3>
               <p className="text-gray-600">
                 Using cutting-edge cameras, lenses, and lighting technology

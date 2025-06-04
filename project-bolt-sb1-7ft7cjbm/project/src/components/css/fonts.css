@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Denton Bold'; /* Must match exactly */
+  src: url('../../assets/fonts/Denton-Bold.otf') format('opentype');
+  font-weight: normal; /* or bold if needed */
+  font-style: normal;
+  font-display: swap;
+}

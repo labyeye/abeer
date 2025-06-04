@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Camera,
   Facebook,
   Instagram,
   Twitter,
@@ -8,6 +7,17 @@ import {
   Linkedin,
 } from "lucide-react";
 import logo from "../assets/images/logoblack.png";
+
+const hoverLinkStyle = `
+  relative inline-block text-gray-700 transition-colors duration-300 cursor-pointer
+  before:content-[''] before:absolute before:bottom-0 before:left-0 before:h-[2px] before:bg-[#263f49]
+  before:w-0 before:transition-[width] before:duration-300 hover:before:w-full
+  hover:text-[#263f49]
+  hover:translate-x-1
+  transform transition-transform duration-300
+`;
+
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-white text-gray-800 pt-16 pb-8 border-t border-[#d1d5db]">
@@ -59,202 +69,106 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <div>
-              <h4 className="text-[#263f49] text-lg font-semibold mb-6">
-                Quick Links
-              </h4>
-              <div className="grid grid-cols-2 gap-4">
-                <ul className="space-y-3">
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Cinematography
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Photography
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Live Streaming
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Audio Studio
-                    </a>
-                  </li>
-                </ul>
-                <ul className="space-y-3">
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Post Production
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Filmmaking
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Camping
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Government Tander
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Contact
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300
-             before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px]
-             before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full
-             transition-transform duration-300 hover:translate-x-2"
-                    >
-                      Privacy Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <h4 className="text-[#263f49] text-lg font-semibold mb-6">Quick Links</h4>
+            <div className="grid grid-cols-2 gap-4">
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Cinematography
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Photography
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Live Streaming
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Audio Studio
+                  </a>
+                </li>
+              </ul>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Post Production
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Filmmaking
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Camping
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Government Tander
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className={hoverLinkStyle}>
+                    Privacy Policy
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-[#263f49] text-lg font-semibold mb-6">
-              Our Services
-            </h4>
+            <h4 className="text-[#263f49] text-lg font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#"
-                  className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full"
-                >
+                <a href="#" className={hoverLinkStyle}>
                   Wedding Photography
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full"
-                >
+                <a href="#" className={hoverLinkStyle}>
                   Event Coverage
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full"
-                >
+                <a href="#" className={hoverLinkStyle}>
                   Portrait Sessions
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full"
-                >
+                <a href="#" className={hoverLinkStyle}>
                   Commercial Photography
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full"
-                >
+                <a href="#" className={hoverLinkStyle}>
                   Video Production
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="relative text-gray-700 hover:text-[#263f49] transition-colors duration-300 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#263f49] before:transition-all before:duration-300 hover:before:w-full"
-                >
+                <a href="#" className={hoverLinkStyle}>
                   Photo Editing
                 </a>
               </li>
@@ -278,9 +192,8 @@ const Footer: React.FC = () => {
               <button
                 type="submit"
                 className="relative bg-[#263f49] hover:bg-[#1b2e35] text-white rounded py-2 px-4 transition duration-300
-    before:content-[''] before:absolute before:bottom-1.5 before:left-1/2 before:translate-x-[-50%]
-    before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300
-    hover:before:w-1/2"
+                before:content-[''] before:absolute before:bottom-1.5 before:left-1/2 before:translate-x-[-50%]
+                before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-1/2"
               >
                 Subscribe
               </button>
@@ -291,8 +204,7 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-gray-200 text-center">
           <p className="text-gray-500">
-            &copy; {new Date().getFullYear()} Abeer Motion Picture Pvt Ltd. All
-            Rights Reserved.
+            &copy; {new Date().getFullYear()} Abeer Motion Picture Pvt Ltd. All Rights Reserved.
           </p>
         </div>
       </div>
