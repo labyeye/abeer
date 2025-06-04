@@ -90,14 +90,14 @@ const Contact: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 gap-8">
               <div className="bg-white p-6 rounded-lg shadow flex items-start hover:shadow-lg transition-all duration-300 group">
-                <div className="bg-[#263f49] p-3 rounded-full mr-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <div className="bg-[#263f49] p-3 rounded-full min-w-[48px] min-h-[48px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
                   <MapPin className="text-white" size={24} />
                 </div>
-                <div className="transition-all duration-300 group-hover:translate-x-1">
-                  <h3 className="text-[#263f49] text-lg font-semibold mb-2">
+                <div className="ml-4 transition-all duration-300 group-hover:translate-x-1">
+                  <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative hover-underline">
                     Head Office
                   </h3>
-                  <p className="text-gray-600 font-bold">
+                  <p className="text-gray-600 font-bold relative hover-underline">
                     DRB MALL, Mothijheel, Muzaffarpur, Bihar-842001, INDIA
                   </p>
                 </div>
@@ -108,12 +108,14 @@ const Contact: React.FC = () => {
                   <Mail className="text-white" size={24} />
                 </div>
                 <div className="transition-all duration-300 group-hover:translate-x-1">
-                  <h3 className="text-[#263f49] text-lg font-semibold mb-2">
+                  <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative hover-underline">
                     Email Address
                   </h3>
-                  <p className="text-gray-600 font-bold">
-                    reportabeermotionpicture@gmail.com
-                  </p>
+                  <div className="space-y-1">
+                    <p className="text-gray-600 font-bold relative hover-underline">
+                      reportabeermotionpicture@gmail.com
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -122,11 +124,17 @@ const Contact: React.FC = () => {
                   <Phone className="text-white" size={24} />
                 </div>
                 <div className="transition-all duration-300 group-hover:translate-x-1">
-                  <h3 className="text-[#263f49] text-lg font-semibold mb-2">
+                  <h3 className="text-[#263f49] text-lg font-semibold mb-2 relative hover-underline">
                     Phone Number
                   </h3>
-                  <p className="text-gray-600 font-bold">+91 9835654377</p>
-                  <p className="text-gray-600 font-bold">+91 9939392175</p>
+                  <div className="space-y-1">
+                    <p className="text-gray-600 font-bold relative hover-underline">
+                      +91 9835654377
+                    </p>
+                    <p className="text-gray-600 font-bold relative hover-underline">
+                      +91 9939392175
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

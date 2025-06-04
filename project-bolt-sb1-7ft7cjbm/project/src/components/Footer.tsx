@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Youtube,
-  Linkedin,
-} from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
 import logo from "../assets/images/logoblack.png";
 
 const hoverLinkStyle = `
@@ -16,7 +10,12 @@ const hoverLinkStyle = `
   hover:translate-x-1
   transform transition-transform duration-300
 `;
-
+const socialIconClass = `
+  p-2
+  text-gray-800
+  transition-colors duration-300
+  hover:border-white hover:bg-black hover:text-white
+`;
 
 const Footer: React.FC = () => {
   return (
@@ -36,40 +35,42 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <a
                 href="https://m.facebook.com/people/Abeer-Motion-Picture-Pvt-Ltd/61552202668767/"
-                className="text-[#263f49] hover:text-black transition-colors"
+                className={socialIconClass}
               >
-                <Facebook size={20} />
+                <Facebook size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://x.com/abeer_motion?lang=ar-x-fm"
-                className="text-[#263f49] hover:text-black transition-colors"
+                className={socialIconClass}
               >
-                <Twitter size={20} />
+                <Twitter size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://www.instagram.com/abeer_motion_picture/"
-                className="text-[#263f49] hover:text-black transition-colors"
+                className={socialIconClass}
               >
-                <Instagram size={20} />
+                <Instagram size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://www.youtube.com/channel/UCJQKvIkTun6sbTc0dRI6yTA"
-                className="text-[#263f49] hover:text-black transition-colors"
+                className={socialIconClass}
               >
-                <Youtube size={20} />
+                <Youtube size={20} stroke="currentColor" />
               </a>
               <a
                 href="https://in.linkedin.com/in/abeer-motion-picture-337a14260"
-                className="text-[#263f49] hover:text-black transition-colors"
+                className={socialIconClass}
               >
-                <Linkedin size={20} />
+                <Linkedin size={20} stroke="currentColor" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[#263f49] text-lg font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-[#263f49] text-lg font-semibold mb-6">
+              Quick Links
+            </h4>
             <div className="grid grid-cols-2 gap-4">
               <ul className="space-y-3">
                 <li>
@@ -140,7 +141,9 @@ const Footer: React.FC = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-[#263f49] text-lg font-semibold mb-6">Our Services</h4>
+            <h4 className="text-[#263f49] text-lg font-semibold mb-6">
+              Our Services
+            </h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className={hoverLinkStyle}>
@@ -204,7 +207,8 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-gray-200 text-center">
           <p className="text-gray-500">
-            &copy; {new Date().getFullYear()} Abeer Motion Picture Pvt Ltd. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Abeer Motion Picture Pvt Ltd. All
+            Rights Reserved.
           </p>
         </div>
       </div>
