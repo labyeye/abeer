@@ -8,19 +8,16 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/HomePage/Navbar";
-import HeroSlider from "./components/HomePage/HeroSlider";
-import Gallery from "./components/HomePage/Gallery";
-import { GalleryManager } from "./dashboard/components/GalleryManager";
-import AboutServices from "./components/HomePage/AboutServices";
-import CategoryShowcase from "./components/HomePage/CategoryShowcase";
-import Contact from "./components/HomePage/Contact";
 import Footer from "./components/HomePage/Footer";
 import { Login } from "./dashboard/pages/Login";
 import { DashboardLayout } from "./dashboard/DashboardLayout";
 import { Dashboard } from "./dashboard/pages/Dashboard";
 import { HeroSliderManager } from "./dashboard/components/HeroSliderManager";
 import { CategoryShowcaseManager } from "./dashboard/components/CategoryShowcaseManager";
+import { GalleryManager } from "./dashboard/components/GalleryManager";
 import axios from "axios";
+import HomePage from "./components/pages/HomePage";
+import AboutPage from "./components/pages/AboutPage";
 
 function AppContent() {
   const location = useLocation();
@@ -60,33 +57,8 @@ function AppContent() {
       {!isDashboardRoute && <Navbar />}
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <HeroSlider />
-                <Gallery />
-                <AboutServices />
-                // Update the CategoryShowcase rendering in App.tsx
-                {categories.map((category) => (
-                  <div key={category._id} className="mb-20">
-                    <CategoryShowcase
-                      title={category.title}
-                      bgImage={category.images[0]?.image || ""}
-                      description={category.description}
-                      category={category.category}
-                      images={category.images.map((img: any) => ({
-                        // Temporary any type
-                        ...img,
-                        id: img.id || Math.random(), // Fallback to random if no id
-                      }))}
-                    />
-                  </div>
-                ))}
-                <Contact />
-              </>
-            }
-          />
+          <Route path="/" element={<HomePage categories={categories} />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="gallery" element={<GalleryManager />} />
