@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../HomePage/Navbar";
-import Footer from "../HomePage/Footer";
 import { Camera, Film, Users, Award, Mic, Video, Monitor } from "lucide-react";
 
 
@@ -340,8 +339,6 @@ const AboutPage = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };
