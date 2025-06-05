@@ -19,7 +19,7 @@ const Gallery: React.FC = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const { data } = await axios.get("http://localhost:2500/api/gallery");
+        const { data } = await axios.get("https://abeer.onrender.com/api/gallery");
         setGalleryImages(data);
         setLoading(false);
       } catch (error) {

@@ -17,7 +17,7 @@ interface Category {
   order: number;
 }
 
-const API_BASE_URL = "http://localhost:2500/api/categories";
+const API_BASE_URL = "https://abeer.onrender.com/api/categories";
 
 const createAuthAxios = () => {
   const token = localStorage.getItem("token");

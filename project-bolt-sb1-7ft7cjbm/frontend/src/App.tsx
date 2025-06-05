@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/HomePage/Navbar";
 import HeroSlider from "./components/HomePage/HeroSlider";
 import Gallery from "./components/HomePage/Gallery";
+import {GalleryManager} from "./dashboard/components/GalleryManager";
 import AboutServices from "./components/HomePage/AboutServices";
 import CategoryShowcase from "./components/HomePage/CategoryShowcase";
 import Contact from "./components/HomePage/Contact";
@@ -33,7 +34,7 @@ function AppContent() {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/categories"
+          "https://abeer.onrender.com/api/categories"
         );
         setCategories(response.data);
       } catch (error) {
@@ -83,6 +84,7 @@ function AppContent() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="gallery" element={<GalleryManager />} />
             <Route index element={<Dashboard />} />
             <Route path="homeslides" element={<HeroSliderManager />} />
             <Route path="homeslides/new" element={<HeroSliderManager />} />
