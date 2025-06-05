@@ -1,57 +1,154 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import {
+  FiHome,
+  FiImage,
+  FiSettings,
+  FiUsers,
+  FiLogOut,
+  FiChevronDown,
+  FiChevronRight,
+} from "react-icons/fi";
 
 export const DashboardSidebar = () => {
   const { logout } = useAuth();
-  const navigate = useNavigate();
-  const [isHomeOpen, setIsHomeOpen] = useState(true);
+  const location = useLocation();
+  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
+    gallery: true,
+    users: false,
+    settings: false,
+  });
+
+  const toggleMenu = (menu: string) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
+    }));
+  };
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    window.location.href = "/login";
   };
 
+  const menuItems = [
+    {
+      name: "Dashboard",
+      icon: <FiHome className="w-5 h-5" />,
+      path: "/dashboard",
+      children: null,
+    },
+    {
+      name: "Gallery",
+      icon: <FiImage className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "All Images", path: "/dashboard/gallery" },
+        { name: "Add New", path: "/dashboard/gallery/new" },
+        { name: "Categories", path: "/dashboard/gallery/categories" },
+      ],
+    },
+    {
+      name: "HeroSlider",
+      icon: <FiImage className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "All Slides", path: "/dashboard/homeslides" },
+        { name: "Add New", path: "/dashboard/homeslides/new" },
+        { name: "Categories", path: "/dashboard/homeslides/categories" },
+      ],
+    },
+    {
+      name: "Users",
+      icon: <FiUsers className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "All Users", path: "/dashboard/users" },
+        { name: "Add New", path: "/dashboard/users/new" },
+        { name: "Roles", path: "/dashboard/users/roles" },
+      ],
+    },
+    {
+      name: "Settings",
+      icon: <FiSettings className="w-5 h-5" />,
+      path: "/dashboard/settings",
+      children: null,
+    },
+  ];
+
   return (
-    <div className="w-64 bg-white shadow-md">
-      <div className="p-4 border-b">
-        <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>
+    <div className="w-64 bg-gray-800 text-gray-100 flex flex-col h-screen fixed">
+      <div className="p-4 border-b border-gray-700">
+        <h1 className="text-xl font-bold">Admin Dashboard</h1>
       </div>
-      <nav className="p-4">
-        <div className="mb-4">
-          <button
-            onClick={() => setIsHomeOpen(!isHomeOpen)}
-            className="flex items-center justify-between w-full text-left text-gray-700 hover:text-gray-900 font-medium"
-          >
-            <span>Home Page</span>
-            <svg
-              className={`w-4 h-4 transition-transform ${isHomeOpen ? "transform rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          {isHomeOpen && (
-            <div className="mt-2 pl-4">
-              <Link
-                to="/dashboard"
-                className="block py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded px-2"
-              >
-                Gallery
-              </Link>
-            </div>
-          )}
-        </div>
+
+      <nav className="flex-1 overflow-y-auto p-4">
+        <ul className="space-y-2">
+          {menuItems.map((item) => (
+            <li key={item.name}>
+              {item.children ? (
+                <>
+                  <button
+                    onClick={() => toggleMenu(item.name.toLowerCase())}
+                    className={`flex items-center justify-between w-full p-3 rounded-lg hover:bg-gray-700 transition-colors ${
+                      openMenus[item.name.toLowerCase()] ? "bg-gray-700" : ""
+                    }`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      {item.icon}
+                      <span>{item.name}</span>
+                    </div>
+                    {openMenus[item.name.toLowerCase()] ? (
+                      <FiChevronDown className="w-4 h-4" />
+                    ) : (
+                      <FiChevronRight className="w-4 h-4" />
+                    )}
+                  </button>
+                  {openMenus[item.name.toLowerCase()] && (
+                    <ul className="ml-8 mt-1 space-y-1">
+                      {item.children.map((child) => (
+                        <li key={child.name}>
+                          <Link
+                            to={child.path}
+                            className={`block p-2 rounded-lg hover:bg-gray-700 transition-colors ${
+                              location.pathname === child.path
+                                ? "bg-gray-700"
+                                : ""
+                            }`}
+                          >
+                            {child.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              ) : (
+                <Link
+                  to={item.path!}
+                  className={`flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 transition-colors ${
+                    location.pathname === item.path ? "bg-gray-700" : ""
+                  }`}
+                >
+                  {item.icon}
+                  <span>{item.name}</span>
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="p-4 border-t border-gray-700">
         <button
           onClick={handleLogout}
-          className="w-full mt-4 px-4 py-2 text-left text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors"
+          className="flex items-center space-x-3 w-full p-3 rounded-lg hover:bg-gray-700 transition-colors"
         >
-          Logout
+          <FiLogOut className="w-5 h-5" />
+          <span>Logout</span>
         </button>
-      </nav>
+      </div>
     </div>
   );
 };

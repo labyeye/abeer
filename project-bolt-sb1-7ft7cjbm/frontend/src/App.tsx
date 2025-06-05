@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,12 +17,42 @@ import Footer from "./components/HomePage/Footer";
 import { Login } from "./dashboard/pages/Login";
 import { DashboardLayout } from "./dashboard/DashboardLayout";
 import { Dashboard } from "./dashboard/pages/Dashboard";
+import { HeroSliderManager } from "./dashboard/components/HeroSliderManager";
+import { CategoryShowcaseManager } from "./dashboard/components/CategoryShowcaseManager";
+import axios from "axios";
 
 function AppContent() {
   const location = useLocation();
   const isDashboardRoute =
     location.pathname.startsWith("/dashboard") ||
     location.pathname === "/login";
+  const [categories, setCategories] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:2500/api/categories"
+        );
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="font-sans">
@@ -36,69 +66,31 @@ function AppContent() {
                 <HeroSlider />
                 <Gallery />
                 <AboutServices />
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Wedding"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Pre Wedding"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Event"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Regional Event"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Gov. Event / Political Event"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Filmmaking"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>
-                <div className="mb-20">
-                  <CategoryShowcase
-                    title="Institute"
-                    description="Capturing beautiful moments on your special day with artistic vision and attention to detail."
-                    category="wedding"
-                    bgImage="https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1920"
-                  />
-                </div>{" "}
-                <Contact />{" "}
+                {categories.map((category) => (
+                  <div key={category._id} className="mb-20">
+                    <CategoryShowcase
+                      title={category.title}
+                      bgImage={category.bgImage}
+                      description={category.description}
+                      category={category.category}
+                      images={category.images}
+                    />
+                  </div>
+                ))}
+                <Contact />
               </>
             }
           />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
+            <Route path="homeslides" element={<HeroSliderManager />} />
+            <Route path="homeslides/new" element={<HeroSliderManager />} />
+            <Route path="categories" element={<CategoryShowcaseManager />} />
+            <Route
+              path="categories/new"
+              element={<CategoryShowcaseManager />}
+            />
           </Route>
         </Routes>
       </main>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -6,57 +6,35 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import slide1 from "../../assets/images/homeslider/slide-1.jpg"
+import axios from "axios";
 
-const slides = [
-  {
-    id: 1,
-    image:
-      slide1,
-    title: "Welcome To",
-    subtitle: "Abeer Motion Picture Pvt Ltd",
-    description:
-      "A filmmaking studio & institute",
-  },
-  {
-    id: 2,
-    image:
-      "https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    title: "Discover",
-    subtitle: "My Vision",
-    description:
-      "Through my lens, I strive to create timeless images that tell stories and evoke emotions.",
-  },
-  {
-    id: 3,
-    image:
-      "https://images.pexels.com/photos/2253879/pexels-photo-2253879.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    title: "Capture",
-    subtitle: "The Moment",
-    description:
-      "Every photograph is a fragment of time preserved forever, a story waiting to be told.",
-  },
-  {
-    id: 4,
-    image:
-      "https://images.pexels.com/photos/5244261/pexels-photo-5244261.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    title: "Artistic",
-    subtitle: "Expression",
-    description:
-      "Photography is my way of communicating emotions and perspectives without using words.",
-  },
-  {
-    id: 5,
-    image:
-      "https://images.pexels.com/photos/2403013/pexels-photo-2403013.jpeg?auto=compress&cs=tinysrgb&w=1920",
-    title: "Professional",
-    subtitle: "Excellence",
-    description:
-      "With years of experience, I bring technical expertise and creative vision to every project.",
-  },
-];
+interface Slide {
+  _id: string;
+  image: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  order: number;
+}
 
 const HeroSlider: React.FC = () => {
+  const [slides, setSlides] = useState<Slide[]>([]);
+
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:2500/api/slides");
+        setSlides(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Failed to fetch slides", error);
+      }
+    };
+
+    fetchSlides();
+  }, []);
+
+  if (slides.length === 0) return null;
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <Swiper
@@ -79,7 +57,7 @@ const HeroSlider: React.FC = () => {
         className="h-full w-full"
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
+          <SwiperSlide key={slide._id}>
             <div
               className="relative h-screen w-full bg-cover bg-center flex items-center"
               style={{
@@ -92,9 +70,8 @@ const HeroSlider: React.FC = () => {
                 <div className="max-w-2xl text-white">
                   <h2 className="text-white-500 text-xl mb-5">{slide.title}</h2>
                   <h1 className="text-5xl font-bold mb-2 text-white inline-block animate-fadeUp">
-  {slide.subtitle}
-</h1>
-
+                    {slide.subtitle}
+                  </h1>
                   <p className="text-lg text-gray-200 mb-8 ml-40">
                     {slide.description}
                   </p>

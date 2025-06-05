@@ -1,21 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules"; // Import Pagination
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination"; // Import pagination styles
+import "swiper/css/pagination";
 import "../css/fonts.css";
-import w1 from "../../assets/images/category/wedding/1.png";
-import w2 from "../../assets/images/category/wedding/2.png";
-import w3 from "../../assets/images/category/wedding/3.png";
-import w4 from "../../assets/images/category/wedding/4.png";
-
-interface CategoryShowcaseProps {
-  title: string;
-  description: string;
-  category: string;
-  bgImage: string;
-}
 
 interface CategoryImage {
   id: number;
@@ -23,64 +12,34 @@ interface CategoryImage {
   title: string;
 }
 
-const weddingImages: CategoryImage[] = [
-  {
-    id: 1,
-    image: w1,
-    title: "Wedding1",
-  },
-  {
-    id: 2,
-    image: w2,
-    title: "Wedding2",
-  },
-  {
-    id: 3,
-    image: w3,
-    title: "Wedding3",
-  },
-  {
-    id: 4,
-    image: w4,
-    title: "Wedding4",
-  },
-  {
-    id: 5,
-    image:
-      "https://getethnic.com/wp-content/uploads/2025/01/Indian-Wedding-Trends-2025-11.webp",
-    title: "Wedding5",
-  },
-];
+interface CategoryShowcaseProps {
+  title: string;
+  description: string;
+  category: string;
+  bgImage: string;
+  images: CategoryImage[];
+}
 
 const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
   title,
   description,
   category,
   bgImage,
+  images = [],
 }) => {
-  const images = (() => {
-    switch (category) {
-      case "wedding":
-        return weddingImages;
-      default:
-        return [];
-    }
-  })();
-
-  const [background, setBackground] = useState(bgImage || images[0]?.image);
-
-  // Create refs for prev and next buttons
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-
-  // Since refs are null on first render, we use state to trigger swiper update
   const [swiperReady, setSwiperReady] = useState(false);
+  const [activeBgImage, setActiveBgImage] = useState(bgImage);
+
+  // Filter out images with empty URLs
+  const validImages = images.filter((img) => img.image);
 
   return (
     <section
-      className="relative py-28 transition-all duration-500 ease-in-out"
+      className="relative py-28 transition-all duration-500"
       style={{
-        backgroundImage: `url(${background})`,
+        backgroundImage: `url(${activeBgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -92,11 +51,6 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
         <div className="text-white">
           <h2 className="text-7xl font-denton-bold mb-10 mr-10">{title}</h2>
           <p className="text-2s mb-10">{description}</p>
-          <p className="text-gray-300 mb-8">
-            Lorem ipsum dolor sit amet consectetur. Quam tempus volutpat
-            molestie ultrices odio. Iaculis venenatis dignissim ultrices proin
-            nisi diam donec.
-          </p>
           <button className="bg-blue-600 text-white hover:bg-white hover:text-[#263f49] px-6 py-3 rounded-lg transition mb-30">
             Explore Now
           </button>
@@ -111,7 +65,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
               slidesPerView={2}
               spaceBetween={20}
               centeredSlides={false}
-              loop={true}
+              loop={validImages.length > 1}
               navigation={{
                 prevEl: prevRef.current,
                 nextEl: nextRef.current,
@@ -121,12 +75,13 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                 el: `.pagination-${category}`,
               }}
               onSwiper={() => {
-                // This forces swiper to reinit navigation once refs are ready
                 setSwiperReady(true);
               }}
               onSlideChange={(swiper) => {
-                const newBg = images[swiper.realIndex]?.image;
-                if (newBg) setBackground(newBg);
+                const activeIndex = swiper.realIndex;
+                if (validImages[activeIndex]) {
+                  setActiveBgImage(validImages[activeIndex].image);
+                }
               }}
               breakpoints={{
                 768: {
@@ -149,10 +104,9 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                 marginLeft: "-40px",
                 marginRight: "-40px",
               }}
-              // When swiperReady changes, force swiper to update navigation
               key={swiperReady ? "ready" : "not-ready"}
             >
-              {images.map((img) => (
+              {validImages.map((img) => (
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
@@ -174,47 +128,51 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
         </div>
       </div>
 
-      {/* Buttons with refs */}
-      <button
-        ref={prevRef}
-        className={`prev-btn-${category} absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 ml-4`}
-        aria-label="Previous slide"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-6 h-6 text-white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-      </button>
-      <button
-        ref={nextRef}
-        className={`next-btn-${category} absolute right-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 mr-4`}
-        aria-label="Next slide"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-6 h-6 text-white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
-      </button>
+      {/* Navigation buttons */}
+      {validImages.length > 1 && (
+        <>
+          <button
+            ref={prevRef}
+            className={`prev-btn-${category} absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 ml-4`}
+            aria-label="Previous slide"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-6 h-6 text-white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            ref={nextRef}
+            className={`next-btn-${category} absolute right-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 mr-4`}
+            aria-label="Next slide"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-6 h-6 text-white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </>
+      )}
 
       <div
         className={`pagination-${category} mt-6 flex justify-center space-x-3`}
