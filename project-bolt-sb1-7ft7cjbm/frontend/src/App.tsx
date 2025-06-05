@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/HomePage/Navbar";
 import HeroSlider from "./components/HomePage/HeroSlider";
 import Gallery from "./components/HomePage/Gallery";
-import {GalleryManager} from "./dashboard/components/GalleryManager";
+import { GalleryManager } from "./dashboard/components/GalleryManager";
 import AboutServices from "./components/HomePage/AboutServices";
 import CategoryShowcase from "./components/HomePage/CategoryShowcase";
 import Contact from "./components/HomePage/Contact";
@@ -67,14 +67,19 @@ function AppContent() {
                 <HeroSlider />
                 <Gallery />
                 <AboutServices />
+                // Update the CategoryShowcase rendering in App.tsx
                 {categories.map((category) => (
                   <div key={category._id} className="mb-20">
                     <CategoryShowcase
                       title={category.title}
-                      bgImage={category.bgImage}
+                      bgImage={category.images[0]?.image || ""}
                       description={category.description}
                       category={category.category}
-                      images={category.images}
+                      images={category.images.map((img: any) => ({
+                        // Temporary any type
+                        ...img,
+                        id: img.id || Math.random(), // Fallback to random if no id
+                      }))}
                     />
                   </div>
                 ))}

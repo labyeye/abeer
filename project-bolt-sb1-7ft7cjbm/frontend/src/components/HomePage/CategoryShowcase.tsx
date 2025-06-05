@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -7,9 +7,12 @@ import "swiper/css/pagination";
 import "../css/fonts.css";
 
 interface CategoryImage {
-  id: number;
+  id?: number; // Make optional since backend might not send it
+  _id?: string; // Add this for MongoDB's _id
   image: string;
   title: string;
+  video?: string;
+  link?: string;
 }
 
 interface CategoryShowcaseProps {
@@ -32,8 +35,27 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
   const [swiperReady, setSwiperReady] = useState(false);
   const [activeBgImage, setActiveBgImage] = useState(bgImage);
 
-  // Filter out images with empty URLs
-  const validImages = images.filter((img) => img.image);
+  // Replace the current validImages filter with:
+  const validImages = images
+    .filter((img) => img && (img.image?.trim() || img.video?.trim()))
+    .map((img, index) => ({
+      ...img,
+      // Use _id if available, otherwise generate a unique key
+      id: img.id || img._id || index,
+      // Ensure image URLs are properly formatted
+      image: img.image?.trim() || "",
+      video: img.video?.trim() || "",
+      link: img.link?.trim() || "",
+    }));
+
+  // Add this useEffect for debugging:
+  useEffect(() => {
+    console.log("Processed images:", {
+      original: images,
+      filtered: validImages,
+      bgImage,
+    });
+  }, [images, validImages, bgImage]);
 
   return (
     <section
@@ -110,15 +132,31 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
-                      className={`h-[500px] w-[370px] transition-all duration-300 transform-origin-center ${
+                      className={`block h-[500px] w-[370px] transition-all duration-300 transform-origin-center ${
                         isActive ? "scale-100 z-20" : "scale-75 opacity-60 z-10"
                       } w-full rounded-xl overflow-hidden shadow-lg border-4 border-white`}
                     >
-                      <img
-                        src={img.image}
-                        alt={img.title}
-                        className="h-full w-full object-cover"
-                      />
+                      <a
+                        href={img.link || img.video || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block h-full w-full relative"
+                      >
+                        <img
+                          src={img.image}
+                          alt={img.title || "Category image"}
+                          className="h-full w-full object-cover"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src =
+                              "/placeholder.jpg";
+                          }}
+                        />
+                        {img.title && (
+                          <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4">
+                            {img.title}
+                          </div>
+                        )}
+                      </a>
                     </div>
                   )}
                 </SwiperSlide>

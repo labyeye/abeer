@@ -4,16 +4,20 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+interface CategoryImage {
+  id: number;
+  image: string;
+  title: string;
+  video?: string;
+  link?: string;
+}
+
 interface Category {
   _id: string;
   title: string;
   description: string;
   category: string;
-  images: {
-    id: number;
-    image: string;
-    title: string;
-  }[];
+  images: CategoryImage[];
   order: number;
 }
 
@@ -50,6 +54,8 @@ export const CategoryShowcaseManager = () => {
           id: index + 1,
           image: "",
           title: "",
+          video: "",
+          link: "",
         })),
     },
   });
@@ -69,21 +75,30 @@ export const CategoryShowcaseManager = () => {
       setLoading(false);
     }
   };
-
   const onSubmit = async (formData: Omit<Category, "_id" | "order">) => {
     try {
       setIsSubmitting(true);
       const authAxios = createAuthAxios();
+
+      // Ensure all image fields are properly formatted
+      const cleanedImages = formData.images.map((img) => ({
+        id: img.id,
+        image: img.image?.trim() || "", // Ensure empty string instead of undefined
+        title: img.title?.trim() || "",
+        video: img.video?.trim() || "",
+        link: img.link?.trim() || "",
+      }));
+
+      // Don't filter before saving - save all, filter when displaying
       const { data } = await authAxios.post("/", {
         ...formData,
-        images: formData.images.filter((img) => img.image.trim() !== ""),
+        images: cleanedImages,
       });
 
+      console.log("Server response:", data); // Debug what's returned
       toast.success("Category added successfully");
       reset();
-      setCategories((prev) =>
-        [...prev, data].sort((a, b) => a.order - b.order)
-      );
+      fetchCategories(); // Force refresh from server
     } catch (error) {
       handleApiError(error, "Failed to add category");
     } finally {
@@ -112,7 +127,6 @@ export const CategoryShowcaseManager = () => {
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    // Update local state immediately for responsive UI
     setCategories(
       items.map((item, index) => ({
         ...item,
@@ -223,21 +237,44 @@ export const CategoryShowcaseManager = () => {
 
           <div className="border-t pt-6">
             <h3 className="text-lg font-medium mb-4">
-              Category Images (At least 1 required)
+              Category Media (At least 1 image or video required)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 5 }).map((_, index) => (
                 <div key={index} className="bg-gray-50 p-4 rounded-md">
-                  <h4 className="font-medium mb-3">Image {index + 1}</h4>
+                  <h4 className="font-medium mb-3">Media {index + 1}</h4>
                   <div className="space-y-3">
                     <div>
                       <label className="block text-sm text-gray-600 mb-1">
-                        Image URL
+                        Image URL (or Video URL below)
                       </label>
                       <input
                         type="text"
                         {...register(`images.${index}.image`)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        placeholder="https://example.com/image.jpg"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-1">
+                        Video URL (optional)
+                      </label>
+                      <input
+                        type="text"
+                        {...register(`images.${index}.video`)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        placeholder="https://example.com/video.mp4"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-1">
+                        Link URL (optional)
+                      </label>
+                      <input
+                        type="text"
+                        {...register(`images.${index}.link`)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        placeholder="https://example.com"
                       />
                     </div>
                     <div>
@@ -342,19 +379,26 @@ export const CategoryShowcaseManager = () => {
                             </div>
                           </div>
                           <div className="border-t border-gray-200 px-4 py-3 bg-white">
-                            <h4 className="text-sm font-medium mb-2">
-                              Images:
-                            </h4>
+                            <h4 className="text-sm font-medium mb-2">Media:</h4>
                             <div className="flex space-x-2 overflow-x-auto pb-2">
                               {category.images
-                                .filter((img) => img.image)
+                                .filter((img) => img.image?.trim())
                                 .map((img) => (
-                                  <img
+                                  <div
                                     key={img.id}
-                                    src={img.image}
-                                    alt={img.title}
-                                    className="h-12 w-12 object-cover rounded border border-gray-200"
-                                  />
+                                    className="relative h-12 w-12 rounded border border-gray-200 overflow-hidden"
+                                  >
+                                    <img
+                                      src={img.image}
+                                      alt={img.title}
+                                      className="h-full w-full object-cover"
+                                      onError={(e) => {
+                                        (
+                                          e.target as HTMLImageElement
+                                        ).style.display = "none";
+                                      }}
+                                    />
+                                  </div>
                                 ))}
                             </div>
                           </div>

@@ -1,5 +1,6 @@
 // models/CategoryShowcase.js
 const mongoose = require('mongoose');
+// models/CategoryShowcase.js
 const categoryShowcaseSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -16,7 +17,9 @@ const categoryShowcaseSchema = new mongoose.Schema({
   images: [{
     id: Number,
     image: String,
-    title: String
+    title: String,
+    video: String, // Add video field
+    link: String   // Add link field for clickable cards
   }],
   order: {
     type: Number,

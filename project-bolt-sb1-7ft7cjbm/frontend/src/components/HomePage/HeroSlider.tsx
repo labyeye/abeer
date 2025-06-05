@@ -65,7 +65,6 @@ const HeroSlider: React.FC = () => {
                 backgroundSize: "cover",
               }}
             >
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
               <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-2xl text-white">
                   <h2 className="text-white-500 text-xl mb-5">{slide.title}</h2>

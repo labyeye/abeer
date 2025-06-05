@@ -62,6 +62,16 @@ export const DashboardSidebar = () => {
       ],
     },
     {
+      name: "Photography",
+      icon: <FiImage className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Gallery", path: "/dashboard/gallery" },
+        { name: "Hero Slider", path: "/dashboard/homeslides" },
+        { name: "Category Showcase", path: "/dashboard/categories" },
+      ],
+    },
+    {
       name: "Users",
       icon: <FiUsers className="w-5 h-5" />,
       path: null,
