@@ -15,7 +15,7 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { label: "Home", link: "#" },
+    { label: "Home", link: "/" },
     { label: "About", link: "/about" },
     {
       label: "Cinematography",
