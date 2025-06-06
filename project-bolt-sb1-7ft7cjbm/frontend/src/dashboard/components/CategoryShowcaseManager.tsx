@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
+import { Modal } from "./Modal";
 interface CategoryImage {
   id: number;
   image: string;
@@ -37,6 +37,8 @@ export const CategoryShowcaseManager = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const {
     register,
@@ -59,6 +61,54 @@ export const CategoryShowcaseManager = () => {
         })),
     },
   });
+  const {
+    register: registerEdit,
+    handleSubmit: handleEditSubmit,
+    reset: resetEdit,
+    formState: { errors: editErrors },
+    setValue: setEditValue,
+  } = useForm<Category>();
+
+  const handleEditClick = (category: Category) => {
+    setEditingCategory(category);
+    setIsEditModalOpen(true);
+
+    // Set form values for editing
+    setEditValue("_id", category._id);
+    setEditValue("title", category.title);
+    setEditValue("description", category.description);
+    setEditValue("category", category.category);
+    setEditValue("order", category.order);
+    setEditValue("images", category.images);
+  };
+  const onSubmitEdit = async (formData: Category) => {
+    try {
+      setIsSubmitting(true);
+      const authAxios = createAuthAxios();
+
+      // Clean images data
+      const cleanedImages = formData.images.map((img) => ({
+        id: img.id,
+        image: img.image?.trim() || "",
+        title: img.title?.trim() || "",
+        video: img.video?.trim() || "",
+        link: img.link?.trim() || "",
+      }));
+
+      const { data } = await authAxios.patch(`/${formData._id}`, {
+        ...formData,
+        images: cleanedImages,
+      });
+
+      toast.success("Category updated successfully");
+      fetchCategories(); // Refresh the list
+      setIsEditModalOpen(false);
+    } catch (error) {
+      handleApiError(error, "Failed to update category");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const fetchCategories = async () => {
     try {
@@ -364,12 +414,12 @@ export const CategoryShowcaseManager = () => {
                               </div>
                             </div>
                             <div className="flex space-x-2">
-                              <a
-                                href={`/dashboard/categories/edit/${category._id}`}
+                              <button
+                                onClick={() => handleEditClick(category)}
                                 className="text-blue-600 hover:text-blue-800 px-3 py-1"
                               >
                                 Edit
-                              </a>
+                              </button>
                               <button
                                 onClick={() => handleDelete(category._id)}
                                 className="text-red-600 hover:text-red-800 px-3 py-1"
@@ -413,6 +463,156 @@ export const CategoryShowcaseManager = () => {
           </DragDropContext>
         )}
       </div>
+      {isEditModalOpen && editingCategory && (
+        <Modal onClose={() => setIsEditModalOpen(false)}>
+          <div className="bg-white rounded-lg p-6 w-full max-w-4xl">
+            <h2 className="text-2xl font-bold mb-6">Edit Category</h2>
+            <form
+              onSubmit={handleEditSubmit(onSubmitEdit)}
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Title *
+                  </label>
+                  <input
+                    type="text"
+                    {...registerEdit("title", {
+                      required: "Title is required",
+                    })}
+                    className={`w-full px-4 py-2 border rounded-md ${
+                      editErrors.title ? "border-red-500" : "border-gray-300"
+                    }`}
+                  />
+                  {editErrors.title && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {editErrors.title.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Category Type *
+                  </label>
+                  <input
+                    type="text"
+                    {...registerEdit("category", {
+                      required: "Category type is required",
+                    })}
+                    className={`w-full px-4 py-2 border rounded-md ${
+                      editErrors.category ? "border-red-500" : "border-gray-300"
+                    }`}
+                  />
+                  {editErrors.category && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {editErrors.category.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Description *
+                </label>
+                <textarea
+                  {...registerEdit("description", {
+                    required: "Description is required",
+                  })}
+                  rows={4}
+                  className={`w-full px-4 py-2 border rounded-md ${
+                    editErrors.description
+                      ? "border-red-500"
+                      : "border-gray-300"
+                  }`}
+                />
+                {editErrors.description && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {editErrors.description.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="border-t pt-6">
+                <h3 className="text-lg font-medium mb-4">
+                  Category Media (At least 1 image or video required)
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <div key={index} className="bg-gray-50 p-4 rounded-md">
+                      <h4 className="font-medium mb-3">Media {index + 1}</h4>
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-1">
+                            Image URL (or Video URL below)
+                          </label>
+                          <input
+                            type="text"
+                            {...registerEdit(`images.${index}.image`)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            placeholder="https://example.com/image.jpg"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-1">
+                            Video URL (optional)
+                          </label>
+                          <input
+                            type="text"
+                            {...registerEdit(`images.${index}.video`)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            placeholder="https://example.com/video.mp4"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-1">
+                            Link URL (optional)
+                          </label>
+                          <input
+                            type="text"
+                            {...registerEdit(`images.${index}.link`)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            placeholder="https://example.com"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-600 mb-1">
+                            Title
+                          </label>
+                          <input
+                            type="text"
+                            {...registerEdit(`images.${index}.title`)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-end space-x-4">
+                <button
+                  type="button"
+                  onClick={() => setIsEditModalOpen(false)}
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-6 rounded-md transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition disabled:opacity-50"
+                >
+                  {isSubmitting ? "Updating..." : "Update Category"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };

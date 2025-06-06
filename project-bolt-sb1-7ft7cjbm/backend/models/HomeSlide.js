@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const slideSchema = new mongoose.Schema({
   image: {
@@ -23,4 +23,4 @@ const slideSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-export const Slide = mongoose.model("HomeSlide", slideSchema);
+module.exports = mongoose.model('HomeSlide', slideSchema);
