@@ -9,7 +9,7 @@ interface GalleryImage {
   height: number;
 }
 
-const categories = ["all", "portrait", "creative", "nature", "video"];
+const categories = ["all", "wedding", "pre wedding", "event", "government & political event","filmmaking"];
 
 const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("all");

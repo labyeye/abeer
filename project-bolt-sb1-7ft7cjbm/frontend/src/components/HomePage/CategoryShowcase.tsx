@@ -35,14 +35,11 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
   const [swiperReady, setSwiperReady] = useState(false);
   const [activeBgImage, setActiveBgImage] = useState(bgImage);
 
-  // Replace the current validImages filter with:
   const validImages = images
     .filter((img) => img && (img.image?.trim() || img.video?.trim()))
     .map((img, index) => ({
       ...img,
-      // Use _id if available, otherwise generate a unique key
       id: img.id || img._id || index,
-      // Ensure image URLs are properly formatted
       image: img.image?.trim() || "",
       video: img.video?.trim() || "",
       link: img.link?.trim() || "",
