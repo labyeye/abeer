@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
+import aboutBg from "../../../assets/images/about-bg.jpg";
 
 type GalleryItem = {
   _id: string;
@@ -49,8 +50,15 @@ const WeddingGallery = () => {
   if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
 
   return (
-    <section className="py-20 bg-white relative">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative min-h-screen">
+      {/* Background with reduced opacity - Change opacity-10 to your desired value */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0"
+        style={{ backgroundImage: `url(${aboutBg})` }}
+      />
+      
+      {/* Content container */}
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-12 text-center">
           Our Wedding Films
         </h2>
