@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import ReactPlayer from "react-player";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -34,6 +35,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
   const nextRef = useRef<HTMLButtonElement>(null);
   const [swiperReady, setSwiperReady] = useState(false);
   const [activeBgImage, setActiveBgImage] = useState(bgImage);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   const validImages = images
     .filter((img) => img && (img.image?.trim() || img.video?.trim()))
@@ -53,6 +55,18 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
       bgImage,
     });
   }, [images, validImages, bgImage]);
+
+  const handleSlideChange = (swiper: any) => {
+    const activeIndex = swiper.realIndex;
+    if (validImages[activeIndex]) {
+      setActiveBgImage(validImages[activeIndex].image);
+      setPlayingIndex(null); // Pause video when slide changes
+    }
+  };
+
+  const togglePlayVideo = (index: number) => {
+    setPlayingIndex(playingIndex === index ? null : index);
+  };
 
   return (
     <section
@@ -96,12 +110,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
               onSwiper={() => {
                 setSwiperReady(true);
               }}
-              onSlideChange={(swiper) => {
-                const activeIndex = swiper.realIndex;
-                if (validImages[activeIndex]) {
-                  setActiveBgImage(validImages[activeIndex].image);
-                }
-              }}
+              onSlideChange={handleSlideChange}
               breakpoints={{
                 768: {
                   slidesPerView: 2,
@@ -125,13 +134,14 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
               }}
               key={swiperReady ? "ready" : "not-ready"}
             >
-              {validImages.map((img) => (
+              {validImages.map((img, index) => (
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
                       className={`block h-[500px] w-[370px] transition-all duration-300 transform-origin-center ${
                         isActive ? "scale-100 z-20" : "scale-75 opacity-60 z-10"
                       } w-full rounded-xl overflow-hidden shadow-lg border-4 border-white`}
+                      onClick={() => img.video && togglePlayVideo(index)}
                     >
                       <a
                         href={img.link || img.video || "#"}
@@ -139,15 +149,49 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                         rel="noopener noreferrer"
                         className="block h-full w-full relative"
                       >
-                        <img
-                          src={img.image}
-                          alt={img.title || "Category image"}
-                          className="h-full w-full object-cover"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src =
-                              "/placeholder.jpg";
-                          }}
-                        />
+                        {img.video ? (
+                          <div className="h-full w-full">
+                            <ReactPlayer
+                              url={img.video}
+                              playing={playingIndex === index}
+                              controls={false}
+                              width="100%"
+                              height="100%"
+                              style={{
+                                objectFit: "cover",
+                              }}
+                              light={img.image || false}
+                              playIcon={
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <div className="bg-black/50 rounded-full p-4">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 24 24"
+                                      fill="white"
+                                      className="w-12 h-12"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                              }
+                            />
+                          </div>
+                        ) : (
+                          <img
+                            src={img.image}
+                            alt={img.title || "Category image"}
+                            className="h-full w-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src =
+                                "/placeholder.jpg";
+                            }}
+                          />
+                        )}
                         {img.title && (
                           <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4">
                             {img.title}
