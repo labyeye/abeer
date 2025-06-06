@@ -8,8 +8,8 @@ import "swiper/css/pagination";
 import "../css/fonts.css";
 
 interface CategoryImage {
-  id?: number; // Make optional since backend might not send it
-  _id?: string; // Add this for MongoDB's _id
+  id?: number;
+  _id?: string;
   image: string;
   title: string;
   video?: string;
@@ -35,7 +35,8 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
   const nextRef = useRef<HTMLButtonElement>(null);
   const [swiperReady, setSwiperReady] = useState(false);
   const [activeBgImage, setActiveBgImage] = useState(bgImage);
-  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<CategoryImage | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const validImages = images
     .filter((img) => img && (img.image?.trim() || img.video?.trim()))
@@ -47,25 +48,23 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
       link: img.link?.trim() || "",
     }));
 
-  // Add this useEffect for debugging:
-  useEffect(() => {
-    console.log("Processed images:", {
-      original: images,
-      filtered: validImages,
-      bgImage,
-    });
-  }, [images, validImages, bgImage]);
+  const openModal = (item: CategoryImage) => {
+    if (item.video) {
+      setSelectedVideo(item);
+      setIsModalOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedVideo(null);
+  };
 
   const handleSlideChange = (swiper: any) => {
     const activeIndex = swiper.realIndex;
     if (validImages[activeIndex]) {
       setActiveBgImage(validImages[activeIndex].image);
-      setPlayingIndex(null); // Pause video when slide changes
     }
-  };
-
-  const togglePlayVideo = (index: number) => {
-    setPlayingIndex(playingIndex === index ? null : index);
   };
 
   return (
@@ -134,53 +133,44 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
               }}
               key={swiperReady ? "ready" : "not-ready"}
             >
-              {validImages.map((img, index) => (
+              {validImages.map((img) => (
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
                       className={`block h-[500px] w-[370px] transition-all duration-300 transform-origin-center ${
                         isActive ? "scale-100 z-20" : "scale-75 opacity-60 z-10"
-                      } w-full rounded-xl overflow-hidden shadow-lg border-4 border-white`}
-                      onClick={() => img.video && togglePlayVideo(index)}
+                      } w-full rounded-xl overflow-hidden shadow-lg border-4 border-white cursor-pointer`}
+                      onClick={() => openModal(img)}
                     >
-                      <a
-                        href={img.link || img.video || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block h-full w-full relative"
-                      >
+                      <div className="block h-full w-full relative">
                         {img.video ? (
-                          <div className="h-full w-full">
-                            <ReactPlayer
-                              url={img.video}
-                              playing={playingIndex === index}
-                              controls={false}
-                              width="100%"
-                              height="100%"
-                              style={{
-                                objectFit: "cover",
+                          <>
+                            <img
+                              src={img.image}
+                              alt={img.title || "Video thumbnail"}
+                              className="h-full w-full object-cover"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src =
+                                  "/placeholder.jpg";
                               }}
-                              light={img.image || false}
-                              playIcon={
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <div className="bg-black/50 rounded-full p-4">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      fill="white"
-                                      className="w-12 h-12"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-                                        clipRule="evenodd"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
-                              }
                             />
-                          </div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="bg-black/50 rounded-full p-4">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  fill="white"
+                                  className="w-12 h-12"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </>
                         ) : (
                           <img
                             src={img.image}
@@ -197,7 +187,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
                             {img.title}
                           </div>
                         )}
-                      </a>
+                      </div>
                     </div>
                   )}
                 </SwiperSlide>
@@ -256,6 +246,39 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
       <div
         className={`pagination-${category} mt-6 flex justify-center space-x-3`}
       />
+
+      {/* Video Modal */}
+      {isModalOpen && selectedVideo && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl">
+            <button 
+              onClick={closeModal}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="bg-black" style={{ paddingBottom: '56.25%', position: 'relative' }}>
+              <div className="absolute inset-0">
+                <ReactPlayer
+                  url={selectedVideo.video}
+                  width="100%"
+                  height="100%"
+                  controls={true}
+                  playing={true}
+                  style={{ position: 'absolute', top: 0, left: 0 }}
+                />
+              </div>
+            </div>
+            {selectedVideo.title && (
+              <div className="mt-4 text-white">
+                <h3 className="text-xl font-bold">{selectedVideo.title}</h3>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
