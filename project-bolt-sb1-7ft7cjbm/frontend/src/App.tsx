@@ -18,6 +18,9 @@ import { GalleryManager } from "./dashboard/components/GalleryManager";
 import axios from "axios";
 import HomePage from "./components/pages/HomePage";
 import AboutPage from "./components/pages/AboutPage";
+import WeddingPage from "./components/Cinematography/Wedding/WeddingPage";
+import CineWeddingBannerManager from "./dashboard/components/CineWeddingBannerManager";
+import CineWeddingGalleryManager from "./dashboard/components/CineWeddingGalleryManager";
 
 function AppContent() {
   const location = useLocation();
@@ -59,6 +62,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<HomePage categories={categories} />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/cinematography/wedding" element={<WeddingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="gallery" element={<GalleryManager />} />
@@ -66,6 +70,14 @@ function AppContent() {
             <Route path="homeslides" element={<HeroSliderManager />} />
             <Route path="homeslides/new" element={<HeroSliderManager />} />
             <Route path="categories" element={<CategoryShowcaseManager />} />
+            <Route
+              path="cinematography/banner"
+              element={<CineWeddingBannerManager />}
+            />
+            <Route
+              path="cinematography/gallery"
+              element={<CineWeddingGalleryManager />}
+            />
             <Route
               path="categories/new"
               element={<CategoryShowcaseManager />}

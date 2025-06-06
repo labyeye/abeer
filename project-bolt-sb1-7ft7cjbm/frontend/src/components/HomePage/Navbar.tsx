@@ -22,69 +22,27 @@ const Navbar = () => {
       dropdown: [
         {
           category: "Wedding",
-          services: [
-            "Pre Wedding",
-            "Baby Sour",
-            "Baby Shoot",
-            "Birthday",
-            "Event",
-            "Sports Coverage",
-            "Political Events",
-            "Campaign Coverage",
-            "Photo Albums",
-          ],
+          link: "/cinematography/wedding",
         },
         {
           category: "Pre Wedding",
-          services: [
-            "Wall Led Display",
-            "Crane Operations",
-            "Baby Photography",
-            "Birthday Events",
-            "Modeling Shoots",
-            "Product Photography",
-            "Aerial Photography",
-            "Studio Work",
-          ],
+          link: "/cinematography/pre-wedding",
+        },
+        {
+          category: "Baby Sour",
+          link: "/cinematography/baby-sour",
+        },
+        {
+          category: "Baby Shoot",
+          link: "/cinematography/baby-shoot",
         },
         {
           category: "Birthday",
-          services: [
-            "Cinema Camera Setup",
-            "Sony FX3",
-            "Sony FX6",
-            "Burano Camera",
-            "Venice 2",
-            "Red Camera",
-            "Arri Camera",
-            "Professional Lighting",
-          ],
+          link: "/cinematography/birthday",
         },
         {
           category: "Event",
-          services: [
-            "Corporate Events",
-            "Social Gatherings",
-            "Cultural Programs",
-            "Entertainment Shows",
-            "Government Functions",
-            "Private Parties",
-            "Award Ceremonies",
-            "Conferences",
-          ],
-        },
-        {
-          category: "Cinema/Film",
-          services: [
-            "Feature Films",
-            "Short Films",
-            "Documentary",
-            "Corporate Films",
-            "Music Videos",
-            "Wedding Films",
-            "Social Media Content",
-            "Commercial Ads",
-          ],
+          link: "/cinematography/event",
         },
       ],
     },
@@ -614,41 +572,58 @@ const Navbar = () => {
                     {item.dropdown.map((category, subIdx) => (
                       <div
                         key={subIdx}
-                        className="relative group/sub mb-4 last:mb-0"
+                        className={`mb-4 last:mb-0 ${
+                          category.services ? 'relative group/sub' : ''
+                        }`}
                       >
-                        <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
-                          <h4 className="text-sm font-semibold text-gray-900 group-hover/sub:text-orange-400">
-                            {category.category}
-                          </h4>
-                          <svg
-                            className="w-2.5 h-2.5 text-gray-500 group-hover/sub:text-orange-400 transition-colors"
-                            viewBox="0 0 10 10"
-                            fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <polygon points="0,0 10,5 0,10" />
-                          </svg>
-                        </div>
-
-                        {/* Sub-dropdown with left-to-right animation */}
-                        <div className="absolute left-full top-0 ml-2 w-80 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover/sub:opacity-100 invisible group-hover/sub:visible transition-all duration-300 transform translate-x-[-10px] group-hover/sub:translate-x-0 z-60">
-                          <div className="p-4">
-                            <h5 className="text-sm font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
-                              {category.category} Services
-                            </h5>
-                            <div className="grid grid-cols-1 gap-1">
-                              {category.services.map((service, serviceIdx) => (
-                                <a
-                                  key={serviceIdx}
-                                  href="#"
-                                  className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
-                                >
-                                  {service}
-                                </a>
-                              ))}
+                        {category.services ? (
+                          // Render with sub-dropdown if services exist
+                          <>
+                            <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
+                              <h4 className="text-sm font-semibold text-gray-900 group-hover/sub:text-orange-400">
+                                {category.category}
+                              </h4>
+                              <svg
+                                className="w-2.5 h-2.5 text-gray-500 group-hover/sub:text-orange-400 transition-colors"
+                                viewBox="0 0 10 10"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <polygon points="0,0 10,5 0,10" />
+                              </svg>
                             </div>
-                          </div>
-                        </div>
+
+                            {/* Sub-dropdown with left-to-right animation */}
+                            <div className="absolute left-full top-0 ml-2 w-80 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover/sub:opacity-100 invisible group-hover/sub:visible transition-all duration-300 transform translate-x-[-10px] group-hover/sub:translate-x-0 z-60">
+                              <div className="p-4">
+                                <h5 className="text-sm font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
+                                  {category.category} Services
+                                </h5>
+                                <div className="grid grid-cols-1 gap-1">
+                                  {category.services.map((service, serviceIdx) => (
+                                    <a
+                                      key={serviceIdx}
+                                      href="#"
+                                      className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
+                                    >
+                                      {service}
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          // Render as simple link if no services
+                          <a
+                            href={category.link || "#"}
+                            className="block p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                          >
+                            <h4 className="text-sm font-semibold text-gray-900 hover:text-orange-400">
+                              {category.category}
+                            </h4>
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -704,21 +679,23 @@ const Navbar = () => {
                         <div className="font-medium py-1 text-orange-400">
                           {category.category}
                         </div>
-                        <div className="ml-4 space-y-1">
-                          {category.services
-                            .slice(0, 2)
-                            .map((service, serviceIdx) => (
-                              <div
-                                key={serviceIdx}
-                                className="text-xs text-gray-600 hover:text-gray-900 py-1"
-                              >
-                                {service}
-                              </div>
-                            ))}
-                          <div className="text-xs text-orange-300">
-                            +{category.services.length - 2} more services...
+                        {category.services && (
+                          <div className="ml-4 space-y-1">
+                            {category.services
+                              .slice(0, 2)
+                              .map((service, serviceIdx) => (
+                                <div
+                                  key={serviceIdx}
+                                  className="text-xs text-gray-600 hover:text-gray-900 py-1"
+                                >
+                                  {service}
+                                </div>
+                              ))}
+                            <div className="text-xs text-orange-300">
+                              +{category.services.length - 2} more services...
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </div>
                     ))}
                     {item.dropdown.length > 3 && (
