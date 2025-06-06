@@ -29,8 +29,8 @@ const Navbar = () => {
           link: "/cinematography/prewedding",
         },
         {
-          category: "Baby Sour",
-          link: "/cinematography/babysour",
+          category: "Baby shower",
+          link: "/cinematography/babyshower",
         },
         {
           category: "Baby Shoot",

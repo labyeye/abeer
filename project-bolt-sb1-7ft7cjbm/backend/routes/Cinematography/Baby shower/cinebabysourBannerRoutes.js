@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const cineweddingBannerControllerr = require('../../../controllers/Cinematography/Baby Sour/cinebabysourBannerController');
+const cineweddingBannerControllerr = require('../../../controllers/Cinematography/Baby shower/cinebabysourBannerController');
 const auth = require('../../../middleware/auth');
 
 // Public routes

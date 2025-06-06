@@ -11,8 +11,8 @@ const cineweddingbannerRoutes = require('./routes/Cinematography/Wedding/cinewed
 const cineweddingGalleryRoutes = require('./routes/Cinematography/Wedding/cinegalleryRoutes');
 const cinepreweddingBannerRoutes = require('./routes/Cinematography/Pre Wedding/cinepreweddingBannerRoutes');
 const cinepreweddingGalleryRoutes = require('./routes/Cinematography/Pre Wedding/PrecinegalleryRoutes');
-const cinebabysourBannerRoutes = require('./routes/Cinematography/Baby Sour/cinebabysourBannerRoutes');
-const cinebabysourGalleryRoutes = require('./routes/Cinematography/Baby Sour/cinebabysourgalleryRoutes');
+const cinebabyshowerBannerRoutes = require('./routes/Cinematography/Baby shower/cinebabysourBannerRoutes');
+const cinebabyshowerGalleryRoutes = require('./routes/Cinematography/Baby shower/cinebabysourgalleryRoutes');
 const app = express();
 
 connectDB();
@@ -33,8 +33,8 @@ app.use('/api/cine-wedding-banner',cineweddingbannerRoutes);
 app.use('/api/cine-wedding-gallery', cineweddingGalleryRoutes);
 app.use('/api/cine-prewedding-banner',cinepreweddingBannerRoutes);
 app.use('/api/cine-prewedding-gallery', cinepreweddingGalleryRoutes);
-app.use('/api/cine-babysour-banner',cinebabysourBannerRoutes);
-app.use('/api/cine-babysour-gallery', cinebabysourGalleryRoutes);
+app.use('/api/cine-babyshower-banner',cinebabyshowerBannerRoutes);
+app.use('/api/cine-babyshower-gallery', cinebabyshowerGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 

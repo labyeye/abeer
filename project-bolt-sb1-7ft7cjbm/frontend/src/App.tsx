@@ -22,12 +22,11 @@ import WeddingPage from "./components/Cinematography/Wedding/WeddingPage";
 import CineWeddingBannerManager from "./dashboard/components/CineWeddingBannerManager";
 import CineWeddingGalleryManager from "./dashboard/components/CineWeddingGalleryManager";
 import PreWeddingPage from "./components/Cinematography/Pre Wedding/PreWeddingPage";
-import PreWeddingBanner from "./components/Cinematography/Pre Wedding/PreWeddingBanner";
 import CinePreWeddingBannerManager from "./dashboard/components/CinePreWeddingBannerManager";
 import CinePreWeddingGalleryManager from "./dashboard/components/CinePreWeddingGalleryManager";
-import BabySourPage from "./components/Cinematography/Baby Sour/BabySourPage";
-import CineBabySourBannerManager from "./dashboard/components/CineBabySourBannerManager";
-import CineBabySourGalleryManager from "./dashboard/components/CineBabySourGalleryManager";
+import BabyshowerPage from "./components/Cinematography/Baby shower/BabySourPage";
+import CineBabyshowerBannerManager from "./dashboard/components/CineBabySourBannerManager";
+import CineBabyshowerGalleryManager from "./dashboard/components/CineBabySourGalleryManager";
 
 function AppContent() {
   const location = useLocation();
@@ -75,8 +74,8 @@ function AppContent() {
             element={<PreWeddingPage />}
           />
           <Route
-            path="/cinematography/babysour"
-            element={<BabySourPage />}
+            path="/cinematography/babyshower"
+            element={<BabyshowerPage />}
           />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
@@ -102,12 +101,12 @@ function AppContent() {
               element={<CinePreWeddingGalleryManager />}
             />
             <Route
-              path="cinematography/babysour-banner"
-              element={<CineBabySourBannerManager />}
+              path="cinematography/babyshower-banner"
+              element={<CineBabyshowerBannerManager />}
             />
             <Route
-              path="cinematography/babysour-gallery"
-              element={<CineBabySourGalleryManager />}
+              path="cinematography/babyshower-gallery"
+              element={<CineBabyshowerGalleryManager />}
             />
             <Route
               path="categories/new"

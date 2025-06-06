@@ -13,7 +13,7 @@ type GalleryItem = {
   videoUrl: string;
 };
 
-const BabySourGallery = () => {
+const BabyshowerGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -21,10 +21,10 @@ const BabySourGallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    console.log("Fetching BabySour gallery...");
+    console.log("Fetching Babyshower gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cine-babysour-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/cine-babyshower-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -141,4 +141,4 @@ const BabySourGallery = () => {
   );
 };
 
-export default BabySourGallery;
+export default BabyshowerGallery;

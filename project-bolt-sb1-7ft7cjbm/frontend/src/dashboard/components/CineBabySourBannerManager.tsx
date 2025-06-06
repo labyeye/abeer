@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-interface PreWeddingBanner {
+interface BabyshowerBanner {
   _id: string;
   title: string;
   description: string;
@@ -11,8 +11,8 @@ interface PreWeddingBanner {
   createdAt: string;
 }
 
-const CineBabySourBannerManager = () => {
-  const [banners, setBanners] = useState<PreWeddingBanner[]>([]);
+const CineBabyshowerBannerManager = () => {
+  const [banners, setBanners] = useState<BabyshowerBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const CineBabySourBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-prewedding-banner",
+        "https://abeer.onrender.com/api/cine-babyshower-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -134,7 +134,7 @@ const isValidImageUrl = (url: string) => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-prewedding-banner/${editingId}`,
+          `https://abeer.onrender.com/api/cine-babyshower-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,7 +142,7 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-prewedding-banner", formData, {
+        await axios.post("https://abeer.onrender.com/api/cine-babyshower-banner", formData, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner created successfully");
@@ -163,7 +163,7 @@ const isValidImageUrl = (url: string) => {
     }
   };
 
-  const handleEdit = (banner: PreWeddingBanner) => {
+  const handleEdit = (banner: BabyshowerBanner) => {
     setFormData({
       title: banner.title,
       description: banner.description,
@@ -181,7 +181,7 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-prewedding-banner/${id}`, {
+        await axios.delete(`https://abeer.onrender.com/api/cine-babyshower-banner/${id}`, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner deleted successfully");
@@ -404,4 +404,4 @@ const isValidImageUrl = (url: string) => {
   );
 };
 
-export default CineBabySourBannerManager;
+export default CineBabyshowerBannerManager;

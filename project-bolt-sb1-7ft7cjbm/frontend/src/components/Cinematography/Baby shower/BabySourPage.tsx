@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import BabySourBanner from "./BabySourBanner";
-import BabySourGallery from "./BabySourGallery";
+import BabyshowerBanner from "./BabySourBanner";
+import BabyshowerGallery from "./BabySourGallery";
 
-const BabySourPage = () => {
+const BabyshowerPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -11,11 +11,11 @@ const BabySourPage = () => {
       <Navbar />
       
       <main className="flex-grow">
-        <BabySourBanner />
-        <BabySourGallery />
+        <BabyshowerBanner />
+        <BabyshowerGallery />
       </main>
     </div>
   );
 };
 
-export default BabySourPage;
+export default BabyshowerPage;

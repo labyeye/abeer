@@ -1,9 +1,9 @@
-const BabySourGalleryItem = require('../../../models/Cinematography/Baby Sour/CineBabySourGalleryItem');
+const BabyshowerGalleryItem = require('../../../models/Cinematography/Baby shower/CineBabySourGalleryItem');
 
 // Get all gallery items
 exports.getAllGalleryItems = async (req, res) => {
   try {
-    const items = await BabySourGalleryItem.find().sort({ createdAt: -1 });
+    const items = await BabyshowerGalleryItem.find().sort({ createdAt: -1 });
     res.json(items);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -15,7 +15,7 @@ exports.createGalleryItem = async (req, res) => {
   const { title, description, place, thumbnail, videoUrl, isFeatured } = req.body;
   
   try {
-    const newItem = new BabySourGalleryItem({
+    const newItem = new BabyshowerGalleryItem({
       title,
       description,
       place,
@@ -34,7 +34,7 @@ exports.createGalleryItem = async (req, res) => {
 // Update gallery item
 exports.updateGalleryItem = async (req, res) => {
   try {
-    const updatedItem = await BabySourGalleryItem.findByIdAndUpdate(
+    const updatedItem = await BabyshowerGalleryItem.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
@@ -48,7 +48,7 @@ exports.updateGalleryItem = async (req, res) => {
 // Delete gallery item
 exports.deleteGalleryItem = async (req, res) => {
   try {
-    await BabySourGalleryItem.findByIdAndDelete(req.params.id);
+    await BabyshowerGalleryItem.findByIdAndDelete(req.params.id);
     res.json({ message: 'Gallery item deleted successfully' });
   } catch (err) {
     res.status(500).json({ message: err.message });

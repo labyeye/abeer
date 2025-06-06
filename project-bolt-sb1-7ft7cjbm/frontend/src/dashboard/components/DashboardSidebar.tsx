@@ -60,8 +60,8 @@ export const DashboardSidebar = () => {
         { name: "WeddingGallery", path: "cinematography/gallery" },
         { name: "PreWeddingBanner", path: "cinematography/prewedding-banner" },
         { name: "PreWeddingGallery", path: "cinematography/prewedding-gallery" },
-        { name: "BabySourBanner", path: "cinematography/babysour-banner" },
-        { name: "BabySourGallery", path: "cinematography/babysour-gallery" },
+        { name: "BabyshowerBanner", path: "cinematography/babyshower-banner" },
+        { name: "BabyshowerGallery", path: "cinematography/babyshower-gallery" },
       ],
     },
     {

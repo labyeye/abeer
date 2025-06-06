@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const BabySourItemSchema = new mongoose.Schema({
+const BabyshowerItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const BabySourItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('BabySourItem', BabySourItemSchema);
+module.exports = mongoose.model('BabyshowerItem', BabyshowerItemSchema);
