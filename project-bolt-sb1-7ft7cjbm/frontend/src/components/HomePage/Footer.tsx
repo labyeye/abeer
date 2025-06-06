@@ -25,13 +25,10 @@ const Footer: React.FC = () => {
           {/* About */}
           <div>
             <div className="flex items-center justify-center mb-6 min-h-[60px]">
-              <img src={logo} className="h-[96px] w-auto" />
+              <img src={logo} className="h-[230px] w-auto" />
             </div>
 
-            <p className="text-gray-600 mb-6">
-              Professional photography services capturing life's most precious
-              moments with artistic vision and technical excellence.
-            </p>
+            
             <div className="flex space-x-4">
               <a
                 href="https://m.facebook.com/people/Abeer-Motion-Picture-Pvt-Ltd/61552202668767/"
