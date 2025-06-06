@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-type GalleryItem = {
+type PreGalleryItem = {
   _id?: string;
   title: string;
   description: string;
@@ -13,9 +13,9 @@ type GalleryItem = {
   isFeatured: boolean;
 };
 
-const CineWeddingGalleryManager = () => {
-  const [items, setItems] = useState<GalleryItem[]>([]);
-  const [formData, setFormData] = useState<GalleryItem>({
+const CinePreWeddingGalleryManager = () => {
+  const [items, setItems] = useState<PreGalleryItem[]>([]);
+  const [formData, setFormData] = useState<PreGalleryItem>({
     title: "",
     description: "",
     place: "",
@@ -34,7 +34,7 @@ const CineWeddingGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/cine-wedding-gallery");
+      const response = await axios.get("https://abeer.onrender.com/api/cine-prewedding-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const CineWeddingGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/cine-wedding-gallery/${editingId}`, formData);
+        await axios.put(`https://abeer.onrender.com/api/cine-prewedding-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-wedding-gallery", formData);
+        await axios.post("https://abeer.onrender.com/api/cine-prewedding-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -81,7 +81,7 @@ const CineWeddingGalleryManager = () => {
     }
   };
 
-  const handleEdit = (item: GalleryItem) => {
+  const handleEdit = (item: PreGalleryItem) => {
     setFormData(item);
     setEditingId(item._id || null);
   };
@@ -89,7 +89,7 @@ const CineWeddingGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-wedding-gallery/${id}`);
+        await axios.delete(`https://abeer.onrender.com/api/cine-prewedding-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -285,4 +285,4 @@ const CineWeddingGalleryManager = () => {
   );
 };
 
-export default CineWeddingGalleryManager;
+export default CinePreWeddingGalleryManager;

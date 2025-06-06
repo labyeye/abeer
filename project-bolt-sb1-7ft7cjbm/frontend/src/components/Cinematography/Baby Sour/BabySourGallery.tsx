@@ -13,7 +13,7 @@ type GalleryItem = {
   videoUrl: string;
 };
 
-const WeddingGallery = () => {
+const BabySourGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -21,9 +21,10 @@ const WeddingGallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
+    console.log("Fetching BabySour gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cine-wedding-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/cine-babysour-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -140,4 +141,4 @@ const WeddingGallery = () => {
   );
 };
 
-export default WeddingGallery;
+export default BabySourGallery;

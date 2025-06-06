@@ -26,11 +26,11 @@ const Navbar = () => {
         },
         {
           category: "Pre Wedding",
-          link: "/cinematography/pre-wedding",
+          link: "/cinematography/prewedding",
         },
         {
           category: "Baby Sour",
-          link: "/cinematography/baby-sour",
+          link: "/cinematography/babysour",
         },
         {
           category: "Baby Shoot",

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface WeddingBannerData {
+interface BabySourBannerData {
   title: string;
   description: string;
   backgroundImageUrl: string;
 }
 
-const WeddingBanner = () => {
-  const [banner, setBanner] = useState<WeddingBannerData | null>(null);
+const BabySourBanner = () => {
+  const [banner, setBanner] = useState<BabySourBannerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
@@ -16,7 +16,7 @@ const WeddingBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/cine-wedding-banner/active"
+          "https://abeer.onrender.com/api/cine-babysour-banner/active"
         );
         setBanner(response.data);
       } catch (error) {
@@ -71,4 +71,4 @@ const WeddingBanner = () => {
   );
 };
 
-export default WeddingBanner;
+export default BabySourBanner;
