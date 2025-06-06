@@ -88,7 +88,7 @@ export const HeroSliderManager = () => {
     if (!result.destination) return;
 
     const items = Array.from(slides);
-    const [reorderedItem] = items.splice(result.showerce.index, 1);
+    const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
     setSlides(items);
