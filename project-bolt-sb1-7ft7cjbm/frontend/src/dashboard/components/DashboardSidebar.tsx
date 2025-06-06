@@ -62,6 +62,12 @@ export const DashboardSidebar = () => {
         { name: "PreWeddingGallery", path: "cinematography/prewedding-gallery" },
         { name: "BabyshowerBanner", path: "cinematography/babyshower-banner" },
         { name: "BabyshowerGallery", path: "cinematography/babyshower-gallery" },
+        { name: "BabyshootBanner", path: "cinematography/babyshoot-banner" },
+        { name: "BabyshootGallery", path: "cinematography/babyshoot-gallery" },
+        { name: "BirthdayBanner", path: "cinematography/birthday-banner" },
+        { name: "BirthdayGallery", path: "cinematography/birthday-gallery" },
+        { name: "EventBanner", path: "cinematography/event-banner" },
+        { name: "EventGallery", path: "cinematography/event-gallery" },
       ],
     },
     {

@@ -19,14 +19,23 @@ import axios from "axios";
 import HomePage from "./components/pages/HomePage";
 import AboutPage from "./components/pages/AboutPage";
 import WeddingPage from "./components/Cinematography/Wedding/WeddingPage";
-import CineWeddingBannerManager from "./dashboard/components/CineWeddingBannerManager";
-import CineWeddingGalleryManager from "./dashboard/components/CineWeddingGalleryManager";
+import CineWeddingBannerManager from "./dashboard/components/Cinematography/Wedding/CineWeddingBannerManager";
+import CineWeddingGalleryManager from "./dashboard/components/Cinematography/Wedding/CineWeddingGalleryManager";
 import PreWeddingPage from "./components/Cinematography/Pre Wedding/PreWeddingPage";
-import CinePreWeddingBannerManager from "./dashboard/components/CinePreWeddingBannerManager";
-import CinePreWeddingGalleryManager from "./dashboard/components/CinePreWeddingGalleryManager";
+import CinePreWeddingBannerManager from "./dashboard/components/Cinematography/Pre Wedding/CinePreWeddingBannerManager";
+import CinePreWeddingGalleryManager from "./dashboard/components/Cinematography/Pre Wedding/CinePreWeddingGalleryManager";
 import BabyshowerPage from "./components/Cinematography/Baby shower/BabySourPage";
-import CineBabyshowerBannerManager from "./dashboard/components/CineBabySourBannerManager";
-import CineBabyshowerGalleryManager from "./dashboard/components/CineBabySourGalleryManager";
+import CineBabyshowerBannerManager from "./dashboard/components/Cinematography/Baby Shower/CineBabySourBannerManager";
+import CineBabyshowerGalleryManager from "./dashboard/components/Cinematography/Baby Shower/CineBabySourGalleryManager";
+import BabyshootPage from "./components/Cinematography/Baby Shoot/BabyShootPage";
+import BirthdayPage from "./components/Cinematography/Birthday/BirthdayPage";
+import EventPage from "./components/Cinematography/Event/EventPage";
+import CineBirthdayBannerManager from "./dashboard/components/Cinematography/Birthday/CineBirthdayBannerManager";
+import CineBirthdayGalleryManager from "./dashboard/components/Cinematography/Birthday/CineBirthdayGalleryManager";
+import CineEventBannerManager from "./dashboard/components/Cinematography/Event/CineEventBannerManager";
+import CineEventGalleryManager from "./dashboard/components/Cinematography/Event/CineEventGalleryManager";
+import CineBabyShootBannerManager from "./dashboard/components/Cinematography/Baby Shoot/CineBabyShootBannerManager";
+import CineBabyShootGalleryManager from "./dashboard/components/Cinematography/Baby Shoot/CineBabyShootGalleryManager";
 
 function AppContent() {
   const location = useLocation();
@@ -77,6 +86,9 @@ function AppContent() {
             path="/cinematography/babyshower"
             element={<BabyshowerPage />}
           />
+          <Route path="/cinematography/babyshoot" element={<BabyshootPage />} />
+          <Route path="/cinematography/birthday" element={<BirthdayPage />} />
+          <Route path="/cinematography/event" element={<EventPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="gallery" element={<GalleryManager />} />
@@ -107,6 +119,30 @@ function AppContent() {
             <Route
               path="cinematography/babyshower-gallery"
               element={<CineBabyshowerGalleryManager />}
+            />
+            <Route
+              path="cinematography/birthday-banner"
+              element={<CineBirthdayBannerManager />}
+            />
+            <Route
+              path="cinematography/birthday-gallery"
+              element={<CineBirthdayGalleryManager />}
+            />
+            <Route
+              path="cinematography/event-banner"
+              element={<CineEventBannerManager />}
+            />
+            <Route
+              path="cinematography/event-gallery"
+              element={<CineEventGalleryManager />}
+            />
+            <Route
+              path="cinematography/babyshoot-banner"
+              element={<CineBabyShootBannerManager />}
+            />
+            <Route
+              path="cinematography/babyshoot-gallery"
+              element={<CineBabyShootGalleryManager />}
             />
             <Route
               path="categories/new"

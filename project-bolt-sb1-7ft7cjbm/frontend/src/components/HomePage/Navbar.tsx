@@ -34,7 +34,7 @@ const Navbar = () => {
         },
         {
           category: "Baby Shoot",
-          link: "/cinematography/baby-shoot",
+          link: "/cinematography/babyshoot",
         },
         {
           category: "Birthday",
