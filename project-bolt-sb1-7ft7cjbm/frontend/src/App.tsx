@@ -121,6 +121,30 @@ function AppContent() {
               element={<CineBabyshowerGalleryManager />}
             />
             <Route
+              path="cinematography/birthday-banner"
+              element={<CineBirthdayBannerManager />}
+            />
+            <Route
+              path="cinematography/birthday-gallery"
+              element={<CineBirthdayGalleryManager />}
+            />
+            <Route
+              path="cinematography/event-banner"
+              element={<CineEventBannerManager />}
+            />
+            <Route
+              path="cinematography/event-gallery"
+              element={<CineEventGalleryManager />}
+            />
+            <Route
+              path="cinematography/babyshoot-banner"
+              element={<CineBabyShootBannerManager />}
+            />
+            <Route
+              path="cinematography/babyshoot-gallery"
+              element={<CineBabyShootGalleryManager />}
+            />
+            <Route
               path="categories/new"
               element={<CategoryShowcaseManager />}
             />
