@@ -94,15 +94,15 @@ function AppContent() {
             element={<BabyshowerPage />}
           />
           <Route
-            path="/cinematography/babyshower"
+            path="/cinematography/sports"
             element={<SportsPage />}
           />
           <Route
-            path="/cinematography/babyshower"
+            path="/cinematography/political"
             element={<PoliticalPage />}
           />
           <Route
-            path="/cinematography/babyshower"
+            path="/cinematography/film"
             element={<CinemaPage />}
           />
           <Route path="/cinematography/event" element={<EventPage />} />

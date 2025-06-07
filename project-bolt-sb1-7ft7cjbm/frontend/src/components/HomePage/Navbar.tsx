@@ -33,12 +33,16 @@ const Navbar = () => {
           link: "/cinematography/babyshower",
         },
         {
-          category: "Advertisment Video",
-          link: "/cinematography/birthday",
+          category: "Sports (Cricket, Football, etc.)",
+          link: "/cinematography/sports",
         },
         {
-          category: "Event",
-          link: "/cinematography/event",
+          category: "Political / Government Filmmaking",
+          link: "/cinematography/political",
+        },
+        {
+          category: "Cinema/Film",
+          link: "/cinematography/film",
         },
       ],
     },
