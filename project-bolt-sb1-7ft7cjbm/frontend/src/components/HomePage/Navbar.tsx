@@ -549,7 +549,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <img src={logo} />
+          <a href="/"><img src={logo} /></a>
         </div>
         <nav className="hidden lg:flex items-center space-x-6">
           {navItems.map((item, idx) =>
