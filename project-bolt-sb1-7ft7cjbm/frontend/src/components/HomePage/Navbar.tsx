@@ -37,6 +37,10 @@ const Navbar = () => {
           link: "/cinematography/event",
         },
         {
+          category: "Advertising",
+          link: "/cinematography/ads",
+        },
+        {
           category: "Sports (Cricket, Football, etc.)",
           link: "/cinematography/sports",
         },
@@ -62,35 +66,35 @@ const Navbar = () => {
           link: "/photography/prewedding",
         },
         {
+          category: "Event",
+          link: "/photography/event",
+        },
+        {
           category: "Baby shower / Baby Shoot / Birthday",
           link: "/photography/babyshower",
         },
         {
-          category: "Modelling / Product / Aerial Photography",
+          category: "Modelling / Product Photography",
           link: "/photography/modelling",
+        },
+        {
+          category: "Aerial Photography (Drone)",
+          link: "/photography/studio",
         },
         {
           category: "PhotoStudio",
           link: "/photography/studio",
         },
         {
-          category: "Event",
-          link: "/photography/event",
-        },
-        {
           category: "Sports (Cricket, Football, etc.)",
           link: "/photography/sports",
         },
         {
-          category: "Political / Government Filmmaking",
+          category: "Political / Government Event",
           link: "/photography/political",
         },
         {
-          category: "Political / Government Campaign",
-          link: "/photography/politicalcampaign",
-        },
-        {
-          category: "Photobook / Album",
+          category: "Photobook (Album)",
           link: "/photography/album",
         },
       ],
