@@ -37,6 +37,12 @@ import CineBabyShootGalleryManager from "./dashboard/components/Cinematography/B
 import SportsPage from "./components/Cinematography/Sports/SportsPage";
 import PoliticalPage from "./components/Cinematography/Political/PoliticalPage";
 import CinemaPage from "./components/Cinematography/Cinema/CinemaPage";
+import CineFilmBannerManager from "./dashboard/components/Cinematography/Film/CineFilmBannerManager";
+import CineFilmGalleryManager from "./dashboard/components/Cinematography/Film/CineFilmGalleryManager";
+import CinePoliticalBannerManager from "./dashboard/components/Cinematography/Political/CinePoliticalBannerManager";
+import CinePoliticalGalleryManager from "./dashboard/components/Cinematography/Political/CinePoliticalGalleryManager";
+import CineSportsBannerManager from "./dashboard/components/Cinematography/Sports/CineSportsBannerManager";
+import CineSportsGalleryManager from "./dashboard/components/Cinematography/Sports/CineSportsGalleryManager";
 
 function AppContent() {
   const location = useLocation();
@@ -154,6 +160,30 @@ function AppContent() {
             <Route
               path="cinematography/babyshoot-gallery"
               element={<CineBabyShootGalleryManager />}
+            />
+            <Route
+              path="cinematography/film-gallery"
+              element={<CineFilmBannerManager />}
+            />
+            <Route
+              path="cinematography/film-gallery"
+              element={<CineFilmGalleryManager />}
+            />
+            <Route
+              path="cinematography/political-gallery"
+              element={<CinePoliticalBannerManager />}
+            />
+            <Route
+              path="cinematography/political-gallery"
+              element={<CinePoliticalGalleryManager />}
+            />
+            <Route
+              path="cinematography/sports-gallery"
+              element={<CineSportsBannerManager />}
+            />
+            <Route
+              path="cinematography/sports-gallery"
+              element={<CineSportsGalleryManager />}
             />
             <Route
               path="categories/new"
