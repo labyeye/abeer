@@ -25,6 +25,27 @@ const cinePoliticalBannerRoutes = require('./routes/Cinematography/Political/cin
 const cinePoliticalGalleryRoutes = require('./routes/Cinematography/Political/cinePoliticalgalleryRoutes');
 const cineFilmBannerRoutes = require('./routes/Cinematography/Cinema/cineFilmBannerRoutes');
 const cineFilmGalleryRoutes = require('./routes/Cinematography/Cinema/cineFilmgalleryRoutes');
+const phoAerialBannerRoutes = require('./routes/PhotoGraphy/Aerial Photography/phoAerialBannerRoutes');
+const phoAerialGalleryRoutes = require('./routes/PhotoGraphy/Aerial Photography/phoAerialgalleryRoutes');
+const phoBabySourBannerRoutes = require('./routes/PhotoGraphy/Baby shower/phobabysourBannerRoutes');
+const phoBabySourGalleryRoutes = require('./routes/PhotoGraphy/Baby shower/phobabysourgalleryRoutes');
+const phoBirthdayBannerRoutes = require('./routes/PhotoGraphy/Birthday/phoBirthdayBannerRoutes');
+const phoBirthdayGalleryRoutes = require('./routes/PhotoGraphy/Birthday/phoBirthdaygalleryRoutes');
+const phoEventBannerRoutes = require('./routes/PhotoGraphy/Event/phoEventBannerRoutes');
+const phoEventGalleryRoutes = require('./routes/PhotoGraphy/Event/phoEventgalleryRoutes');
+const phoBookBannerRoutes = require('./routes/PhotoGraphy/PhotoBook/phoBookRoutes');
+const phoBookGalleryRoutes = require('./routes/PhotoGraphy/PhotoBook/phoBookgalleryRoutes');
+const phoPoliticalBannerRoutes = require('./routes/PhotoGraphy/Political/phoPoliticalBannerRoutes');
+const phoPoliticalGalleryRoutes = require('./routes/PhotoGraphy/Political/phoPoliticalgalleryRoutes');
+const phoPreWeddingBannerRoutes = require('./routes/PhotoGraphy/Pre Wedding/phopreweddingBannerRoutes');
+const phoPreWeddingGalleryRoutes = require('./routes/PhotoGraphy/Pre Wedding/phopreweddinggalleryRoutes');
+const phoSportsBannerRoutes = require('./routes/PhotoGraphy/Sports/phoSportsBannerRoutes');
+const phoSportsGalleryRoutes = require('./routes/PhotoGraphy/Sports/phoSportsgalleryRoutes');
+const phoWeddingBannerRoutes = require('./routes/PhotoGraphy/Wedding/phoweddingBannerRoutes');
+const phoWeddingGalleryRoutes = require('./routes/PhotoGraphy/Wedding/phogalleryRoutes');
+const phoBabyShootBannerRoutes = require('./routes/PhotoGraphy/Baby Shoot/phobabyShootBannerRoutes');
+const phoBabyShootGalleryRoutes = require('./routes/PhotoGraphy/Baby Shoot/phobabyShootgalleryRoutes');
+
 const app = express();
 
 connectDB();
@@ -59,6 +80,27 @@ app.use('/api/cine-political-banner',cinePoliticalBannerRoutes);
 app.use('/api/cine-political-gallery', cinePoliticalGalleryRoutes);
 app.use('/api/cine-film-banner', cineFilmBannerRoutes);
 app.use('/api/cine-film-gallery', cineFilmGalleryRoutes);
+app.use('/api/pho-aerial-banner', phoAerialBannerRoutes);
+app.use('/api/pho-aerial-gallery', phoAerialGalleryRoutes);
+app.use('/api/pho-baby-sour-banner', phoBabySourBannerRoutes);
+app.use('/api/pho-baby-sour-gallery', phoBabySourGalleryRoutes);
+app.use('/api/pho-birthday-banner', phoBirthdayBannerRoutes);
+app.use('/api/pho-birthday-gallery', phoBirthdayGalleryRoutes);
+app.use('/api/pho-event-banner', phoEventBannerRoutes);
+app.use('/api/pho-event-gallery', phoEventGalleryRoutes);
+app.use('/api/pho-film-banner', phoBookBannerRoutes);
+app.use('/api/pho-film-gallery', phoBookGalleryRoutes);
+app.use('/api/pho-political-banner', phoPoliticalBannerRoutes);
+app.use('/api/pho-political-gallery', phoPoliticalGalleryRoutes);
+app.use('/api/pho-pre-wedding-banner', phoPreWeddingBannerRoutes);
+app.use('/api/pho-pre-wedding-gallery', phoPreWeddingGalleryRoutes);
+app.use('/api/pho-sports-banner', phoSportsBannerRoutes);
+app.use('/api/pho-sports-gallery', phoSportsGalleryRoutes);
+app.use('/api/pho-wedding-banner', phoWeddingBannerRoutes);
+app.use('/api/pho-wedding-gallery', phoWeddingGalleryRoutes);
+app.use('/api/pho-baby-shoot-banner', phoBabyShootBannerRoutes);
+app.use('/api/pho-baby-shoot-gallery', phoBabyShootGalleryRoutes);
+
 
 const PORT = process.env.PORT || 2500;
 

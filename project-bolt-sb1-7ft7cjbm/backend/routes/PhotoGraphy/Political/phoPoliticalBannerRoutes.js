@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const cinePoliticalBannerControllerr = require('../../../controllers/Cinematography/Political/cinePoliticalBannerController');
+const phoPoliticalBannerControllerr = require('../../../controllers/PhotoGraphy/Political/phoPoliticalBannerController');
 const auth = require('../../../middleware/auth');
 
 // Public routes
-router.get('/active', cinePoliticalBannerControllerr.getActiveBanner);
+router.get('/active', phoPoliticalBannerControllerr.getActiveBanner);
 
 // Admin routes
-router.get('/', auth, cinePoliticalBannerControllerr.getAllBanners);
-router.post('/', auth, cinePoliticalBannerControllerr.createBanner);
-router.put('/:id', auth, cinePoliticalBannerControllerr.updateBanner);
-router.delete('/:id', auth, cinePoliticalBannerControllerr.deleteBanner);
+router.get('/', auth, phoPoliticalBannerControllerr.getAllBanners);
+router.post('/', auth, phoPoliticalBannerControllerr.createBanner);
+router.put('/:id', auth, phoPoliticalBannerControllerr.updateBanner);
+router.delete('/:id', auth, phoPoliticalBannerControllerr.deleteBanner);
 
 module.exports = router;

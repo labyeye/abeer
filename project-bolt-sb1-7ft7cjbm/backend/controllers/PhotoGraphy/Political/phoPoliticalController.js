@@ -1,9 +1,9 @@
-const CinePoliticalGalleryItem = require('../../../models/Cinematography/Political/CinePoliticalGalleryItem');
+const PhoPoliticalGalleryItem = require('../../../models/Photography/Political/PhoPoliticalGalleryItem');
 
 // Get all gallery items
 exports.getAllGalleryItems = async (req, res) => {
   try {
-    const items = await CinePoliticalGalleryItem.find().sort({ createdAt: -1 });
+    const items = await PhoPoliticalGalleryItem.find().sort({ createdAt: -1 });
     res.json(items);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -15,7 +15,7 @@ exports.createGalleryItem = async (req, res) => {
   const { title, description, place, thumbnail, videoUrl, isFeatured } = req.body;
   
   try {
-    const newItem = new CinePoliticalGalleryItem({
+    const newItem = new PhoPoliticalGalleryItem({
       title,
       description,
       place,
@@ -34,7 +34,7 @@ exports.createGalleryItem = async (req, res) => {
 // Update gallery item
 exports.updateGalleryItem = async (req, res) => {
   try {
-    const updatedItem = await CinePoliticalGalleryItem.findByIdAndUpdate(
+    const updatedItem = await PhoPoliticalGalleryItem.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
@@ -48,7 +48,7 @@ exports.updateGalleryItem = async (req, res) => {
 // Delete gallery item
 exports.deleteGalleryItem = async (req, res) => {
   try {
-    await CinePoliticalGalleryItem.findByIdAndDelete(req.params.id);
+    await PhoPoliticalGalleryItem.findByIdAndDelete(req.params.id);
     res.json({ message: 'Gallery item deleted successfully' });
   } catch (err) {
     res.status(500).json({ message: err.message });

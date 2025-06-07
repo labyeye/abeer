@@ -1,4 +1,4 @@
-const BabyshowerGalleryItem = require('../../../models/Cinematography/Birthday/CineBirthdayGalleryItem');
+const BabyshowerGalleryItem = require('../../../models/Photography/Birthday/PhoBirthdayGalleryItem');
 
 // Get all gallery items
 exports.getAllGalleryItems = async (req, res) => {

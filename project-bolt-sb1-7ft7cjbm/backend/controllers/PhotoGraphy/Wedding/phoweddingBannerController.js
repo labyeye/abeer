@@ -1,4 +1,4 @@
-const WeddingBanner = require('../../../models/Cinematography/Wedding/CineWeddingBanner');
+const WeddingBanner = require('../../../models/Photography/Wedding/PhoWeddingBanner');
 
 const isValidImageUrl = (url) => {
   try {

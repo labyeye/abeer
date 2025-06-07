@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PhoBabyShootBannerSchema = new mongoose.Schema({
+const PhotoBabyShootBannerSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -21,4 +21,4 @@ const PhoBabyShootBannerSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PhoBabyShootBanner', PhoBabyShootBannerSchema);
+module.exports = mongoose.model('PhotoBabyShootBanner', PhotoBabyShootBannerSchema);

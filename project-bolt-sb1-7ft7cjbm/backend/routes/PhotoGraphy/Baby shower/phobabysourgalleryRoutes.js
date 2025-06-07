@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const galleryController = require('../../../controllers/Cinematography/Baby shower/cinebabysourController');
+const galleryController = require('../../../controllers/PhotoGraphy/Baby shower/phobabysourController');
 
 // Get all gallery items
 router.get('/', galleryController.getAllGalleryItems);

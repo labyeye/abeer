@@ -1,4 +1,4 @@
-const EventGalleryItem = require('../../../models/Cinematography/Event/CineEventGalleryItem');
+const EventGalleryItem = require('../../../models/Photography/Event/PhoEventGalleryItem');
 
 exports.getAllGalleryItems = async (req, res) => {
   try {

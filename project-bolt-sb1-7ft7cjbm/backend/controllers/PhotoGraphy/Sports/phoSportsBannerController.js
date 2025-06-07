@@ -1,4 +1,4 @@
-const CineSportsBanner = require('../../../models/Cinematography/Sports/CineSportsBanner');
+const PhoSportsBanner = require('../../../models/Photography/Sports/PhoSportsBanner');
 
 const isValidImageUrl = (url) => {
   try {
@@ -12,7 +12,7 @@ const isValidImageUrl = (url) => {
 
 exports.getActiveBanner = async (req, res) => {
   try {
-    const banner = await CineSportsBanner.findOne({ isActive: true });
+    const banner = await PhoSportsBanner.findOne({ isActive: true });
     if (!banner) {
       return res.status(404).json({ message: "No active banner found" });
     }
@@ -24,7 +24,7 @@ exports.getActiveBanner = async (req, res) => {
 
 exports.getAllBanners = async (req, res) => {
   try {
-    const banners = await CineSportsBanner.find().sort({ createdAt: -1 });
+    const banners = await PhoSportsBanner.find().sort({ createdAt: -1 });
     res.json(banners);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -39,7 +39,7 @@ exports.createBanner = async (req, res) => {
       return res.status(400).json({ message: "Invalid image URL format" });
     }
 
-    const newBanner = new CineSportsBanner({
+    const newBanner = new PhoSportsBanner({
       title,
       description,
       backgroundImageUrl,
@@ -70,10 +70,10 @@ exports.updateBanner = async (req, res) => {
     };
     
     if (isActive) {
-      await CineSportsBanner.updateMany({ _id: { $ne: id } }, { isActive: false });
+      await PhoSportsBanner.updateMany({ _id: { $ne: id } }, { isActive: false });
     }
 
-    const updatedBanner = await CineSportsBanner.findByIdAndUpdate(id, updateData, { new: true });
+    const updatedBanner = await PhoSportsBanner.findByIdAndUpdate(id, updateData, { new: true });
     res.json(updatedBanner);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -82,7 +82,7 @@ exports.updateBanner = async (req, res) => {
 
 exports.deleteBanner = async (req, res) => {
   try {
-    await CineSportsBanner.findByIdAndDelete(req.params.id);
+    await PhoSportsBanner.findByIdAndDelete(req.params.id);
     res.json({ message: 'Banner deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });

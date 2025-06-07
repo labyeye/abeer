@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const cineweddingBannerControllerr = require('../../../controllers/Cinematography/Wedding/cineweddingBannerController');
+const phoWeddingBannerControllerr = require('../../../controllers/PhotoGraphy/Wedding/phoweddingBannerController');
 const auth = require('../../../middleware/auth');
 
 // Public routes
-router.get('/active', cineweddingBannerControllerr.getActiveBanner);
+router.get('/active', phoWeddingBannerControllerr.getActiveBanner);
 
 // Admin routes
-router.get('/', auth, cineweddingBannerControllerr.getAllBanners);
-router.post('/', auth, cineweddingBannerControllerr.createBanner);
-router.put('/:id', auth, cineweddingBannerControllerr.updateBanner);
-router.delete('/:id', auth, cineweddingBannerControllerr.deleteBanner);
+router.get('/', auth, phoWeddingBannerControllerr.getAllBanners);
+router.post('/', auth, phoWeddingBannerControllerr.createBanner);
+router.put('/:id', auth, phoWeddingBannerControllerr.updateBanner);
+router.delete('/:id', auth, phoWeddingBannerControllerr.deleteBanner);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const PreWeddingBanner = require('../../../models/Cinematography/PreWedding/CinePreWeddingBanner');
+const PreWeddingBanner = require('../../../models/Photography/PreWedding/PhoPreGalleryItem');
 
 const isValidImageUrl = (url) => {
   try {

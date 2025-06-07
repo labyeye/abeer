@@ -1,4 +1,4 @@
-const PreGalleryItem = require('../../../models/Cinematography/PreWedding/CinePreGalleryItem');
+const PreGalleryItem = require('../../../models/Photography/PreWedding/PhoPreGalleryItem');
 
 // Get all gallery items
 exports.getAllGalleryItems = async (req, res) => {

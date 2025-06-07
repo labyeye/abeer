@@ -1,4 +1,4 @@
-const EventBanner = require('../../../models/Cinematography/Event/CineEventBanner');
+const EventBanner = require('../../../models/Photography/Event/PhoEventBanner');
 
 const isValidImageUrl = (url) => {
   try {

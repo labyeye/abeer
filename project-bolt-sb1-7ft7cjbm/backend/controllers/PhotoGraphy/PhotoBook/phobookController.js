@@ -1,4 +1,4 @@
-const CineFilmBanner = require('../../../models/Cinematography/Cinema/CineFilmBanner');
+const PhoBookBanner = require('../../../models/Photography/PhotoBook/PhoBabyShootBanner');
 
 const isValidImageUrl = (url) => {
   try {
@@ -12,7 +12,7 @@ const isValidImageUrl = (url) => {
 
 exports.getActiveBanner = async (req, res) => {
   try {
-    const banner = await CineFilmBanner.findOne({ isActive: true });
+    const banner = await PhoBookBanner.findOne({ isActive: true });
     if (!banner) {
       return res.status(404).json({ message: "No active banner found" });
     }
@@ -24,7 +24,7 @@ exports.getActiveBanner = async (req, res) => {
 
 exports.getAllBanners = async (req, res) => {
   try {
-    const banners = await CineFilmBanner.find().sort({ createdAt: -1 });
+    const banners = await PhoBookBanner.find().sort({ createdAt: -1 });
     res.json(banners);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -39,7 +39,7 @@ exports.createBanner = async (req, res) => {
       return res.status(400).json({ message: "Invalid image URL format" });
     }
 
-    const newBanner = new CineFilmBanner({
+    const newBanner = new PhoBookBanner({
       title,
       description,
       backgroundImageUrl,
@@ -70,10 +70,10 @@ exports.updateBanner = async (req, res) => {
     };
     
     if (isActive) {
-      await CineFilmBanner.updateMany({ _id: { $ne: id } }, { isActive: false });
+      await PhoBookBanner.updateMany({ _id: { $ne: id } }, { isActive: false });
     }
 
-    const updatedBanner = await CineFilmBanner.findByIdAndUpdate(id, updateData, { new: true });
+    const updatedBanner = await PhoBookBanner.findByIdAndUpdate(id, updateData, { new: true });
     res.json(updatedBanner);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -82,7 +82,7 @@ exports.updateBanner = async (req, res) => {
 
 exports.deleteBanner = async (req, res) => {
   try {
-    await CineFilmBanner.findByIdAndDelete(req.params.id);
+    await PhoBookBanner.findByIdAndDelete(req.params.id);
     res.json({ message: 'Banner deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });

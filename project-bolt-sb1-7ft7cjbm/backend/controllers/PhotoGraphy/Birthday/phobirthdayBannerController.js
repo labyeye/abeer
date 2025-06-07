@@ -1,4 +1,4 @@
-const BirthdayBanner = require('../../../models/Cinematography/Birthday/CineBirthdayBanner');
+const BirthdayBanner = require('../../../models/Photography/Birthday/PhoBirthdayBanner');
 
 const isValidImageUrl = (url) => {
   try {

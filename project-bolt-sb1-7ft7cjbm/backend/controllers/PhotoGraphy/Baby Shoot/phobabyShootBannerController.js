@@ -1,4 +1,4 @@
-const BabyShootBanner = require('../../../models/Cinematography/Baby Shoot/CineBabyShootBanner');
+const BabyShootBanner = require('../../../models/Photography/Baby Shoot/PhoBabyShootBanner');
 
 const isValidImageUrl = (url) => {
   try {
