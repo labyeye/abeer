@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface EventBannerData {
+interface SportsBannerData {
   title: string;
   description: string;
   backgroundImageUrl: string;
 }
 
-const EventBanner = () => {
-  const [banner, setBanner] = useState<EventBannerData | null>(null);
+const SportsBanner = () => {
+  const [banner, setBanner] = useState<SportsBannerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
@@ -16,7 +16,7 @@ const EventBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/cine-event-banner/active"
+          "https://abeer.onrender.com/api/cine-sports-banner/active"
         );
         setBanner(response.data);
       } catch (error) {
@@ -71,4 +71,4 @@ const EventBanner = () => {
   );
 };
 
-export default EventBanner;
+export default SportsBanner;

@@ -13,7 +13,7 @@ type GalleryItem = {
   videoUrl: string;
 };
 
-const EventGallery = () => {
+const PoliticalGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -24,7 +24,7 @@ const EventGallery = () => {
     console.log("Fetching Event gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cine-event-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/cine-political-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -141,4 +141,4 @@ const EventGallery = () => {
   );
 };
 
-export default EventGallery;
+export default PoliticalGallery;

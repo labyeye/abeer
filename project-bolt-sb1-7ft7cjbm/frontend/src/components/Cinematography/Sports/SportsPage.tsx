@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import EventBanner from "./SportsBanner";
-import EventGallery from "./SportsGallery";
+import SportsBanner from "./SportsBanner";
+import SportsGallery from "./SportsGallery";
 
-const EventPage = () => {
+const SportsPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -11,11 +11,11 @@ const EventPage = () => {
       <Navbar />
       
       <main className="flex-grow">
-        <EventBanner />
-        <EventGallery />
+        <SportsBanner />
+        <SportsGallery />
       </main>
     </div>
   );
 };
 
-export default EventPage;
+export default SportsPage;

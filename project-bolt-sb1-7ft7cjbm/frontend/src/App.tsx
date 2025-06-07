@@ -34,6 +34,9 @@ import CineEventBannerManager from "./dashboard/components/Cinematography/Event/
 import CineEventGalleryManager from "./dashboard/components/Cinematography/Event/CineEventGalleryManager";
 import CineBabyShootBannerManager from "./dashboard/components/Cinematography/Baby Shoot/CineBabyShootBannerManager";
 import CineBabyShootGalleryManager from "./dashboard/components/Cinematography/Baby Shoot/CineBabyShootGalleryManager";
+import SportsPage from "./components/Cinematography/Sports/SportsPage";
+import PoliticalPage from "./components/Cinematography/Political/PoliticalPage";
+import CinemaPage from "./components/Cinematography/Cinema/CinemaPage";
 
 function AppContent() {
   const location = useLocation();
@@ -83,6 +86,18 @@ function AppContent() {
           <Route
             path="/cinematography/babyshower"
             element={<BabyshowerPage />}
+          />
+          <Route
+            path="/cinematography/babyshower"
+            element={<SportsPage />}
+          />
+          <Route
+            path="/cinematography/babyshower"
+            element={<PoliticalPage />}
+          />
+          <Route
+            path="/cinematography/babyshower"
+            element={<CinemaPage />}
           />
           <Route path="/cinematography/event" element={<EventPage />} />
           <Route path="/login" element={<Login />} />

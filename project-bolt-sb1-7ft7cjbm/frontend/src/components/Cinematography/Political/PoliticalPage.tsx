@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import EventBanner from "./PoliticalBanner";
-import EventGallery from "./PoliticalGallery";
+import PoliticalBanner from "./PoliticalBanner";
+import PoliticalGallery from "./PoliticalGallery";
 
-const EventPage = () => {
+const PoliticalPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -11,11 +11,11 @@ const EventPage = () => {
       <Navbar />
       
       <main className="flex-grow">
-        <EventBanner />
-        <EventGallery />
+        <PoliticalBanner />
+        <PoliticalGallery />
       </main>
     </div>
   );
 };
 
-export default EventPage;
+export default PoliticalPage;
