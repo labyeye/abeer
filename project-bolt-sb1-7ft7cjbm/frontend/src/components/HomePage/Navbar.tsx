@@ -553,7 +553,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/"><img src={logo} /></a>
+          <a href="/"><img src={logo} alt="Logo" /></a>
         </div>
         <nav className="hidden lg:flex items-center space-x-6">
           {navItems.map((item, idx) =>
@@ -573,10 +573,10 @@ const Navbar = () => {
                       <div
                         key={subIdx}
                         className={`mb-4 last:mb-0 ${
-                          category.services ? 'relative group/sub' : ''
+                          'services' in category ? 'relative group/sub' : ''
                         }`}
                       >
-                        {category.services ? (
+                        {'services' in category ? (
                           // Render with sub-dropdown if services exist
                           <>
                             <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
@@ -632,7 +632,7 @@ const Navbar = () => {
             ) : (
               <a
                 key={idx}
-                href={item.link}
+                href={item.link || "#"}
                 className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
               >
                 {item.label}
@@ -679,7 +679,7 @@ const Navbar = () => {
                         <div className="font-medium py-1 text-orange-400">
                           {category.category}
                         </div>
-                        {category.services && (
+                        {'services' in category && category.services && (
                           <div className="ml-4 space-y-1">
                             {category.services
                               .slice(0, 2)
