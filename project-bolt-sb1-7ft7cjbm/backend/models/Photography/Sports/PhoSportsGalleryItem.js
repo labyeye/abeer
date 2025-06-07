@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PregalleryItemSchema = new mongoose.Schema({
+const PhoSportsItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const PregalleryItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('PreGalleryItem', PregalleryItemSchema);
+module.exports = mongoose.model('PhoSportsItem', PhoSportsItemSchema);

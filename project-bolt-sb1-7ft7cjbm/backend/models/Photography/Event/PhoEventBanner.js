@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PreweddingBannerSchema = new mongoose.Schema({
+const PhoEventBannerSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -21,4 +21,4 @@ const PreweddingBannerSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('PreWeddingBanner', PreweddingBannerSchema);
+module.exports = mongoose.model('PhoEventBanner', PhoEventBannerSchema);

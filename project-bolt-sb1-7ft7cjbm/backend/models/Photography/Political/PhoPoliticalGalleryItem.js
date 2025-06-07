@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const BirthdayItemSchema = new mongoose.Schema({
+const PhoPoliticalItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const BirthdayItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('BirthdayItem', BirthdayItemSchema);
+module.exports = mongoose.model('PhoPoliticalItem', PhoPoliticalItemSchema);

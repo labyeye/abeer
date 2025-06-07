@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CinePoliticalItemSchema = new mongoose.Schema({
+const PhoBirthdayItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const CinePoliticalItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('CinePoliticalItem', CinePoliticalItemSchema);
+module.exports = mongoose.model('PhoBirthdayItem', PhoBirthdayItemSchema);

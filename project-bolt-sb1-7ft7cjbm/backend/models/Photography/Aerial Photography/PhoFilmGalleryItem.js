@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const galleryItemSchema = new mongoose.Schema({
+const PhoAerialItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const galleryItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('GalleryItem', galleryItemSchema);
+module.exports = mongoose.model('PhoAerialItem', PhoAerialItemSchema);

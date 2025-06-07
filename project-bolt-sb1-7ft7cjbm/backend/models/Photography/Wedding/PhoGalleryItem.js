@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const EventItemSchema = new mongoose.Schema({
+const PhoWeddinggalleryItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const EventItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('EventItem', EventItemSchema);
+module.exports = mongoose.model('PhoWeddingGalleryItem', PhoWeddinggalleryItemSchema);

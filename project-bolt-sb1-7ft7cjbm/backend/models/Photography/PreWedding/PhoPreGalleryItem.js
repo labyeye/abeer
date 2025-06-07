@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const BabyshowerItemSchema = new mongoose.Schema({
+const PhoPregalleryItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const BabyshowerItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('BabyshowerItem', BabyshowerItemSchema);
+module.exports = mongoose.model('PhoPreGalleryItem', PhoPregalleryItemSchema);

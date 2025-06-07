@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CineSportsItemSchema = new mongoose.Schema({
+const PhoBabyShootItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const CineSportsItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('CineSportsItem', CineSportsItemSchema);
+module.exports = mongoose.model('PhoBabyShootItem', PhoBabyShootItemSchema);

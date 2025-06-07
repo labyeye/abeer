@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CineFilmItemSchema = new mongoose.Schema({
+const PhoEventItemSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -40,4 +40,4 @@ const CineFilmItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('CineFilmItem', CineFilmItemSchema);
+module.exports = mongoose.model('PhoEventItem', PhoEventItemSchema);
