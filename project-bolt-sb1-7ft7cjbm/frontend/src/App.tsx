@@ -162,7 +162,7 @@ function AppContent() {
               element={<CineBabyShootGalleryManager />}
             />
             <Route
-              path="cinematography/film-gallery"
+              path="cinematography/film-banner"
               element={<CineFilmBannerManager />}
             />
             <Route
@@ -170,7 +170,7 @@ function AppContent() {
               element={<CineFilmGalleryManager />}
             />
             <Route
-              path="cinematography/political-gallery"
+              path="cinematography/political-banner"
               element={<CinePoliticalBannerManager />}
             />
             <Route
@@ -178,7 +178,7 @@ function AppContent() {
               element={<CinePoliticalGalleryManager />}
             />
             <Route
-              path="cinematography/sports-gallery"
+              path="cinematography/sports-banner"
               element={<CineSportsBannerManager />}
             />
             <Route
