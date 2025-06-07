@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../../HomePage/Navbar";
 import BabyshowerBanner from "./BabySourBanner";
 import BabyshowerGallery from "./BabySourGallery";
+import BabyshootGallery from "../Baby Shoot/BabyShootGallery";
+import BirthdayGallery from "../Birthday/BirthdayGallery";
 
 const BabyshowerPage = () => {
   return (
@@ -13,6 +15,8 @@ const BabyshowerPage = () => {
       <main className="flex-grow">
         <BabyshowerBanner />
         <BabyshowerGallery />
+        <BabyshootGallery/>
+        <BirthdayGallery/>
       </main>
     </div>
   );

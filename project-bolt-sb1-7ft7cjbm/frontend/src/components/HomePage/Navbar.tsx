@@ -29,15 +29,11 @@ const Navbar = () => {
           link: "/cinematography/prewedding",
         },
         {
-          category: "Baby shower",
+          category: "Baby shower / Baby Shoot / Birthday",
           link: "/cinematography/babyshower",
         },
         {
-          category: "Baby Shoot",
-          link: "/cinematography/babyshoot",
-        },
-        {
-          category: "Birthday",
+          category: "Advertisment Video",
           link: "/cinematography/birthday",
         },
         {
