@@ -11,6 +11,7 @@ import {
   FiLogOut,
   FiChevronDown,
   FiChevronRight,
+  FiCamera,
 } from "react-icons/fi";
 
 export const DashboardSidebar = () => {
@@ -68,9 +69,7 @@ export const DashboardSidebar = () => {
           name: "BabyshowerGallery",
           path: "cinematography/babyshower-gallery",
         },
-        { name: "BabyshootBanner", path: "cinematography/babyshoot-banner" },
         { name: "BabyshootGallery", path: "cinematography/babyshoot-gallery" },
-        { name: "BirthdayBanner", path: "cinematography/birthday-banner" },
         { name: "BirthdayGallery", path: "cinematography/birthday-gallery" },
         { name: "EventBanner", path: "cinematography/event-banner" },
         { name: "EventGallery", path: "cinematography/event-gallery" },
@@ -83,13 +82,49 @@ export const DashboardSidebar = () => {
       ],
     },
     {
-      name: "Photography",
-      icon: <FiImage className="w-5 h-5" />,
+      name: "PhotoGraphy",
+      icon: <FiCamera className="w-5 h-5" />,
       path: null,
       children: [
-        { name: "Gallery", path: "/dashboard/gallery" },
-        { name: "Hero Slider", path: "/dashboard/homeslides" },
-        { name: "Category Showcase", path: "/dashboard/categories" },
+        { name: "WeddingBanner", path: "photography/banner" },
+        { name: "WeddingGallery", path: "photography/gallery" },
+        { name: "PreWeddingBanner", path: "photography/prewedding-banner" },
+        {
+          name: "PreWeddingGallery",
+          path: "photography/prewedding-gallery",
+        },
+        { name: "BabyshowerBanner", path: "photography/babyshower-banner" },
+        {
+          name: "BabyshowerGallery",
+          path: "photography/babyshower-gallery",
+        },
+        { name: "BabyshootGallery", path: "photography/babyshoot-gallery" },
+        { name: "BirthdayGallery", path: "photography/birthday-gallery" },
+        { name: "ModellingBanner", path: "photography/modelling-banner" },
+        {
+          name: "ModellingGallery",
+          path: "photography/modelling-gallery",
+        },
+        { name: "ProductBanner", path: "photography/product-banner" },
+        { name: "ProductGallery", path: "photography/product-gallery" },
+        { name: "AerialBanner", path: "photography/aerial-banner" },
+        { name: "AerialGallery", path: "photography/aerial-gallery" },
+        { name: "EventBanner", path: "photography/event-banner" },
+        { name: "EventGallery", path: "photography/event-gallery" },
+        { name: "SportsBanner", path: "photography/sports-banner" },
+        { name: "SportsGallery", path: "photography/sports-gallery" },
+        { name: "PoliticalBanner", path: "photography/political-banner" },
+        { name: "PoliticalGallery", path: "photography/political-gallery" },
+        {
+          name: "PoliticalCampaignBanner",
+          path: "photography/campaign-banner",
+        },
+        {
+          name: "PoliticalCampaignGallery",
+          path: "photography/campaign-gallery",
+        },
+        { name: "PhotoBookBanner", path: "photography/book-banner" },
+        { name: "PhotoBookGallery", path: "photography/book-gallery" },
       ],
     },
     {

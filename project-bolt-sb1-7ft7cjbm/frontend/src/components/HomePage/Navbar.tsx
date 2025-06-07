@@ -33,6 +33,10 @@ const Navbar = () => {
           link: "/cinematography/babyshower",
         },
         {
+          category: "Event",
+          link: "/cinematography/event",
+        },
+        {
           category: "Sports (Cricket, Football, etc.)",
           link: "/cinematography/sports",
         },
@@ -50,72 +54,48 @@ const Navbar = () => {
       label: "Photography",
       dropdown: [
         {
-          category: "Modeling",
-          services: [
-            "Portrait Photography",
-            "Fashion Shoots",
-            "Beauty Photography",
-            "Headshots",
-            "Commercial Modeling",
-            "Editorial Work",
-            "Lifestyle Photography",
-            "Glamour Shoots",
-          ],
+          category: "Wedding",
+          link: "/photography/wedding",
         },
         {
-          category: "Product",
-          services: [
-            "E-commerce Photography",
-            "Catalog Shoots",
-            "Advertisement Photography",
-            "Food Photography",
-            "Jewelry Photography",
-            "Electronics",
-            "Automotive",
-            "Industrial",
-          ],
+          category: "Pre Wedding",
+          link: "/photography/prewedding",
         },
         {
-          category: "Drone",
-          services: [
-            "Aerial Photography",
-            "Real Estate",
-            "Event Coverage",
-            "Landscape Photography",
-            "Construction Documentation",
-            "Agricultural Surveys",
-            "Wedding Aerials",
-            "Commercial Services",
-          ],
+          category: "Baby shower / Baby Shoot / Birthday",
+          link: "/photography/babyshower",
         },
         {
-          category: "Sports",
-          services: [
-            "Cricket Photography",
-            "Football Coverage",
-            "Basketball",
-            "Tennis",
-            "Swimming Events",
-            "Marathon",
-            "Outdoor Sports",
-            "Indoor Sports",
-          ],
+          category: "Modelling / Product / Aerial Photography",
+          link: "/photography/modelling",
         },
         {
-          category: "Studio",
-          services: [
-            "Portrait Studio",
-            "Product Photography",
-            "Fashion Studio",
-            "Family Photos",
-            "Corporate Headshots",
-            "Model Portfolio",
-            "Children Photography",
-            "Group Photos",
-          ],
+          category: "PhotoStudio",
+          link: "/photography/studio",
+        },
+        {
+          category: "Event",
+          link: "/photography/event",
+        },
+        {
+          category: "Sports (Cricket, Football, etc.)",
+          link: "/photography/sports",
+        },
+        {
+          category: "Political / Government Filmmaking",
+          link: "/photography/political",
+        },
+        {
+          category: "Political / Government Campaign",
+          link: "/photography/politicalcampaign",
+        },
+        {
+          category: "Photobook / Album",
+          link: "/photography/album",
         },
       ],
     },
+    
     {
       label: "Cine Equipment",
       dropdown: [

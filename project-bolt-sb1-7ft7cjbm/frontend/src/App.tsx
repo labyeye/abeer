@@ -94,6 +94,10 @@ function AppContent() {
             element={<BabyshowerPage />}
           />
           <Route
+            path="/cinematography/event"
+            element={<EventPage />}
+          />
+          <Route
             path="/cinematography/sports"
             element={<SportsPage />}
           />
