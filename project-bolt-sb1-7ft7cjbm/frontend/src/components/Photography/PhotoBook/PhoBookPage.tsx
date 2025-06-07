@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import SportsBanner from "./SportsBanner";
-import SportsGallery from "./SportsGallery";
+import EventBanner from "./PhoBookBanner";
+import EventGallery from "./PhoBookGallery";
 
-const PhoSportsPage = () => {
+const EventPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -11,11 +11,11 @@ const PhoSportsPage = () => {
       <Navbar />
       
       <main className="flex-grow">
-        <SportsBanner />
-        <SportsGallery />
+        <EventBanner />
+        <EventGallery />
       </main>
     </div>
   );
 };
 
-export default PhoSportsPage;
+export default EventPage;

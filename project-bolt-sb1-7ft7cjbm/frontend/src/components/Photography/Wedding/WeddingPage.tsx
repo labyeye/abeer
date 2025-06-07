@@ -3,7 +3,7 @@ import Navbar from "../../HomePage/Navbar";
 import WeddingBanner from "./WeddingBanner";
 import WeddingGallery from "./WeddingGallery";
 
-const WeddingPage = () => {
+const PhoWeddingPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -18,4 +18,4 @@ const WeddingPage = () => {
   );
 };
 
-export default WeddingPage;
+export default PhoWeddingPage;

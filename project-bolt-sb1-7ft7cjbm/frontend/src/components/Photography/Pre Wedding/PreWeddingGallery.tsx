@@ -24,7 +24,7 @@ const PreWeddingGallery = () => {
     console.log("Fetching prewedding gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cine-prewedding-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/pho-pre-wedding-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

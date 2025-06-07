@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface PreWeddingBannerData {
+interface EventBannerData {
   title: string;
   description: string;
   backgroundImageUrl: string;
 }
 
-const PreWeddingBanner = () => {
-  const [banner, setBanner] = useState<PreWeddingBannerData | null>(null);
+const EventBanner = () => {
+  const [banner, setBanner] = useState<EventBannerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
@@ -16,7 +16,7 @@ const PreWeddingBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/pho-pre-wedding-banner/active"
+          "https://abeer.onrender.com/api/pho-book-banner/active"
         );
         setBanner(response.data);
       } catch (error) {
@@ -71,4 +71,4 @@ const PreWeddingBanner = () => {
   );
 };
 
-export default PreWeddingBanner;
+export default EventBanner;

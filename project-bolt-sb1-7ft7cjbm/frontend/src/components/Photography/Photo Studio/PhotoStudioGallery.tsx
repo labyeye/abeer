@@ -13,7 +13,7 @@ type GalleryItem = {
   videoUrl: string;
 };
 
-const SportsGallery = () => {
+const EventGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -24,7 +24,7 @@ const SportsGallery = () => {
     console.log("Fetching Event gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/pho-sports-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/pho-studio-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -61,7 +61,7 @@ const SportsGallery = () => {
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-12 text-center">
-          Our Sports Films
+          Our Event Films
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -141,4 +141,4 @@ const SportsGallery = () => {
   );
 };
 
-export default SportsGallery;
+export default EventGallery;

@@ -16,7 +16,7 @@ const SportsBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/cine-sports-banner/active"
+          "https://abeer.onrender.com/api/pho-sports-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

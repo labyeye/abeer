@@ -3,7 +3,7 @@ import Navbar from "../../HomePage/Navbar";
 import PoliticalBanner from "./PoliticalBanner";
 import PoliticalGallery from "./PoliticalGallery";
 
-const PoliticalPage = () => {
+const PhoPoliticalPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -18,4 +18,4 @@ const PoliticalPage = () => {
   );
 };
 
-export default PoliticalPage;
+export default PhoPoliticalPage;

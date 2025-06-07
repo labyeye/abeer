@@ -3,7 +3,7 @@ import Navbar from "../../HomePage/Navbar";
 import PreWeddingBanner from "./PreWeddingBanner";
 import PreWeddingGallery from "./PreWeddingGallery";
 
-const PreWeddingPage = () => {
+const PhoPreWeddingPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -18,4 +18,4 @@ const PreWeddingPage = () => {
   );
 };
 
-export default PreWeddingPage;
+export default PhoPreWeddingPage;
