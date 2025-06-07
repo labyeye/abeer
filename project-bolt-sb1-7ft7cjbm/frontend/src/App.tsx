@@ -27,8 +27,6 @@ import CinePreWeddingGalleryManager from "./dashboard/components/Cinematography/
 import BabyshowerPage from "./components/Cinematography/Baby shower/BabySourPage";
 import CineBabyshowerBannerManager from "./dashboard/components/Cinematography/Baby Shower/CineBabySourBannerManager";
 import CineBabyshowerGalleryManager from "./dashboard/components/Cinematography/Baby Shower/CineBabySourGalleryManager";
-import BabyshootPage from "./components/Cinematography/Baby Shoot/BabyShootPage";
-import BirthdayPage from "./components/Cinematography/Birthday/BirthdayPage";
 import EventPage from "./components/Cinematography/Event/EventPage";
 import CineBirthdayBannerManager from "./dashboard/components/Cinematography/Birthday/CineBirthdayBannerManager";
 import CineBirthdayGalleryManager from "./dashboard/components/Cinematography/Birthday/CineBirthdayGalleryManager";
@@ -86,8 +84,6 @@ function AppContent() {
             path="/cinematography/babyshower"
             element={<BabyshowerPage />}
           />
-          <Route path="/cinematography/babyshoot" element={<BabyshootPage />} />
-          <Route path="/cinematography/birthday" element={<BirthdayPage />} />
           <Route path="/cinematography/event" element={<EventPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>

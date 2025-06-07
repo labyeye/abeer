@@ -19,6 +19,12 @@ const cinebirthdayBannerRoutes = require('./routes/Cinematography/Birthday/cineB
 const cinebirthdayGalleryRoutes = require('./routes/Cinematography/Birthday/cineBirthdaygalleryRoutes');
 const cineEventBannerRoutes = require('./routes/Cinematography/Event/EventBannerRoutes');
 const cineEventShootGalleryRoutes = require('./routes/Cinematography/Event/EventgalleryRoutes');
+const cineSportsBannerRoutes = require('./routes/Cinematography/Sports/cineSportsBannerRoutes');
+const cineSportsGalleryRoutes = require('./routes/Cinematography/Sports/cineSportsgalleryRoutes');
+const cinePoliticalBannerRoutes = require('./routes/Cinematography/Political/cinePoliticalBannerRoutes');
+const cinePoliticalGalleryRoutes = require('./routes/Cinematography/Political/cinePoliticalgalleryRoutes');
+const cineFilmBannerRoutes = require('./routes/Cinematography/Cinema/cineFilmBannerRoutes');
+const cineFilmGalleryRoutes = require('./routes/Cinematography/Cinema/cineFilmgalleryRoutes');
 const app = express();
 
 connectDB();
@@ -47,6 +53,12 @@ app.use('/api/cine-birthday-banner',cinebirthdayBannerRoutes);
 app.use('/api/cine-birthday-gallery', cinebirthdayGalleryRoutes);
 app.use('/api/cine-event-banner',cineEventBannerRoutes);
 app.use('/api/cine-event-gallery', cineEventShootGalleryRoutes);
+app.use('/api/cine-sports-banner',cineSportsBannerRoutes);
+app.use('/api/cine-sports-gallery', cineSportsGalleryRoutes);
+app.use('/api/cine-political-banner',cinePoliticalBannerRoutes);
+app.use('/api/cine-political-gallery', cinePoliticalGalleryRoutes);
+app.use('/api/cine-film-banner', cineFilmBannerRoutes);
+app.use('/api/cine-film-gallery', cineFilmGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 
