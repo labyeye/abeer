@@ -3,7 +3,7 @@ import Navbar from "../../HomePage/Navbar";
 import CinemaBanner from "./AerialBanner";
 import CinemaGallery from "./AerialGallery";
 
-const CinemaPage = () => {
+const PhoAerialPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -18,4 +18,4 @@ const CinemaPage = () => {
   );
 };
 
-export default CinemaPage;
+export default PhoAerialPage;

@@ -5,7 +5,7 @@ import BabyshowerGallery from "./BabySourGallery";
 import BabyshootGallery from "../Baby Shoot/PhoBabyShootGallery";
 import BirthdayGallery from "../Birthday/BirthdayGallery";
 
-const BabyshowerPage = () => {
+const PhoBabyshowerPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -22,4 +22,4 @@ const BabyshowerPage = () => {
   );
 };
 
-export default BabyshowerPage;
+export default PhoBabyshowerPage;
