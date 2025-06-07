@@ -24,7 +24,7 @@ const EventGallery = () => {
     console.log("Fetching Event gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cine-event-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/pho-event-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import CinemaBanner from "./CinemaBanner";
-import CinemaGallery from "./CinemaGallery";
+import CinemaBanner from "./AerialBanner";
+import CinemaGallery from "./AerialGallery";
 
 const CinemaPage = () => {
   return (

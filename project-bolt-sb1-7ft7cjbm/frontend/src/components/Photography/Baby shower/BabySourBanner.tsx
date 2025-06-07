@@ -16,7 +16,7 @@ const BabyshowerBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/cine-babyshower-banner/active"
+          "https://abeer.onrender.com/api/pho-baby-sour-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

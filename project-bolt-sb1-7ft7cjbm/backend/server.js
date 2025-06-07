@@ -45,6 +45,10 @@ const phoWeddingBannerRoutes = require('./routes/PhotoGraphy/Wedding/phoweddingB
 const phoWeddingGalleryRoutes = require('./routes/PhotoGraphy/Wedding/phogalleryRoutes');
 const phoBabyShootBannerRoutes = require('./routes/PhotoGraphy/Baby Shoot/phobabyShootBannerRoutes');
 const phoBabyShootGalleryRoutes = require('./routes/PhotoGraphy/Baby Shoot/phobabyShootgalleryRoutes');
+const phoModelBannerRoutes = require('./routes/PhotoGraphy/Modelling/phoModelBannerRoutes');
+const phoModelGalleryRoutes = require('./routes/PhotoGraphy/Modelling/phoModelgalleryRoutes');
+const phoStudioBannerRoutes = require('./routes/PhotoGraphy/Photo Studio/phoStudioBannerRoutes');
+const phoStudioGalleryRoutes = require('./routes/PhotoGraphy/Photo Studio/phoStudiogalleryRoutes');
 
 const app = express();
 
@@ -100,7 +104,10 @@ app.use('/api/pho-wedding-banner', phoWeddingBannerRoutes);
 app.use('/api/pho-wedding-gallery', phoWeddingGalleryRoutes);
 app.use('/api/pho-baby-shoot-banner', phoBabyShootBannerRoutes);
 app.use('/api/pho-baby-shoot-gallery', phoBabyShootGalleryRoutes);
-
+app.use('/api/pho-model-banner', phoModelBannerRoutes);
+app.use('/api/pho-model-gallery', phoModelGalleryRoutes);
+app.use('/api/pho-studio-banner', phoStudioBannerRoutes);
+app.use('/api/pho-studio-gallery', phoStudioGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 
