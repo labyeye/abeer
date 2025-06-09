@@ -38,7 +38,7 @@ const Navbar = () => {
         },
         {
           category: "Advertising",
-          link: "/cinematography/ads",
+          link: "/cinematography/ad",
         },
         {
           category: "Sports (Cricket, Football, etc.)",

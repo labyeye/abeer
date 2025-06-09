@@ -43,6 +43,9 @@ import CinePoliticalBannerManager from "./dashboard/components/Cinematography/Po
 import CinePoliticalGalleryManager from "./dashboard/components/Cinematography/Political/CinePoliticalGalleryManager";
 import CineSportsBannerManager from "./dashboard/components/Cinematography/Sports/CineSportsBannerManager";
 import CineSportsGalleryManager from "./dashboard/components/Cinematography/Sports/CineSportsGalleryManager";
+import CineAdPage from "./components/Cinematography/Advertising/CineAdPage";
+import CineadtBannerManager from "./dashboard/components/Cinematography/Advertising/CineAdBannerManager";
+import CineAdGalleryManager from "./dashboard/components/Cinematography/Advertising/CineAdGalleryManager";
 
 function AppContent() {
   const location = useLocation();
@@ -109,6 +112,10 @@ function AppContent() {
             path="/cinematography/film"
             element={<CinemaPage />}
           />
+          <Route
+            path="/cinematography/ad"
+            element={<CineAdPage />}
+          />
           <Route path="/cinematography/event" element={<EventPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
@@ -172,6 +179,14 @@ function AppContent() {
             <Route
               path="cinematography/film-gallery"
               element={<CineFilmGalleryManager />}
+            />
+            <Route
+              path="cinematography/ad-banner"
+              element={<CineadtBannerManager />}
+            />
+            <Route
+              path="cinematography/ad-gallery"
+              element={<CineAdGalleryManager />}
             />
             <Route
               path="cinematography/political-banner"

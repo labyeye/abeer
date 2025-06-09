@@ -21,6 +21,8 @@ const cineEventBannerRoutes = require('./routes/Cinematography/Event/EventBanner
 const cineEventShootGalleryRoutes = require('./routes/Cinematography/Event/EventgalleryRoutes');
 const cineSportsBannerRoutes = require('./routes/Cinematography/Sports/cineSportsBannerRoutes');
 const cineSportsGalleryRoutes = require('./routes/Cinematography/Sports/cineSportsgalleryRoutes');
+const cineAdBannerRoutes = require('./routes/Cinematography/Advertising/cineAdBannerRoutes');
+const cineAdGalleryRoutes = require('./routes/Cinematography/Advertising/cineAdGalleryRoutes');
 const cinePoliticalBannerRoutes = require('./routes/Cinematography/Political/cinePoliticalBannerRoutes');
 const cinePoliticalGalleryRoutes = require('./routes/Cinematography/Political/cinePoliticalgalleryRoutes');
 const cineFilmBannerRoutes = require('./routes/Cinematography/Cinema/cineFilmBannerRoutes');
@@ -84,6 +86,8 @@ app.use('/api/cine-political-banner',cinePoliticalBannerRoutes);
 app.use('/api/cine-political-gallery', cinePoliticalGalleryRoutes);
 app.use('/api/cine-film-banner', cineFilmBannerRoutes);
 app.use('/api/cine-film-gallery', cineFilmGalleryRoutes);
+app.use('/api/cine-ad-banner', cineAdBannerRoutes);
+app.use('/api/cine-ad-gallery', cineAdGalleryRoutes);
 app.use('/api/pho-aerial-banner', phoAerialBannerRoutes);
 app.use('/api/pho-aerial-gallery', phoAerialGalleryRoutes);
 app.use('/api/pho-baby-sour-banner', phoBabySourBannerRoutes);

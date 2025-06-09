@@ -75,6 +75,8 @@ export const DashboardSidebar = () => {
         { name: "EventGallery", path: "cinematography/event-gallery" },
         { name: "SportsBanner", path: "cinematography/sports-banner" },
         { name: "SportsGallery", path: "cinematography/sports-gallery" },
+        { name: "AdvertisingBanner", path: "cinematography/ad-banner" },
+        { name: "AdvertisingGallery", path: "cinematography/ad-gallery" },
         { name: "PoliticalBanner", path: "cinematography/political-banner" },
         { name: "PoliticalGallery", path: "cinematography/political-gallery" },
         { name: "FilmBanner", path: "cinematography/film-banner" },
