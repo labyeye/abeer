@@ -21,6 +21,7 @@ import PhotoStudioPage from "../../components/Photography/Photo Studio/PhoStudio
 import PhoSportsPage from "../../components/Photography/Sports/SportsPage";
 import PhoPoliticalPage from "../../components/Photography/Political/PoliticalPage";
 import PhoBookPage from "../../components/Photography/PhotoBook/PhoBookPage";
+import LiveStreamPage from "../../components/Live Streaming/LiveStreamlPage";
 
 
 interface AppRoutesProps {
@@ -32,6 +33,7 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     {/* Public Routes */}
     <Route path="/" element={<HomePage categories={categories} />} />
     <Route path="/about" element={<AboutPage />} />
+    <Route path="/livestream" element={< LiveStreamPage/>} />
     <Route path="/cinematography/wedding" element={<WeddingPage />} />
     <Route path="/cinematography/prewedding" element={<PreWeddingPage />} />
     <Route path="/cinematography/babyshower" element={<BabyshowerPage />} />

@@ -170,64 +170,7 @@ const Navbar = () => {
         },
       ],
     },
-    {
-      label: "Live Streaming",
-      dropdown: [
-        {
-          category: "Political Event",
-          services: [
-            "Election Campaigns",
-            "Rally Broadcasting",
-            "Political Speeches",
-            "Party Meetings",
-            "Debate Coverage",
-            "Press Conferences",
-            "Government Functions",
-            "Political Interviews",
-          ],
-        },
-        {
-          category: "Religious Programs",
-          services: [
-            "Bhajan Keerthi",
-            "Ram Katha",
-            "Sai Katha",
-            "Jyothi Bhagya",
-            "Ganapathi Festival",
-            "Navratri",
-            "Datta Jayanthi",
-            "Religious Ceremonies",
-          ],
-        },
-        {
-          category: "Corporate Events",
-          services: [
-            "Business Conferences",
-            "Corporate Meetings",
-            "Product Launches",
-            "AGM Broadcasting",
-            "Training Seminars",
-            "Award Ceremonies",
-            "Team Building",
-            "Board Meetings",
-          ],
-        },
-        {
-          category: "Public Events",
-          services: [
-            "Festivals",
-            "Community Gatherings",
-            "Educational Events",
-            "Cultural Programs",
-            "Sports Events",
-            "Charity Functions",
-            "Government Programs",
-            "Social Campaigns",
-          ],
-        },
-      ],
-    },
-    
+    { label: "Live Streaming", link: "/livestream" },
     {
       label: "Audio Studio",
       dropdown: [

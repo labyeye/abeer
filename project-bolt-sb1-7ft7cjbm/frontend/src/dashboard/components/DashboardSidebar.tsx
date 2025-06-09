@@ -12,6 +12,7 @@ import {
   FiChevronDown,
   FiChevronRight,
   FiCamera,
+  FiLink,
 } from "react-icons/fi";
 
 export const DashboardSidebar = () => {
@@ -123,6 +124,17 @@ export const DashboardSidebar = () => {
         { name: "PhotoStudioGallery", path: "photography/studio-gallery" },
       ],
     },
+
+    {
+      name: "Live Streaming",
+      icon: <FiLink className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Live Stream Banner", path: "/dashboard/livestream-banner" },
+        { name: "Live Stream Gallery", path: "/dashboard/livestream-gallery" },
+      ],
+    },
+    
     {
       name: "Users",
       icon: <FiUsers className="w-5 h-5" />,

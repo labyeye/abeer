@@ -46,6 +46,8 @@ import PhoSportsBannerManager from "../../dashboard/components/Photography/Sport
 import PhoSportsGalleryManager from "../../dashboard/components/Photography/Sports/PhoSportsGalleryManager";
 import PhoBookBannerManager from "../../dashboard/components/Photography/PhotoBook/PhoBookBannerManager";
 import PhoBookGalleryManager from "../../dashboard/components/Photography/PhotoBook/PhoBookGalleryManager";
+import LiveStreamBannerManager from "../../dashboard/components/Live Stream/LiveStreamBannerManager";
+import LiveStreamGalleryManager from "../../dashboard/components/Live Stream/LiveStreamGalleryManager";
 
 
 
@@ -253,5 +255,24 @@ export const DashboardRoutes = (
       path="photography/book-gallery"
       element={<PhoBookGalleryManager />}
     />
+    <Route
+      path="photography/livestream-banner"
+      element={<LiveStreamBannerManager />}
+    />
+    <Route
+      path="photography/livestream-gallery"
+      element={<LiveStreamGalleryManager />}
+    />
+    {/* Live Streaming */}
+    <Route
+      path="livestream-banner"
+      element={<LiveStreamBannerManager />}
+    />
+    <Route
+      path="livestream-gallery"
+      element={<LiveStreamGalleryManager />}
+    />
+    
   </Route>
+  
 );
