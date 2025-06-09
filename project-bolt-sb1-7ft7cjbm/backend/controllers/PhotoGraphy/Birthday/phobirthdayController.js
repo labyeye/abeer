@@ -12,7 +12,7 @@ exports.getAllGalleryItems = async (req, res) => {
 
 // Create new gallery item
 exports.createGalleryItem = async (req, res) => {
-  const { title, description, place, thumbnail, videoUrl, isFeatured } = req.body;
+  const { title, description, place, thumbnail, isFeatured } = req.body;
   
   try {
     const newItem = new BabyshowerGalleryItem({
@@ -20,7 +20,7 @@ exports.createGalleryItem = async (req, res) => {
       description,
       place,
       thumbnail,
-      videoUrl,
+     
       isFeatured: isFeatured || false
     });
 

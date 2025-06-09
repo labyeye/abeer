@@ -168,10 +168,6 @@ export const DashboardRoutes = (
       element={<PhoWeddingGalleryManager />}
     />
     <Route
-      path="photography/babyshoot-banner"
-      element={<PhoBabyShootBannerManager />}
-    />
-    <Route
       path="photography/babyshoot-gallery"
       element={<PhoBabyShootGalleryManager />}
     />
@@ -198,6 +194,14 @@ export const DashboardRoutes = (
     <Route
       path="photography/modelling-gallery"
       element={<PhoModelGalleryManager />}
+    />
+    <Route
+      path="photography/political-banner"
+      element={<PhoPoliticalBannerManager />}
+    />
+    <Route
+      path="photography/political-gallery"
+      element={<PhoPoliticalGalleryManager />}
     />
   </Route>
 );

@@ -34,7 +34,7 @@ const PhoBabyshowerGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/pho-babyshower-gallery");
+      const response = await axios.get("https://abeer.onrender.com/api/pho-baby-sour-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const PhoBabyshowerGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/pho-babyshower-gallery/${editingId}`, formData);
+        await axios.put(`https://abeer.onrender.com/api/pho-baby-sour-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/pho-babyshower-gallery", formData);
+        await axios.post("https://abeer.onrender.com/api/pho-baby-sour-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const PhoBabyshowerGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/pho-babyshower-gallery/${id}`);
+        await axios.delete(`https://abeer.onrender.com/api/pho-baby-sour-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -101,7 +101,7 @@ const PhoBabyshowerGalleryManager = () => {
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">Wedding Gallery Manager</h1>
+      <h1 className="text-2xl font-bold mb-6">Baby Shoot / Shower & Birthday Gallery Manager</h1>
       
       <div className="bg-white p-6 rounded-lg shadow-md mb-6">
         <h2 className="text-xl font-semibold mb-4">

@@ -25,11 +25,7 @@ const PhoBabyShootItemSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  videoUrl: {
-    type: String,
-    required: true,
-    trim: true
-  },
+
   isFeatured: {
     type: Boolean,
     default: false

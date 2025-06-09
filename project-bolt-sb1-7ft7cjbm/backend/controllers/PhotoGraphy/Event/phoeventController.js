@@ -10,7 +10,7 @@ exports.getAllGalleryItems = async (req, res) => {
 };
 
 exports.createGalleryItem = async (req, res) => {
-  const { title, description, place, thumbnail, videoUrl, isFeatured } = req.body;
+  const { title, description, place, thumbnail,  isFeatured } = req.body;
   
   try {
     const newItem = new EventGalleryItem({
@@ -18,7 +18,7 @@ exports.createGalleryItem = async (req, res) => {
       description,
       place,
       thumbnail,
-      videoUrl,
+      
       isFeatured: isFeatured || false
     });
 

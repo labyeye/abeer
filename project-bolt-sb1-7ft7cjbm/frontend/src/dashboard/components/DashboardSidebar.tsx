@@ -88,8 +88,8 @@ export const DashboardSidebar = () => {
       icon: <FiCamera className="w-5 h-5" />,
       path: null,
       children: [
-        { name: "WeddingBanner", path: "photography/banner" },
-        { name: "WeddingGallery", path: "photography/gallery" },
+        { name: "WeddingBanner", path: "photography/wedding-banner" },
+        { name: "WeddingGallery", path: "photography/wedding-gallery" },
         { name: "PreWeddingBanner", path: "photography/prewedding-banner" },
         {
           name: "PreWeddingGallery",
@@ -117,10 +117,6 @@ export const DashboardSidebar = () => {
         { name: "SportsGallery", path: "photography/sports-gallery" },
         { name: "PoliticalBanner", path: "photography/political-banner" },
         { name: "PoliticalGallery", path: "photography/political-gallery" },
-        {
-          name: "PoliticalCampaignBanner",
-          path: "photography/campaign-banner",
-        },
         { name: "PhotoBookBanner", path: "photography/book-banner" },
         { name: "PhotoBookGallery", path: "photography/book-gallery" },
       ],
