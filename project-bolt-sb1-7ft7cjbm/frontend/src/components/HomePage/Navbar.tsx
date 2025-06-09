@@ -410,59 +410,27 @@ const Navbar = () => {
       ],
     },
     {
-      label: "Camping",
+      label: "Campaigning",
       dropdown: [
         {
-          category: "Political Campaign",
-          services: [
-            "Election Campaigns",
-            "Door-to-Door",
-            "Rally Organization",
-            "Voter Awareness",
-            "Candidate Promotion",
-            "Political Messaging",
-            "Community Outreach",
-            "Grassroots Mobilization",
-          ],
+          category: "Political Campaigning",
+          link: "/campaigning",
         },
         {
-          category: "Social Campaign",
-          services: [
-            "Health Awareness",
-            "Education Campaigns",
-            "Environmental Initiatives",
-            "Women Empowerment",
-            "Child Safety",
-            "Digital Literacy",
-            "Cleanliness Drives",
-            "Social Justice",
-          ],
+          category: "Buisness & Brand Campaigning",
+          link: "/campaigning",
         },
         {
-          category: "Surveys",
-          services: [
-            "Market Research",
-            "Political Surveys",
-            "Social Research",
-            "Customer Feedback",
-            "Opinion Polls",
-            "Academic Research",
-            "Government Surveys",
-            "Community Assessment",
-          ],
+          category: "Social & Awareness Campaigning",
+          link: "/campaigning",
         },
         {
-          category: "Religious Campaign",
-          services: [
-            "Festival Celebrations",
-            "Religious Awareness",
-            "Spiritual Programs",
-            "Community Events",
-            "Pilgrimage Organization",
-            "Religious Education",
-            "Cultural Preservation",
-            "Interfaith Harmony",
-          ],
+          category: "Religious & Cultural Campaigning",
+          link: "/campaigning",
+        },
+        {
+          category: "Political & Corporate Surveys & Data Collection",
+          link: "/campaigning",
         },
       ],
     },
@@ -519,10 +487,9 @@ const Navbar = () => {
             "Books & Study Material Printing",
             "Office Stationary Supply",
             "Election & Campaign Material Printing",
-            
           ],
         },
-        
+
         {
           category: "Advertising & Media Tenders",
           services: [
