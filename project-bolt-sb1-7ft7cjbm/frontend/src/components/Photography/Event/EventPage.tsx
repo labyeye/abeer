@@ -3,7 +3,7 @@ import Navbar from "../../HomePage/Navbar";
 import EventBanner from "./EventBanner";
 import EventGallery from "./EventGallery";
 
-const EventPage = () => {
+const PhoEventPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -18,4 +18,4 @@ const EventPage = () => {
   );
 };
 
-export default EventPage;
+export default PhoEventPage;

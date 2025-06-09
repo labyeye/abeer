@@ -17,8 +17,6 @@ const BirthdayGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState<GalleryItem | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     console.log("Fetching Babyshower gallery...");
@@ -36,17 +34,6 @@ const BirthdayGallery = () => {
 
     fetchGalleryItems();
   }, []);
-
-  const openModal = (item: GalleryItem) => {
-    setSelectedVideo(item);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedVideo(null);
-  };
-
   if (loading) return <div className="text-center py-20">Loading...</div>;
   if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
 
@@ -60,9 +47,6 @@ const BirthdayGallery = () => {
 
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-12 text-center">
-          Our Aerial Photography
-        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {galleryItems.map((item) => (

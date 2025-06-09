@@ -14,6 +14,8 @@ import CineAdPage from "../../components/Cinematography/Advertising/CineAdPage";
 import PhoAerialPage from "../../components/Photography/Aerial PhotoGraphy/AerialPage";
 import PhoWeddingPage from "../../components/Photography/Wedding/WeddingPage";
 import PhoPreWeddingPage from "../../components/Photography/Pre Wedding/PreWeddingPage";
+import PhoBabyshowerPage from "../../components/Photography/Baby shower/BabySourPage";
+import PhoEventPage from "../../components/Photography/Event/EventPage";
 
 interface AppRoutesProps {
   categories: any[];
@@ -35,6 +37,10 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/photography/aerial" element={<PhoAerialPage />} />
     <Route path="/photography/wedding" element={<PhoWeddingPage />} />
     <Route path="/photography/prewedding" element={<PhoPreWeddingPage />} />
+    <Route path="/photography/babyshower" element={<PhoBabyshowerPage />} />
+    <Route path="/photography/event" element={<PhoEventPage />} />
+    
+
     
     {/* Auth Route */}
     <Route path="/login" element={<Login />} />

@@ -37,6 +37,8 @@ import PhoModelGalleryManager from "../../dashboard/components/Photography/Model
 import PhoModellingBannerManager from "../../dashboard/components/Photography/Modelling/PhoModellingBannerManager";
 import PhoPreWeddingBannerManager from "../../dashboard/components/Photography/Pre Wedding/PhoPreWeddingBannerManager";
 import PhoPreWeddingGalleryManager from "../../dashboard/components/Photography/Pre Wedding/PhoPreWeddingGalleryManager";
+import PhoEventBannerManager from "../../dashboard/components/Photography/Event/PhoEventBannerManager";
+import PhoEventGalleryManager from "../../dashboard/components/Photography/Event/PhoEventGalleryManager";
 
 
 
@@ -211,6 +213,14 @@ export const DashboardRoutes = (
     <Route
       path="photography/prewedding-gallery"
       element={<PhoPreWeddingGalleryManager />}
+    />
+    <Route
+      path="photography/event-banner"
+      element={<PhoEventBannerManager />}
+    />
+    <Route
+      path="photography/event-gallery"
+      element={<PhoEventGalleryManager />}
     />
   </Route>
 );
