@@ -99,7 +99,7 @@ const Navbar = () => {
         },
       ],
     },
-    
+
     {
       label: "Cine Equipment",
       dropdown: [
@@ -170,7 +170,74 @@ const Navbar = () => {
         },
       ],
     },
-    { label: "Live Streaming", link: "/livestream" },
+    {
+      label: "Live Streaming",
+      link: "/livestream", // Main category links to /livestream
+      dropdown: [
+        {
+          category: "Political Event",
+          services: [
+            "Election Campaigning",
+            "Press Conference",
+            "Political Debate & Discussion",
+            "Party Meetings & Announcements",
+          ],
+        },
+        {
+          category: "Religious & Cultural Programs",
+          services: [
+            "Bhagwat Katha, Ram Katha, Shiv Katha",
+            "Jagran, Bhajan Sandhya",
+            "Chhath Puja, Durga Puja, Navratri Events",
+            "Pran Pratishtha & Mandir Mahotsav",
+            "Eid, Christmas & Other Religious Gatherings",
+          ],
+        },
+        {
+          category: "Corporate & Educational",
+          services: [
+            "Business Conferences & Seminars",
+            "Product Launch & Brand Promotion",
+            "Educational Webinars & Workshops",
+            "School/College Annual Functions & Convocations",
+            "Award Ceremonies & Felicitation Events",
+          ],
+        },
+        {
+          category: "Entertainment & Public",
+          services: [
+            "Music Concerts & Live Shows",
+            "Dance Competitions & Talent Shows",
+            "Theatre & Drama Performances",
+            "Sports Tournaments & Matches",
+          ],
+        },
+        {
+          category: "Government & Public Awareness",
+          services: [
+            "Sarkari Yojana Awareness Programs",
+            "Government Meetings & Announcements",
+            "Public Rallies & Protests",
+            "Disaster Relief & Fundraising Events",
+          ],
+        },
+        {
+          category: "Sports",
+          services: [
+            "Cricket Matches",
+            "Football Matches",
+            "Kabaddi Tournaments",
+            "Hockey Matches",
+            "Volleyball & Basketball Matches",
+            "School & College Sports Events",
+            "Annual Sports Day",
+            "Inter-School & Inter-College Tournaments",
+            "University Level Matches",
+          ],
+        },
+      ],
+    },
+
     {
       label: "Audio Studio",
       dropdown: [
@@ -480,7 +547,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/"><img src={logo} alt="Logo" /></a>
+          <a href="/">
+            <img src={logo} alt="Logo" />
+          </a>
         </div>
         <nav className="hidden lg:flex items-center space-x-6">
           {navItems.map((item, idx) =>
@@ -500,10 +569,10 @@ const Navbar = () => {
                       <div
                         key={subIdx}
                         className={`mb-4 last:mb-0 ${
-                          'services' in category ? 'relative group/sub' : ''
+                          "services" in category ? "relative group/sub" : ""
                         }`}
                       >
-                        {'services' in category ? (
+                        {"services" in category ? (
                           // Render with sub-dropdown if services exist
                           <>
                             <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
@@ -527,15 +596,21 @@ const Navbar = () => {
                                   {category.category} Services
                                 </h5>
                                 <div className="grid grid-cols-1 gap-1">
-                                  {category.services.map((service, serviceIdx) => (
-                                    <a
-                                      key={serviceIdx}
-                                      href="#"
-                                      className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
-                                    >
-                                      {service}
-                                    </a>
-                                  ))}
+                                  {category.services.map(
+                                    (service, serviceIdx) => (
+                                      <a
+                                        key={serviceIdx}
+                                        href={
+                                          item.label === "Live Streaming"
+                                            ? "/livestream"
+                                            : "#"
+                                        }
+                                        className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
+                                      >
+                                        {service}
+                                      </a>
+                                    )
+                                  )}
                                 </div>
                               </div>
                             </div>
@@ -606,7 +681,7 @@ const Navbar = () => {
                         <div className="font-medium py-1 text-orange-400">
                           {category.category}
                         </div>
-                        {'services' in category && category.services && (
+                        {"services" in category && category.services && (
                           <div className="ml-4 space-y-1">
                             {category.services
                               .slice(0, 2)
