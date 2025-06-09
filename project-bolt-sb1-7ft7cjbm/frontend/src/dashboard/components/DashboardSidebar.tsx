@@ -57,8 +57,8 @@ export const DashboardSidebar = () => {
       icon: <FiVideo className="w-5 h-5" />,
       path: null,
       children: [
-        { name: "WeddingBanner", path: "cinematography/banner" },
-        { name: "WeddingGallery", path: "cinematography/gallery" },
+        { name: "WeddingBanner", path: "cinematography/wedding-banner" },
+        { name: "WeddingGallery", path: "cinematography/wedding-gallery" },
         { name: "PreWeddingBanner", path: "cinematography/prewedding-banner" },
         {
           name: "PreWeddingGallery",
