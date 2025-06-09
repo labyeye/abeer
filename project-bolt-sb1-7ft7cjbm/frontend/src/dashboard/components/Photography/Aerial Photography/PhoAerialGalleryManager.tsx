@@ -2,26 +2,24 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-type PreGalleryItem = {
+type GalleryItem = {
   _id?: string;
   title: string;
   description: string;
   place: string;
   views: string;
   thumbnail: string;
-  videoUrl: string;
   isFeatured: boolean;
 };
 
-const CineBabyshowerGalleryManager = () => {
-  const [items, setItems] = useState<PreGalleryItem[]>([]);
-  const [formData, setFormData] = useState<PreGalleryItem>({
+const PhoArialGalleryManager = () => {
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [formData, setFormData] = useState<GalleryItem>({
     title: "",
     description: "",
     place: "",
     views: "0 views",
     thumbnail: "",
-    videoUrl: "",
     isFeatured: false
   });
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -34,7 +32,7 @@ const CineBabyshowerGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/cine-babyshower-gallery");
+      const response = await axios.get("http://localhost:2500/api/pho-aerial-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +56,10 @@ const CineBabyshowerGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/cine-babyshower-gallery/${editingId}`, formData);
+        await axios.put(`http://localhost:2500/api/pho-aerial-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-babyshower-gallery", formData);
+        await axios.post("http://localhost:2500/api/pho-aerial-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -70,7 +68,6 @@ const CineBabyshowerGalleryManager = () => {
         place: "",
         views: "0 views",
         thumbnail: "",
-        videoUrl: "",
         isFeatured: false
       });
       setEditingId(null);
@@ -81,7 +78,7 @@ const CineBabyshowerGalleryManager = () => {
     }
   };
 
-  const handleEdit = (item: PreGalleryItem) => {
+  const handleEdit = (item: GalleryItem) => {
     setFormData(item);
     setEditingId(item._id || null);
   };
@@ -89,7 +86,7 @@ const CineBabyshowerGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-babyshower-gallery/${id}`);
+        await axios.delete(`http://localhost:2500/api/pho-aerial-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -101,7 +98,7 @@ const CineBabyshowerGalleryManager = () => {
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">Wedding Gallery Manager</h1>
+      <h1 className="text-2xl font-bold mb-6">Aerial Gallery Manager</h1>
       
       <div className="bg-white p-6 rounded-lg shadow-md mb-6">
         <h2 className="text-xl font-semibold mb-4">
@@ -155,17 +152,7 @@ const CineBabyshowerGalleryManager = () => {
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Video URL</label>
-              <input
-                type="text"
-                name="videoUrl"
-                value={formData.videoUrl}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded"
-                required
-              />
-            </div>
+    
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
@@ -209,7 +196,6 @@ const CineBabyshowerGalleryManager = () => {
                   place: "",
                   views: "0 views",
                   thumbnail: "",
-                  videoUrl: "",
                   isFeatured: false
                 });
                 setEditingId(null);
@@ -285,4 +271,4 @@ const CineBabyshowerGalleryManager = () => {
   );
 };
 
-export default CineBabyshowerGalleryManager;
+export default PhoArialGalleryManager;

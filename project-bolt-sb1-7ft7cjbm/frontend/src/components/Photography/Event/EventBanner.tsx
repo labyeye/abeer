@@ -16,7 +16,7 @@ const EventBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/pho-event-banner/active"
+          "http://localhost:2500/api/pho-event-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

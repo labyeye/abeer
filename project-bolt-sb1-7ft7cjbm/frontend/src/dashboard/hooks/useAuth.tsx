@@ -9,7 +9,7 @@ export const useAuth = () => {
   const login = async (username: string, password: string) => {
     try {
       const { data } = await axios.post(
-        "https://abeer.onrender.com/api/auth/login",
+        "http://localhost:2500/api/auth/login",
         {
           username,
           password,

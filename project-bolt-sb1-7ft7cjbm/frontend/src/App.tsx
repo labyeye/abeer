@@ -46,6 +46,9 @@ import CineSportsGalleryManager from "./dashboard/components/Cinematography/Spor
 import CineAdPage from "./components/Cinematography/Advertising/CineAdPage";
 import CineadtBannerManager from "./dashboard/components/Cinematography/Advertising/CineAdBannerManager";
 import CineAdGalleryManager from "./dashboard/components/Cinematography/Advertising/CineAdGalleryManager";
+import PhoAerialBannerManager from "./dashboard/components/Photography/Aerial Photography/PhoAerialBannerManager";
+import PhoArialGalleryManager from "./dashboard/components/Photography/Aerial Photography/PhoAerialGalleryManager";
+import PhoAerialPage from "./components/Photography/Aerial PhotoGraphy/AerialPage";
 
 function AppContent() {
   const location = useLocation();
@@ -59,7 +62,7 @@ function AppContent() {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/categories"
+          "http://localhost:2500/api/categories"
         );
         setCategories(response.data);
       } catch (error) {
@@ -117,6 +120,7 @@ function AppContent() {
             element={<CineAdPage />}
           />
           <Route path="/cinematography/event" element={<EventPage />} />
+          <Route path="/photography/aerial" element={<PhoAerialPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="gallery" element={<GalleryManager />} />
@@ -203,6 +207,14 @@ function AppContent() {
             <Route
               path="cinematography/sports-gallery"
               element={<CineSportsGalleryManager />}
+            />
+            <Route
+              path="photography/aerial-banner"
+              element={<PhoAerialBannerManager />}
+            />
+            <Route
+              path="photography/aerial-gallery"
+              element={<PhoArialGalleryManager />}
             />
             <Route
               path="categories/new"

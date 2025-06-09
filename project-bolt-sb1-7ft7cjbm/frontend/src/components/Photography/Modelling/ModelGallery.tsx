@@ -24,7 +24,7 @@ const ModelGallery = () => {
     console.log("Fetching Babyshower gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/pho-model-gallery");
+        const response = await axios.get("http://localhost:2500/api/pho-model-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

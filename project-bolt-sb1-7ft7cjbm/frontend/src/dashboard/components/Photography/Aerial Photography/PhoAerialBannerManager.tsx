@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-interface BabyshowerBanner {
+interface AerialBanner {
   _id: string;
   title: string;
   description: string;
@@ -11,8 +11,8 @@ interface BabyshowerBanner {
   createdAt: string;
 }
 
-const CineBabyshowerBannerManager = () => {
-  const [banners, setBanners] = useState<BabyshowerBanner[]>([]);
+const PhoAerialBannerManager = () => {
+  const [banners, setBanners] = useState<AerialBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const CineBabyshowerBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-babyshower-banner",
+        "http://localhost:2500/api/pho-aerial-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -110,14 +110,14 @@ const CineBabyshowerBannerManager = () => {
     }
   };
 
-const isValidImageUrl = (url: string) => {
-  try {
-    new URL(url);
-    return true; // Don't restrict by file extension
-  } catch {
-    return false;
-  }
-};
+  const isValidImageUrl = (url: string) => {
+    try {
+      new URL(url);
+      return true; // Don't restrict by file extension
+    } catch {
+      return false;
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,14 +127,16 @@ const isValidImageUrl = (url: string) => {
       return;
     }
     if (!isValidImageUrl(formData.backgroundImageUrl)) {
-      toast.error("Please enter a valid image URL (jpg, jpeg, png, webp, gif, svg)");
+      toast.error(
+        "Please enter a valid image URL (jpg, jpeg, png, webp, gif, svg)"
+      );
       return;
     }
 
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-babyshower-banner/${editingId}`,
+          `http://localhost:2500/api/pho-aerial-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,9 +144,13 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-babyshower-banner", formData, {
-          headers: getAuthHeaders(),
-        });
+        await axios.post(
+          "http://localhost:2500/api/pho-aerial-banner",
+          formData,
+          {
+            headers: getAuthHeaders(),
+          }
+        );
         toast.success("Banner created successfully");
       }
       resetForm();
@@ -163,7 +169,7 @@ const isValidImageUrl = (url: string) => {
     }
   };
 
-  const handleEdit = (banner: BabyshowerBanner) => {
+  const handleEdit = (banner: AerialBanner) => {
     setFormData({
       title: banner.title,
       description: banner.description,
@@ -181,9 +187,12 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-babyshower-banner/${id}`, {
-          headers: getAuthHeaders(),
-        });
+        await axios.delete(
+          `http://localhost:2500/api/pho-aerial-banner/${id}`,
+          {
+            headers: getAuthHeaders(),
+          }
+        );
         toast.success("Banner deleted successfully");
         fetchBanners();
       } catch (error: any) {
@@ -240,7 +249,7 @@ const isValidImageUrl = (url: string) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Wedding Banner Manager</h1>
+        <h1 className="text-2xl font-bold">Aerial Banner Manager</h1>
         <button
           onClick={() => {
             localStorage.removeItem("authToken");
@@ -346,13 +355,14 @@ const isValidImageUrl = (url: string) => {
                       backgroundImage: `url(${banner.backgroundImageUrl})`,
                     }}
                   >
-                    <img 
-                      src={banner.backgroundImageUrl} 
-                      alt="" 
+                    <img
+                      src={banner.backgroundImageUrl}
+                      alt=""
                       className="hidden"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.parentElement!.style.backgroundImage = "linear-gradient(to right, #263f49, #2d4b58)";
+                        target.parentElement!.style.backgroundImage =
+                          "linear-gradient(to right, #263f49, #2d4b58)";
                       }}
                     />
                   </div>
@@ -404,4 +414,4 @@ const isValidImageUrl = (url: string) => {
   );
 };
 
-export default CineBabyshowerBannerManager;
+export default PhoAerialBannerManager;

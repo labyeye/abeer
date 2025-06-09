@@ -13,7 +13,7 @@ type GalleryItem = {
   isFeatured: boolean;
 };
 
-const CineAdGalleryManager = () => {
+const PhoBabyShootGalleryManager = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [formData, setFormData] = useState<GalleryItem>({
     title: "",
@@ -34,7 +34,7 @@ const CineAdGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("http://localhost:2500/api/cine-ad-gallery");
+      const response = await axios.get("http://localhost:2500/api/cine-babyshoot-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const CineAdGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:2500/api/cine-ad-gallery/${editingId}`, formData);
+        await axios.put(`http://localhost:2500/api/cine-babyshoot-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("http://localhost:2500/api/cine-ad-gallery", formData);
+        await axios.post("http://localhost:2500/api/cine-babyshoot-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const CineAdGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`http://localhost:2500/api/cine-ad-gallery/${id}`);
+        await axios.delete(`http://localhost:2500/api/cine-babyshoot-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -285,4 +285,4 @@ const CineAdGalleryManager = () => {
   );
 };
 
-export default CineAdGalleryManager;
+export default PhoBabyShootGalleryManager;

@@ -11,7 +11,7 @@ interface BabyshowerBanner {
   createdAt: string;
 }
 
-const CineBabyshowerBannerManager = () => {
+const PhoBabyshowerBannerManager = () => {
   const [banners, setBanners] = useState<BabyshowerBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
@@ -64,7 +64,7 @@ const CineBabyshowerBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/cine-babyshower-banner",
+        "http://localhost:2500/api/pho-babyshower-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -134,7 +134,7 @@ const isValidImageUrl = (url: string) => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/cine-babyshower-banner/${editingId}`,
+          `http://localhost:2500/api/pho-babyshower-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,7 +142,7 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("http://localhost:2500/api/cine-babyshower-banner", formData, {
+        await axios.post("http://localhost:2500/api/pho-babyshower-banner", formData, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner created successfully");
@@ -181,7 +181,7 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`http://localhost:2500/api/cine-babyshower-banner/${id}`, {
+        await axios.delete(`http://localhost:2500/api/pho-babyshower-banner/${id}`, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner deleted successfully");
@@ -404,4 +404,4 @@ const isValidImageUrl = (url: string) => {
   );
 };
 
-export default CineBabyshowerBannerManager;
+export default PhoBabyshowerBannerManager;

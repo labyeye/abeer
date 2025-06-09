@@ -79,7 +79,7 @@ const Navbar = () => {
         },
         {
           category: "Aerial Photography (Drone)",
-          link: "/photography/studio",
+          link: "/photography/aerial",
         },
         {
           category: "PhotoStudio",
