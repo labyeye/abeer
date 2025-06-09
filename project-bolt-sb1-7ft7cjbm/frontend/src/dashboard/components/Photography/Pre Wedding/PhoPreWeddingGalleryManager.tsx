@@ -155,17 +155,7 @@ const PhoPreWeddingGalleryManager = () => {
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Video URL</label>
-              <input
-                type="text"
-                name="videoUrl"
-                value={formData.videoUrl}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded"
-                required
-              />
-            </div>
+            
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>

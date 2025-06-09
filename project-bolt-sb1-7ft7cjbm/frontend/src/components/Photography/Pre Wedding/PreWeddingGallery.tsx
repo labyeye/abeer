@@ -37,16 +37,6 @@ const PreWeddingGallery = () => {
     fetchGalleryItems();
   }, []);
 
-  const openModal = (item: GalleryItem) => {
-    setSelectedVideo(item);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedVideo(null);
-  };
-
   if (loading) return <div className="text-center py-20">Loading...</div>;
   if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
 
