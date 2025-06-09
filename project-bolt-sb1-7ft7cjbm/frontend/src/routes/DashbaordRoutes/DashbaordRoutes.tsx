@@ -39,6 +39,13 @@ import PhoPreWeddingBannerManager from "../../dashboard/components/Photography/P
 import PhoPreWeddingGalleryManager from "../../dashboard/components/Photography/Pre Wedding/PhoPreWeddingGalleryManager";
 import PhoEventBannerManager from "../../dashboard/components/Photography/Event/PhoEventBannerManager";
 import PhoEventGalleryManager from "../../dashboard/components/Photography/Event/PhoEventGalleryManager";
+import PhoStudioBannerManager from "../../dashboard/components/Photography/Photo Studio/PhoStudioBannerManager";
+import PhotoStudioGallery from "../../components/Photography/Photo Studio/PhotoStudioGallery";
+import PhoSutdioGalleryManager from "../../dashboard/components/Photography/Photo Studio/PhoStudioGalleryManager";
+import PhoSportsBannerManager from "../../dashboard/components/Photography/Sports/PhoSportsBannerManager";
+import PhoSportsGalleryManager from "../../dashboard/components/Photography/Sports/PhoSportsGalleryManager";
+import PhoBookBannerManager from "../../dashboard/components/Photography/PhotoBook/PhoBookBannerManager";
+import PhoBookGalleryManager from "../../dashboard/components/Photography/PhotoBook/PhoBookGalleryManager";
 
 
 
@@ -221,6 +228,30 @@ export const DashboardRoutes = (
     <Route
       path="photography/event-gallery"
       element={<PhoEventGalleryManager />}
+    />
+    <Route
+      path="photography/studio-banner"
+      element={<PhoStudioBannerManager />}
+    />
+    <Route
+      path="photography/studio-gallery"
+      element={<PhoSutdioGalleryManager />}
+    />
+    <Route
+      path="photography/sports-banner"
+      element={<PhoSportsBannerManager />}
+    />
+    <Route
+      path="photography/sports-gallery"
+      element={<PhoSportsGalleryManager />}
+    />
+    <Route
+      path="photography/book-banner"
+      element={<PhoBookBannerManager />}
+    />
+    <Route
+      path="photography/book-gallery"
+      element={<PhoBookGalleryManager />}
     />
   </Route>
 );

@@ -64,7 +64,7 @@ const PhoFilmBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/pho-film-banner",
+        "https://abeer.onrender.com/api/pho-film-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoFilmBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/pho-film-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-film-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoFilmBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/pho-film-banner",
+          "https://abeer.onrender.com/api/pho-film-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoFilmBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/pho-film-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-film-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }
@@ -248,18 +248,7 @@ const PhoFilmBannerManager = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Wedding Banner Manager</h1>
-        <button
-          onClick={() => {
-            localStorage.removeItem("authToken");
-            setAuthToken("");
-          }}
-          className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
-        >
-          Logout
-        </button>
-      </div>
+      
 
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
         <h2 className="text-xl font-semibold mb-4">

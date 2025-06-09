@@ -119,6 +119,8 @@ export const DashboardSidebar = () => {
         { name: "PoliticalGallery", path: "photography/political-gallery" },
         { name: "PhotoBookBanner", path: "photography/book-banner" },
         { name: "PhotoBookGallery", path: "photography/book-gallery" },
+        { name: "PhotoStudioBanner", path: "photography/studio-banner" },
+        { name: "PhotoStudioGallery", path: "photography/studio-gallery" },
       ],
     },
     {

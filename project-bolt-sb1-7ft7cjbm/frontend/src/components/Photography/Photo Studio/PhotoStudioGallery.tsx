@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ReactPlayer from "react-player";
 import aboutBg from "../../../assets/images/about-bg.jpg";
 
 type GalleryItem = {
@@ -13,18 +12,17 @@ type GalleryItem = {
   videoUrl: string;
 };
 
-const EventGallery = () => {
+const PhotoStudioGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState<GalleryItem | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   useEffect(() => {
-    console.log("Fetching Event gallery...");
+    console.log("Fetching PhotoStudio gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/pho-studio-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/pho-studio-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -37,15 +35,6 @@ const EventGallery = () => {
     fetchGalleryItems();
   }, []);
 
-  const openModal = (item: GalleryItem) => {
-    setSelectedVideo(item);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedVideo(null);
-  };
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
   if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
@@ -61,7 +50,7 @@ const EventGallery = () => {
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-12 text-center">
-          Our Aerial Photography
+          Our Studio Photography
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -100,4 +89,4 @@ const EventGallery = () => {
   );
 };
 
-export default EventGallery;
+export default PhotoStudioGallery;

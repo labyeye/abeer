@@ -16,6 +16,12 @@ import PhoWeddingPage from "../../components/Photography/Wedding/WeddingPage";
 import PhoPreWeddingPage from "../../components/Photography/Pre Wedding/PreWeddingPage";
 import PhoBabyshowerPage from "../../components/Photography/Baby shower/BabySourPage";
 import PhoEventPage from "../../components/Photography/Event/EventPage";
+import ModelPage from "../../components/Photography/Modelling/ModelPage";
+import PhotoStudioPage from "../../components/Photography/Photo Studio/PhoStudioPage";
+import PhoSportsPage from "../../components/Photography/Sports/SportsPage";
+import PhoPoliticalPage from "../../components/Photography/Political/PoliticalPage";
+import PhoBookPage from "../../components/Photography/PhotoBook/PhoBookPage";
+
 
 interface AppRoutesProps {
   categories: any[];
@@ -39,6 +45,11 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/photography/prewedding" element={<PhoPreWeddingPage />} />
     <Route path="/photography/babyshower" element={<PhoBabyshowerPage />} />
     <Route path="/photography/event" element={<PhoEventPage />} />
+    <Route path="/photography/modelling" element={<ModelPage />} />
+    <Route path="/photography/studio" element={<PhotoStudioPage />} />
+    <Route path="/photography/sports" element={<PhoSportsPage />} />
+    <Route path="/photography/political" element={<PhoPoliticalPage />} />
+    <Route path="/photography/album" element={< PhoBookPage/>} />
     
 
     

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface EventBannerData {
+interface PhotoStudioBannerData {
   title: string;
   description: string;
   backgroundImageUrl: string;
 }
 
-const EventBanner = () => {
-  const [banner, setBanner] = useState<EventBannerData | null>(null);
+const PhotoStudioBanner = () => {
+  const [banner, setBanner] = useState<PhotoStudioBannerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
@@ -16,7 +16,7 @@ const EventBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/pho-studio-banner/active"
+          "https://abeer.onrender.com/api/pho-studio-banner/active"
         );
         setBanner(response.data);
       } catch (error) {
@@ -71,4 +71,4 @@ const EventBanner = () => {
   );
 };
 
-export default EventBanner;
+export default PhotoStudioBanner;

@@ -112,6 +112,8 @@ app.use('/api/pho-model-banner', phoModelBannerRoutes);
 app.use('/api/pho-model-gallery', phoModelGalleryRoutes);
 app.use('/api/pho-studio-banner', phoStudioBannerRoutes);
 app.use('/api/pho-studio-gallery', phoStudioGalleryRoutes);
+app.use('/api/pho-book-banner', phoBookBannerRoutes);
+app.use('/api/pho-book-gallery', phoBookGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 

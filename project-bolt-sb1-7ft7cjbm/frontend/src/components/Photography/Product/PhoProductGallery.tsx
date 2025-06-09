@@ -24,7 +24,9 @@ const BirthdayGallery = () => {
     console.log("Fetching Babyshower gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/pho-birthday-gallery");
+        const response = await axios.get(
+          "https://abeer.onrender.com/api/pho-birthday-gallery"
+        );
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -48,11 +50,11 @@ const BirthdayGallery = () => {
   };
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
-  if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
+  if (error)
+    return <div className="text-center py-20 text-red-500">{error}</div>;
 
   return (
     <section className="py-20 relative min-h-screen">
-      {/* Background with reduced opacity - Change opacity-10 to your desired value */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 z-0"
         style={{ backgroundImage: `url(${aboutBg})` }}
@@ -60,10 +62,6 @@ const BirthdayGallery = () => {
 
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-12 text-center">
-          Our Aerial Photography
-        </h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {galleryItems.map((item) => (
             <div
@@ -76,8 +74,7 @@ const BirthdayGallery = () => {
                   alt={item.title}
                   className="w-full h-80 object-cover"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                </div>
+                <div className="absolute inset-0 flex items-center justify-center"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <p className="text-white text-sm">{item.views}</p>
                   <p className="text-white text-sm">{item.place}</p>
@@ -95,7 +92,6 @@ const BirthdayGallery = () => {
           ))}
         </div>
       </div>
-
     </section>
   );
 };

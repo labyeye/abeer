@@ -12,7 +12,7 @@ const isValidImageUrl = (url) => {
 
 exports.getActiveBanner = async (req, res) => {
   try {
-    const banner = await PhoFilmBanner.findOne({ isActive: true });
+    const banner = await PhoModelBanner.findOne({ isActive: true });
     if (!banner) {
       return res.status(404).json({ message: "No active banner found" });
     }
@@ -24,7 +24,7 @@ exports.getActiveBanner = async (req, res) => {
 
 exports.getAllBanners = async (req, res) => {
   try {
-    const banners = await PhoFilmBanner.find().sort({ createdAt: -1 });
+    const banners = await PhoModelBanner.find().sort({ createdAt: -1 });
     res.json(banners);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -39,7 +39,7 @@ exports.createBanner = async (req, res) => {
       return res.status(400).json({ message: "Invalid image URL format" });
     }
 
-    const newBanner = new PhoFilmBanner({
+    const newBanner = new PhoModelBanner({
       title,
       description,
       backgroundImageUrl,
@@ -70,10 +70,10 @@ exports.updateBanner = async (req, res) => {
     };
     
     if (isActive) {
-      await PhoFilmBanner.updateMany({ _id: { $ne: id } }, { isActive: false });
+      await PhoModelBanner.updateMany({ _id: { $ne: id } }, { isActive: false });
     }
 
-    const updatedBanner = await PhoFilmBanner.findByIdAndUpdate(id, updateData, { new: true });
+    const updatedBanner = await PhoModelBanner.findByIdAndUpdate(id, updateData, { new: true });
     res.json(updatedBanner);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -82,7 +82,7 @@ exports.updateBanner = async (req, res) => {
 
 exports.deleteBanner = async (req, res) => {
   try {
-    await PhoFilmBanner.findByIdAndDelete(req.params.id);
+    await PhoModelBanner.findByIdAndDelete(req.params.id);
     res.json({ message: 'Banner deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });

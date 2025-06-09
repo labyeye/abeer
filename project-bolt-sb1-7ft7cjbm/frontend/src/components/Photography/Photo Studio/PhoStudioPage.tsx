@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import EventBanner from "./PhotoStudioBanner";
-import EventGallery from "./PhotoStudioGallery";
+import PhotoStudioBanner from "./PhotoStudioBanner";
+import PhotoStudioGallery from "./PhotoStudioGallery";
 
 const PhotoStudioPage = () => {
   return (
@@ -11,8 +11,8 @@ const PhotoStudioPage = () => {
       <Navbar />
       
       <main className="flex-grow">
-        <EventBanner />
-        <EventGallery />
+        <PhotoStudioBanner />
+        <PhotoStudioGallery />
       </main>
     </div>
   );

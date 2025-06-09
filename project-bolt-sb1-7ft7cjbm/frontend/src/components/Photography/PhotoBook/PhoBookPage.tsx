@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../../HomePage/Navbar";
-import EventBanner from "./PhoBookBanner";
-import EventGallery from "./PhoBookGallery";
+import PhoBookBanner from "./PhoBookBanner";
+import PhoBookGallery from "./PhoBookGallery";
 
-const EventPage = () => {
+const PhoBookPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
@@ -11,11 +11,11 @@ const EventPage = () => {
       <Navbar />
       
       <main className="flex-grow">
-        <EventBanner />
-        <EventGallery />
+        <PhoBookBanner />
+        <PhoBookGallery />
       </main>
     </div>
   );
 };
 
-export default EventPage;
+export default PhoBookPage;
