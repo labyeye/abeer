@@ -64,7 +64,7 @@ const PhoPreWeddingBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/pho-prewedding-banner",
+        "http://localhost:2500/api/pho-pre-wedding-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -134,7 +134,7 @@ const isValidImageUrl = (url: string) => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/pho-prewedding-banner/${editingId}`,
+          `http://localhost:2500/api/pho-pre-wedding-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,7 +142,7 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("http://localhost:2500/api/pho-prewedding-banner", formData, {
+        await axios.post("http://localhost:2500/api/pho-pre-wedding-banner", formData, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner created successfully");
@@ -181,7 +181,7 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`http://localhost:2500/api/pho-prewedding-banner/${id}`, {
+        await axios.delete(`http://localhost:2500/api/pho-pre-wedding-banner/${id}`, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner deleted successfully");
@@ -240,7 +240,7 @@ const isValidImageUrl = (url: string) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Wedding Banner Manager</h1>
+        <h1 className="text-2xl font-bold">Pre Wedding Banner Manager</h1>
         <button
           onClick={() => {
             localStorage.removeItem("authToken");
