@@ -23,7 +23,7 @@ const WeddingGallery = () => {
   useEffect(() => {
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/pho-wedding-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/pho-wedding-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

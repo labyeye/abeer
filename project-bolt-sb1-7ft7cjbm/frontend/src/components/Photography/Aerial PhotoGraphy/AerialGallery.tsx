@@ -15,14 +15,13 @@ const FilmsGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState<GalleryItem | null>(null);
 
   useEffect(() => {
     console.log("Fetching Films gallery...");
     const fetchGalleryItems = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/pho-aerial-gallery"
+          "https://abeer.onrender.com/api/pho-aerial-gallery"
         );
         setGalleryItems(response.data);
         setLoading(false);

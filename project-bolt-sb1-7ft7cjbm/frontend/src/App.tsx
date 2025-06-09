@@ -62,7 +62,7 @@ function AppContent() {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/categories"
+          "https://abeer.onrender.com/api/categories"
         );
         setCategories(response.data);
       } catch (error) {

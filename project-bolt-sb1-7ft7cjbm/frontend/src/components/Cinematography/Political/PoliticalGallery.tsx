@@ -24,7 +24,7 @@ const PoliticalGallery = () => {
     console.log("Fetching Event gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/cine-political-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/cine-political-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

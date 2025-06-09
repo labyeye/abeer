@@ -64,7 +64,7 @@ const CineBabyshowerBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/cine-babyshower-banner",
+        "https://abeer.onrender.com/api/cine-babyshower-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -134,7 +134,7 @@ const isValidImageUrl = (url: string) => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/cine-babyshower-banner/${editingId}`,
+          `https://abeer.onrender.com/api/cine-babyshower-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,7 +142,7 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("http://localhost:2500/api/cine-babyshower-banner", formData, {
+        await axios.post("https://abeer.onrender.com/api/cine-babyshower-banner", formData, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner created successfully");
@@ -181,7 +181,7 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`http://localhost:2500/api/cine-babyshower-banner/${id}`, {
+        await axios.delete(`https://abeer.onrender.com/api/cine-babyshower-banner/${id}`, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner deleted successfully");
