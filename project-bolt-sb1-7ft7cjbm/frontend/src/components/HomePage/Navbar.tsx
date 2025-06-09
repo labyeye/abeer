@@ -597,19 +597,29 @@ const Navbar = () => {
                                 </h5>
                                 <div className="grid grid-cols-1 gap-1">
                                   {category.services.map(
-                                    (service, serviceIdx) => (
-                                      <a
-                                        key={serviceIdx}
-                                        href={
-                                          item.label === "Live Streaming"
-                                            ? "/livestream"
-                                            : "#"
-                                        }
-                                        className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
-                                      >
-                                        {service}
-                                      </a>
-                                    )
+                                    (service, serviceIdx) => {
+                                      let link = "#";
+
+                                      if (item.label === "Live Streaming") {
+                                        link = "/livestream";
+                                      } else if (item.label === "Camping") {
+                                        link = "/campaign";
+                                      } else if (
+                                        item.label === "Government Tander"
+                                      ) {
+                                        link = "/government";
+                                      }
+
+                                      return (
+                                        <a
+                                          key={serviceIdx}
+                                          href={link}
+                                          className="px-3 py-2 text-xs text-gray-900 hover:bg-gray-800 hover:text-white rounded transition-all duration-200 block"
+                                        >
+                                          {service}
+                                        </a>
+                                      );
+                                    }
                                   )}
                                 </div>
                               </div>

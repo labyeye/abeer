@@ -13,6 +13,7 @@ import {
   FiChevronRight,
   FiCamera,
   FiLink,
+  FiShield,
 } from "react-icons/fi";
 
 export const DashboardSidebar = () => {
@@ -132,6 +133,15 @@ export const DashboardSidebar = () => {
       children: [
         { name: "Live Stream Banner", path: "/dashboard/livestream-banner" },
         { name: "Live Stream Gallery", path: "/dashboard/livestream-gallery" },
+      ],
+    },
+    {
+      name: "Government Tandor",
+      icon: <FiShield className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Government Tandor Banner", path: "/dashboard/government-banner" },
+        { name: "Government Tandor Gallery", path: "/dashboard/government-gallery" },
       ],
     },
     

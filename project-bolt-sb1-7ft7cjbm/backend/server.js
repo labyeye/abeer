@@ -53,6 +53,8 @@ const phoStudioBannerRoutes = require('./routes/PhotoGraphy/Photo Studio/phoStud
 const phoStudioGalleryRoutes = require('./routes/PhotoGraphy/Photo Studio/phoStudiogalleryRoutes');
 const liveStreamBannerRoutes = require('./routes/LiveStream/LiveStreamBannerRoutes');
 const liveStreamGalleryRoutes = require('./routes/LiveStream/LiveStreamgalleryRoutes');
+const governmentBannerRoutes = require('./routes/Government/GovernmentBannerRoutes');
+const governmentGalleryRoutes = require('./routes/Government/GovernmentgalleryRoutes');
 
 const app = express();
 
@@ -118,6 +120,8 @@ app.use('/api/pho-book-banner', phoBookBannerRoutes);
 app.use('/api/pho-book-gallery', phoBookGalleryRoutes);
 app.use('/api/livestream-banner', liveStreamBannerRoutes);
 app.use('/api/livestream-gallery', liveStreamGalleryRoutes);
+app.use('/api/government-banner', governmentBannerRoutes);
+app.use('/api/government-gallery', governmentGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 

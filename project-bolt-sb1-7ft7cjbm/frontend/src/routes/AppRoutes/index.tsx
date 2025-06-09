@@ -22,7 +22,7 @@ import PhoSportsPage from "../../components/Photography/Sports/SportsPage";
 import PhoPoliticalPage from "../../components/Photography/Political/PoliticalPage";
 import PhoBookPage from "../../components/Photography/PhotoBook/PhoBookPage";
 import LiveStreamPage from "../../components/Live Streaming/LiveStreamlPage";
-
+import GovernmentPage from "../../components/Government/GovernmentPage";
 
 interface AppRoutesProps {
   categories: any[];
@@ -33,7 +33,8 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     {/* Public Routes */}
     <Route path="/" element={<HomePage categories={categories} />} />
     <Route path="/about" element={<AboutPage />} />
-    <Route path="/livestream" element={< LiveStreamPage/>} />
+    <Route path="/livestream" element={<LiveStreamPage />} />
+    <Route path="/government" element={<GovernmentPage />} />
     <Route path="/cinematography/wedding" element={<WeddingPage />} />
     <Route path="/cinematography/prewedding" element={<PreWeddingPage />} />
     <Route path="/cinematography/babyshower" element={<BabyshowerPage />} />
@@ -51,13 +52,11 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/photography/studio" element={<PhotoStudioPage />} />
     <Route path="/photography/sports" element={<PhoSportsPage />} />
     <Route path="/photography/political" element={<PhoPoliticalPage />} />
-    <Route path="/photography/album" element={< PhoBookPage/>} />
-    
+    <Route path="/photography/album" element={<PhoBookPage />} />
 
-    
     {/* Auth Route */}
     <Route path="/login" element={<Login />} />
-    
+
     {/* Dashboard Routes */}
     {DashboardRoutes}
   </Routes>

@@ -40,7 +40,6 @@ import PhoPreWeddingGalleryManager from "../../dashboard/components/Photography/
 import PhoEventBannerManager from "../../dashboard/components/Photography/Event/PhoEventBannerManager";
 import PhoEventGalleryManager from "../../dashboard/components/Photography/Event/PhoEventGalleryManager";
 import PhoStudioBannerManager from "../../dashboard/components/Photography/Photo Studio/PhoStudioBannerManager";
-import PhotoStudioGallery from "../../components/Photography/Photo Studio/PhotoStudioGallery";
 import PhoSutdioGalleryManager from "../../dashboard/components/Photography/Photo Studio/PhoStudioGalleryManager";
 import PhoSportsBannerManager from "../../dashboard/components/Photography/Sports/PhoSportsBannerManager";
 import PhoSportsGalleryManager from "../../dashboard/components/Photography/Sports/PhoSportsGalleryManager";
@@ -48,6 +47,8 @@ import PhoBookBannerManager from "../../dashboard/components/Photography/PhotoBo
 import PhoBookGalleryManager from "../../dashboard/components/Photography/PhotoBook/PhoBookGalleryManager";
 import LiveStreamBannerManager from "../../dashboard/components/Live Stream/LiveStreamBannerManager";
 import LiveStreamGalleryManager from "../../dashboard/components/Live Stream/LiveStreamGalleryManager";
+import GovernmentBannerManager from "../../dashboard/components/Government Tandor/GovernmentBannerManager";
+import GovernmentGalleryManager from "../../dashboard/components/Government Tandor/GovernmentGalleryManager";
 
 
 
@@ -272,6 +273,16 @@ export const DashboardRoutes = (
       path="livestream-gallery"
       element={<LiveStreamGalleryManager />}
     />
+    {/* Government Tandor */}
+     <Route
+      path="government-banner"
+      element={<GovernmentBannerManager/>}
+    />
+    <Route
+      path="government-gallery"
+      element={<GovernmentGalleryManager />}
+    />
+
     
   </Route>
   
