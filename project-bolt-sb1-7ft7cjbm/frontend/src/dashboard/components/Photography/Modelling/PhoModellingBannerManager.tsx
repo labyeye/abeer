@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-interface FilmBanner {
+interface WeddingBanner {
   _id: string;
   title: string;
   description: string;
@@ -11,8 +11,8 @@ interface FilmBanner {
   createdAt: string;
 }
 
-const CineFilmBannerManager = () => {
-  const [banners, setBanners] = useState<FilmBanner[]>([]);
+const PhoModellingBannerManager = () => {
+  const [banners, setBanners] = useState<WeddingBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const CineFilmBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-film-banner",
+        "https://abeer.onrender.com/api/pho-model-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const CineFilmBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-film-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-model-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const CineFilmBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/cine-film-banner",
+          "https://abeer.onrender.com/api/pho-model-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -169,7 +169,7 @@ const CineFilmBannerManager = () => {
     }
   };
 
-  const handleEdit = (banner: FilmBanner) => {
+  const handleEdit = (banner: WeddingBanner) => {
     setFormData({
       title: banner.title,
       description: banner.description,
@@ -188,7 +188,7 @@ const CineFilmBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/cine-film-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-model-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }
@@ -414,4 +414,4 @@ const CineFilmBannerManager = () => {
   );
 };
 
-export default CineFilmBannerManager;
+export default PhoModellingBannerManager;

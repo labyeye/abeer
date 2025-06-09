@@ -13,7 +13,7 @@ type GalleryItem = {
   isFeatured: boolean;
 };
 
-const CineEventGalleryManager = () => {
+const PhoWeddingGalleryManager = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [formData, setFormData] = useState<GalleryItem>({
     title: "",
@@ -34,7 +34,7 @@ const CineEventGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/cine-event-gallery");
+      const response = await axios.get("https://abeer.onrender.com/api/pho-wedding-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const CineEventGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/cine-event-gallery/${editingId}`, formData);
+        await axios.put(`https://abeer.onrender.com/api/pho-wedding-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-event-gallery", formData);
+        await axios.post("https://abeer.onrender.com/api/pho-wedding-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const CineEventGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-event-gallery/${id}`);
+        await axios.delete(`https://abeer.onrender.com/api/pho-wedding-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -285,4 +285,4 @@ const CineEventGalleryManager = () => {
   );
 };
 
-export default CineEventGalleryManager;
+export default PhoWeddingGalleryManager;

@@ -15,6 +15,7 @@ const FilmsGallery = () => {
   const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedVideo, setSelectedVideo] = useState<GalleryItem | null>(null);
 
   useEffect(() => {
     console.log("Fetching Films gallery...");
@@ -62,7 +63,7 @@ const FilmsGallery = () => {
                 <img
                   src={item.thumbnail}
                   alt={item.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-80 object-cover"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                 </div>
@@ -83,6 +84,7 @@ const FilmsGallery = () => {
           ))}
         </div>
       </div>
+
     </section>
   );
 };

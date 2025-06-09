@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-interface PoliticalBanner {
+interface WeddingBanner {
   _id: string;
   title: string;
   description: string;
@@ -11,8 +11,8 @@ interface PoliticalBanner {
   createdAt: string;
 }
 
-const CinePoliticalBannerManager = () => {
-  const [banners, setBanners] = useState<PoliticalBanner[]>([]);
+const PhoBookBannerManager = () => {
+  const [banners, setBanners] = useState<WeddingBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const CinePoliticalBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-political-banner",
+        "https://abeer.onrender.com/api/pho-book-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const CinePoliticalBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-political-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-book-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const CinePoliticalBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/cine-political-banner",
+          "https://abeer.onrender.com/api/pho-book-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -169,7 +169,7 @@ const CinePoliticalBannerManager = () => {
     }
   };
 
-  const handleEdit = (banner: PoliticalBanner) => {
+  const handleEdit = (banner: WeddingBanner) => {
     setFormData({
       title: banner.title,
       description: banner.description,
@@ -188,7 +188,7 @@ const CinePoliticalBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/cine-political-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-book-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }
@@ -249,7 +249,7 @@ const CinePoliticalBannerManager = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Political Banner Manager</h1>
+        <h1 className="text-2xl font-bold">Wedding Banner Manager</h1>
         <button
           onClick={() => {
             localStorage.removeItem("authToken");
@@ -414,4 +414,4 @@ const CinePoliticalBannerManager = () => {
   );
 };
 
-export default CinePoliticalBannerManager;
+export default PhoBookBannerManager;

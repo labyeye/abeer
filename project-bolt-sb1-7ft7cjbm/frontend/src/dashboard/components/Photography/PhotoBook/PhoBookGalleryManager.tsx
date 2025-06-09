@@ -13,7 +13,7 @@ type GalleryItem = {
   isFeatured: boolean;
 };
 
-const CineFilmGalleryManager = () => {
+const PhoBookGalleryManager = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [formData, setFormData] = useState<GalleryItem>({
     title: "",
@@ -34,7 +34,7 @@ const CineFilmGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/cine-film-gallery");
+      const response = await axios.get("https://abeer.onrender.com/api/pho-book-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const CineFilmGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/cine-film-gallery/${editingId}`, formData);
+        await axios.put(`https://abeer.onrender.com/api/pho-book-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-film-gallery", formData);
+        await axios.post("https://abeer.onrender.com/api/pho-book-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const CineFilmGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-film-gallery/${id}`);
+        await axios.delete(`https://abeer.onrender.com/api/pho-book-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -285,4 +285,4 @@ const CineFilmGalleryManager = () => {
   );
 };
 
-export default CineFilmGalleryManager;
+export default PhoBookGalleryManager;

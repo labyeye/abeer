@@ -11,7 +11,7 @@ interface WeddingBanner {
   createdAt: string;
 }
 
-const CineWeddingBannerManager = () => {
+const PhoWeddingBannerManager = () => {
   const [banners, setBanners] = useState<WeddingBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
@@ -64,7 +64,7 @@ const CineWeddingBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-wedding-banner",
+        "https://abeer.onrender.com/api/pho-wedding-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const CineWeddingBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-wedding-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-wedding-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const CineWeddingBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/cine-wedding-banner",
+          "https://abeer.onrender.com/api/pho-wedding-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const CineWeddingBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/cine-wedding-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-wedding-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }
@@ -414,4 +414,4 @@ const CineWeddingBannerManager = () => {
   );
 };
 
-export default CineWeddingBannerManager;
+export default PhoWeddingBannerManager;

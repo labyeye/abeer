@@ -11,7 +11,7 @@ interface SportsBanner {
   createdAt: string;
 }
 
-const CineSportsBannerManager = () => {
+const PhoSportsBannerManager = () => {
   const [banners, setBanners] = useState<SportsBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
@@ -64,7 +64,7 @@ const CineSportsBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-sports-banner",
+        "https://abeer.onrender.com/api/pho-sports-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const CineSportsBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-sports-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-sports-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const CineSportsBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/cine-sports-banner",
+          "https://abeer.onrender.com/api/pho-sports-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const CineSportsBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/cine-sports-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-sports-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }
@@ -414,4 +414,4 @@ const CineSportsBannerManager = () => {
   );
 };
 
-export default CineSportsBannerManager;
+export default PhoSportsBannerManager;

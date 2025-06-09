@@ -13,7 +13,7 @@ type GalleryItem = {
   isFeatured: boolean;
 };
 
-const CineSportsGalleryManager = () => {
+const PhoFilmGalleryManager = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [formData, setFormData] = useState<GalleryItem>({
     title: "",
@@ -34,7 +34,7 @@ const CineSportsGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/cine-sports-gallery");
+      const response = await axios.get("https://abeer.onrender.com/api/pho-film-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const CineSportsGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/cine-sports-gallery/${editingId}`, formData);
+        await axios.put(`https://abeer.onrender.com/api/pho-film-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-sports-gallery", formData);
+        await axios.post("https://abeer.onrender.com/api/pho-film-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const CineSportsGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-sports-gallery/${id}`);
+        await axios.delete(`https://abeer.onrender.com/api/pho-film-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {
@@ -285,4 +285,4 @@ const CineSportsGalleryManager = () => {
   );
 };
 
-export default CineSportsGalleryManager;
+export default PhoFilmGalleryManager;

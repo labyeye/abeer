@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-interface PreWeddingBanner {
+interface WeddingBanner {
   _id: string;
   title: string;
   description: string;
@@ -11,8 +11,8 @@ interface PreWeddingBanner {
   createdAt: string;
 }
 
-const CinePreWeddingBannerManager = () => {
-  const [banners, setBanners] = useState<PreWeddingBanner[]>([]);
+const PhoStudioBannerManager = () => {
+  const [banners, setBanners] = useState<WeddingBanner[]>([]);
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState<string>("");
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ const CinePreWeddingBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cine-prewedding-banner",
+        "https://abeer.onrender.com/api/pho-studio-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -110,14 +110,14 @@ const CinePreWeddingBannerManager = () => {
     }
   };
 
-const isValidImageUrl = (url: string) => {
-  try {
-    new URL(url);
-    return true; // Don't restrict by file extension
-  } catch {
-    return false;
-  }
-};
+  const isValidImageUrl = (url: string) => {
+    try {
+      new URL(url);
+      return true; // Don't restrict by file extension
+    } catch {
+      return false;
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,14 +127,16 @@ const isValidImageUrl = (url: string) => {
       return;
     }
     if (!isValidImageUrl(formData.backgroundImageUrl)) {
-      toast.error("Please enter a valid image URL (jpg, jpeg, png, webp, gif, svg)");
+      toast.error(
+        "Please enter a valid image URL (jpg, jpeg, png, webp, gif, svg)"
+      );
       return;
     }
 
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cine-prewedding-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-studio-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,9 +144,13 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cine-prewedding-banner", formData, {
-          headers: getAuthHeaders(),
-        });
+        await axios.post(
+          "https://abeer.onrender.com/api/pho-studio-banner",
+          formData,
+          {
+            headers: getAuthHeaders(),
+          }
+        );
         toast.success("Banner created successfully");
       }
       resetForm();
@@ -163,7 +169,7 @@ const isValidImageUrl = (url: string) => {
     }
   };
 
-  const handleEdit = (banner: PreWeddingBanner) => {
+  const handleEdit = (banner: WeddingBanner) => {
     setFormData({
       title: banner.title,
       description: banner.description,
@@ -181,9 +187,12 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cine-prewedding-banner/${id}`, {
-          headers: getAuthHeaders(),
-        });
+        await axios.delete(
+          `https://abeer.onrender.com/api/pho-studio-banner/${id}`,
+          {
+            headers: getAuthHeaders(),
+          }
+        );
         toast.success("Banner deleted successfully");
         fetchBanners();
       } catch (error: any) {
@@ -346,13 +355,14 @@ const isValidImageUrl = (url: string) => {
                       backgroundImage: `url(${banner.backgroundImageUrl})`,
                     }}
                   >
-                    <img 
-                      src={banner.backgroundImageUrl} 
-                      alt="" 
+                    <img
+                      src={banner.backgroundImageUrl}
+                      alt=""
                       className="hidden"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.parentElement!.style.backgroundImage = "linear-gradient(to right, #263f49, #2d4b58)";
+                        target.parentElement!.style.backgroundImage =
+                          "linear-gradient(to right, #263f49, #2d4b58)";
                       }}
                     />
                   </div>
@@ -404,4 +414,4 @@ const isValidImageUrl = (url: string) => {
   );
 };
 
-export default CinePreWeddingBannerManager;
+export default PhoStudioBannerManager;
