@@ -49,6 +49,8 @@ import LiveStreamBannerManager from "../../dashboard/components/Live Stream/Live
 import LiveStreamGalleryManager from "../../dashboard/components/Live Stream/LiveStreamGalleryManager";
 import GovernmentBannerManager from "../../dashboard/components/Government Tandor/GovernmentBannerManager";
 import GovernmentGalleryManager from "../../dashboard/components/Government Tandor/GovernmentGalleryManager";
+import CampaigningBannerManager from "../../dashboard/components/Campaigning/CampaigningBannerManager";
+import CampaigningGalleryManager from "../../dashboard/components/Campaigning/CampaigningGalleryManager";
 
 
 
@@ -281,6 +283,15 @@ export const DashboardRoutes = (
     <Route
       path="government-gallery"
       element={<GovernmentGalleryManager />}
+    />
+     {/* Campaigning */}
+     <Route
+      path="campaigning-banner"
+      element={<CampaigningBannerManager/>}
+    />
+    <Route
+      path="campaigning-gallery"
+      element={<CampaigningGalleryManager />}
     />
 
     

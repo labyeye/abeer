@@ -144,6 +144,15 @@ export const DashboardSidebar = () => {
         { name: "Government Tandor Gallery", path: "/dashboard/government-gallery" },
       ],
     },
+    {
+      name: "Campaigning",
+      icon: <FiShield className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Campaigning Banner", path: "/dashboard/campaigning-banner" },
+        { name: "Campaigning Gallery", path: "/dashboard/campaigning-gallery" },
+      ],
+    },
     
     {
       name: "Users",

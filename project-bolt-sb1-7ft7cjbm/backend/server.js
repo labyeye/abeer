@@ -122,6 +122,8 @@ app.use('/api/livestream-banner', liveStreamBannerRoutes);
 app.use('/api/livestream-gallery', liveStreamGalleryRoutes);
 app.use('/api/government-banner', governmentBannerRoutes);
 app.use('/api/government-gallery', governmentGalleryRoutes);
+app.use('/api/campaigning-banner', require('./routes/Campaigning/CampaigningBannerRoutes'));
+app.use('/api/campaigning-gallery', require('./routes/Campaigning/CampaigninggalleryRoutes'));
 
 const PORT = process.env.PORT || 2500;
 

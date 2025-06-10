@@ -23,7 +23,7 @@ import PhoPoliticalPage from "../../components/Photography/Political/PoliticalPa
 import PhoBookPage from "../../components/Photography/PhotoBook/PhoBookPage";
 import LiveStreamPage from "../../components/Live Streaming/LiveStreamlPage";
 import GovernmentPage from "../../components/Government/GovernmentPage";
-
+import CampaigningPage from "../../components/Campaigning/CampaigningPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -35,6 +35,7 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/about" element={<AboutPage />} />
     <Route path="/livestream" element={<LiveStreamPage />} />
     <Route path="/government" element={<GovernmentPage />} />
+     <Route path="/campaigning" element={<CampaigningPage />} />
     <Route path="/cinematography/wedding" element={<WeddingPage />} />
     <Route path="/cinematography/prewedding" element={<PreWeddingPage />} />
     <Route path="/cinematography/babyshower" element={<BabyshowerPage />} />
