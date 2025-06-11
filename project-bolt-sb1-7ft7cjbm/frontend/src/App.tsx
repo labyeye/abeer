@@ -7,6 +7,7 @@ import Footer from "./components/HomePage/Footer";
 import { AppRoutes } from "./routes/AppRoutes/index";
 import axios from "axios";
 
+// In App.tsx
 function AppContent() {
   const location = useLocation();
   const isDashboardRoute =
@@ -14,20 +15,25 @@ function AppContent() {
     location.pathname === "/login";
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hasGalleryItems, setHasGalleryItems] = useState(false);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/categories");
-        setCategories(response.data);
+        const [categoriesRes, galleryRes] = await Promise.all([
+          axios.get("https://abeer.onrender.com/api/categories"),
+          axios.get("https://abeer.onrender.com/api/livestream-gallery")
+        ]);
+        setCategories(categoriesRes.data);
+        setHasGalleryItems(galleryRes.data && galleryRes.data.length > 0);
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchCategories();
+    fetchData();
   }, []);
 
   if (loading) {
@@ -40,7 +46,7 @@ function AppContent() {
 
   return (
     <div className="font-sans">
-      {!isDashboardRoute && <Navbar />}
+      {!isDashboardRoute && <Navbar isCampaigningActive isLiveStreamingActive={hasGalleryItems} />}
       <main>
         <AppRoutes categories={categories} />
       </main>

@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Search } from "lucide-react";
 import logo from "../../assets/images/logo.png";
 
-const Navbar = () => {
+interface NavbarProps {
+  isLiveStreamingActive?: boolean;
+  isCampaigningActive?: boolean;
+}
+
+const Navbar = ({
+  isLiveStreamingActive = false,
+  isCampaigningActive = false,
+}: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -99,7 +107,6 @@ const Navbar = () => {
         },
       ],
     },
-
     {
       label: "Cine Equipment",
       dropdown: [
@@ -172,7 +179,8 @@ const Navbar = () => {
     },
     {
       label: "Live Streaming",
-      link: "/livestream", // Main category links to /livestream
+      link: "/livestream",
+      isLive: isLiveStreamingActive,
       dropdown: [
         {
           category: "Political Event",
@@ -237,7 +245,6 @@ const Navbar = () => {
         },
       ],
     },
-
     {
       label: "Audio Studio",
       dropdown: [
@@ -411,13 +418,14 @@ const Navbar = () => {
     },
     {
       label: "Campaigning",
+      isLive: isCampaigningActive,
       dropdown: [
         {
           category: "Political Campaigning",
           link: "/campaigning",
         },
         {
-          category: "Buisness & Brand Campaigning",
+          category: "Business & Brand Campaigning",
           link: "/campaigning",
         },
         {
@@ -435,12 +443,12 @@ const Navbar = () => {
       ],
     },
     {
-      label: "Government Tander",
+      label: "Government Tender",
       dropdown: [
         {
           category: "IT & Software Development Tenders",
           services: [
-            "Website Development & Maintainance",
+            "Website Development & Maintenance",
             "E-Governance Solutions",
             "Cyber Security & Data Protection",
             "Mobile App Development",
@@ -460,9 +468,9 @@ const Navbar = () => {
           category: "Defense & Security Tenders",
           services: [
             "Defense Equipment Supply",
-            "CCTV & Survelliance System",
+            "CCTV & Surveillance System",
             "Security Guard Services",
-            "Border & Costal Security Projects",
+            "Border & Coastal Security Projects",
           ],
         },
         {
@@ -482,20 +490,19 @@ const Navbar = () => {
           ],
         },
         {
-          category: "Printing & Stationary Tenders",
+          category: "Printing & Stationery Tenders",
           services: [
             "Books & Study Material Printing",
-            "Office Stationary Supply",
+            "Office Stationery Supply",
             "Election & Campaign Material Printing",
           ],
         },
-
         {
           category: "Advertising & Media Tenders",
           services: [
             "Digital Marketing & Social Media Promotion",
-            "Radio & TV Adevertisments",
-            "Hoardings & Outdoor Adevertisments",
+            "Radio & TV Advertisements",
+            "Hoardings & Outdoor Advertisements",
           ],
         },
       ],
@@ -509,10 +516,10 @@ const Navbar = () => {
         isScrolled ? "bg-black/90 py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center">
+      <div className="container mx-auto px-1 flex justify-between items-center">
+        <div className="flex px-21 items-center min-w-[46px]">
           <a href="/">
-            <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" className="h-13" />
           </a>
         </div>
         <nav className="hidden lg:flex items-center space-x-6">
@@ -520,10 +527,15 @@ const Navbar = () => {
             item.dropdown ? (
               <div className="relative group" key={idx}>
                 <a
-                  href="#"
-                  className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
+                  href={item.link || "#"}
+                  className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full flex items-center"
                 >
                   {item.label}
+                  {item.isLive && (
+                    <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
+                      LIVE
+                    </span>
+                  )}
                 </a>
 
                 {/* Main dropdown with animation */}
@@ -566,10 +578,10 @@ const Navbar = () => {
 
                                       if (item.label === "Live Streaming") {
                                         link = "/livestream";
-                                      } else if (item.label === "Camping") {
+                                      } else if (item.label === "Campaigning") {
                                         link = "/campaign";
                                       } else if (
-                                        item.label === "Government Tander"
+                                        item.label === "Government Tender"
                                       ) {
                                         link = "/government";
                                       }
@@ -609,9 +621,14 @@ const Navbar = () => {
               <a
                 key={idx}
                 href={item.link || "#"}
-                className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full"
+                className="relative text-white py-1 before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full flex items-center"
               >
                 {item.label}
+                {item.isLive && (
+                  <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
+                    LIVE
+                  </span>
+                )}
               </a>
             )
           )}
@@ -644,9 +661,14 @@ const Navbar = () => {
               <div key={idx}>
                 <a
                   href={item.link || "#"}
-                  className="text-gray-900 hover:text-orange-400 transition-colors py-2 block font-medium"
+                  className="text-gray-900 hover:text-orange-400 transition-colors py-2 block font-medium flex items-center"
                 >
                   {item.label}
+                  {item.isLive && (
+                    <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
+                      LIVE
+                    </span>
+                  )}
                 </a>
                 {item.dropdown && (
                   <div className="ml-4 mt-2 space-y-2">
