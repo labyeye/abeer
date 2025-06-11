@@ -249,55 +249,42 @@ const Navbar = ({
       label: "Audio Studio",
       dropdown: [
         {
-          category: "Recording",
+          category: "Audio Production & Recording Services",
+          link: "/audiostudio/production",
           services: [
-            "Voice Over",
-            "Music Recording",
-            "Podcast Recording",
-            "Audio Books",
-            "Commercial Jingles",
-            "Song Recording",
-            "Instrument Recording",
-            "Live Sessions",
+            "Voice Over Services",
+            "Podcast Production Services",
+            "Audio Editing & Mixing",
+            "Song Design & Foley",
+            "Audio Book Recording",
+            "Jingle & Music Composition",
           ],
         },
         {
-          category: "Editing",
+          category: "Advertising & Promotional Audio Services",
+          link: "/audiostudio/advertise",
           services: [
-            "Audio Cleanup",
-            "Noise Reduction",
-            "Audio Enhancement",
-            "Voice Editing",
-            "Music Editing",
-            "Podcast Editing",
-            "Radio Shows",
-            "Commercial Audio",
+            "FM Radio Ads Production",
+            "Public Announcements Recordings",
+            "Store Announcements & Background Music",
+            "Political & Election Campaign Audio",
           ],
         },
         {
-          category: "Mixing",
+          category: "Music & Entertainment Audio Services",
+          link: "/audiostudio/music",
           services: [
-            "Multi-track Mixing",
-            "Music Mixing",
-            "Voice Over Mixing",
-            "Podcast Mixing",
-            "Commercial Mixing",
-            "Film Audio",
-            "Live Recording",
-            "Surround Sound",
+            "Custom Background Music Compostion",
+            "Soundtrack Production",
+            "DJ Drops & Event Voiceovers",
           ],
         },
         {
-          category: "Dubbing",
+          category: "Educational & Informational Audio Services",
+          link: "/audiostudio/education",
           services: [
-            "Film Dubbing",
-            "Documentary Dubbing",
-            "Commercial Dubbing",
-            "Animation Dubbing",
-            "Series Dubbing",
-            "Educational Content",
-            "Corporate Videos",
-            "Multilingual Dubbing",
+            "E Learning & Online Courses Voiceovers",
+            "Audiobooks & Spoken Tutorials",
           ],
         },
       ],
@@ -574,7 +561,10 @@ const Navbar = ({
                                 <div className="grid grid-cols-1 gap-1">
                                   {category.services.map(
                                     (service, serviceIdx) => {
-                                      let link = "#";
+                                      let link =
+                                        "link" in category
+                                          ? category.link
+                                          : "#";
 
                                       if (item.label === "Live Streaming") {
                                         link = "/livestream";

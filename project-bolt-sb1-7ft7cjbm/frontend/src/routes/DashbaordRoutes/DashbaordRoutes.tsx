@@ -51,9 +51,14 @@ import GovernmentBannerManager from "../../dashboard/components/Government Tando
 import GovernmentGalleryManager from "../../dashboard/components/Government Tandor/GovernmentGalleryManager";
 import CampaigningBannerManager from "../../dashboard/components/Campaigning/CampaigningBannerManager";
 import CampaigningGalleryManager from "../../dashboard/components/Campaigning/CampaigningGalleryManager";
-
-
-
+import AdvertisingBannerManager from "../../dashboard/components/Audio Studio/Advertising/AdvertisingBannerManager";
+import AdvertisingGalleryManager from "../../dashboard/components/Audio Studio/Advertising/AdvertisingGalleryManager";
+import EducationalBannerManager from "../../dashboard/components/Audio Studio/Educational/EducationalBannerManager";
+import EducationalGalleryManager from "../../dashboard/components/Audio Studio/Educational/EducationalGalleryManager";
+import MusicEntertainmentBannerManager from "../../dashboard/components/Audio Studio/MusicEntertainment/MusicEntertainmentBannerManager";
+import MusicEntertainmentGalleryManager from "../../dashboard/components/Audio Studio/MusicEntertainment/MusicEntertainmentGalleryManager";
+import AudioProductionBannerManager from "../../dashboard/components/Audio Studio/AudioProduction/AudioProductionBannerManager";
+import AudioProductionGalleryManager from "../../dashboard/components/Audio Studio/AudioProduction/AudioProductionGalleryManager";
 
 export const DashboardRoutes = (
   <Route path="/dashboard" element={<DashboardLayout />}>
@@ -156,10 +161,7 @@ export const DashboardRoutes = (
     />
 
     {/* Cinematography - Advertising */}
-    <Route
-      path="cinematography/ad-banner"
-      element={<CineadtBannerManager />}
-    />
+    <Route path="cinematography/ad-banner" element={<CineadtBannerManager />} />
     <Route
       path="cinematography/ad-gallery"
       element={<CineAdGalleryManager />}
@@ -250,10 +252,7 @@ export const DashboardRoutes = (
       path="photography/sports-gallery"
       element={<PhoSportsGalleryManager />}
     />
-    <Route
-      path="photography/book-banner"
-      element={<PhoBookBannerManager />}
-    />
+    <Route path="photography/book-banner" element={<PhoBookBannerManager />} />
     <Route
       path="photography/book-gallery"
       element={<PhoBookGalleryManager />}
@@ -267,34 +266,23 @@ export const DashboardRoutes = (
       element={<LiveStreamGalleryManager />}
     />
     {/* Live Streaming */}
-    <Route
-      path="livestream-banner"
-      element={<LiveStreamBannerManager />}
-    />
-    <Route
-      path="livestream-gallery"
-      element={<LiveStreamGalleryManager />}
-    />
+    <Route path="livestream-banner" element={<LiveStreamBannerManager />} />
+    <Route path="livestream-gallery" element={<LiveStreamGalleryManager />} />
     {/* Government Tandor */}
-     <Route
-      path="government-banner"
-      element={<GovernmentBannerManager/>}
-    />
-    <Route
-      path="government-gallery"
-      element={<GovernmentGalleryManager />}
-    />
-     {/* Campaigning */}
-     <Route
-      path="campaigning-banner"
-      element={<CampaigningBannerManager/>}
-    />
-    <Route
-      path="campaigning-gallery"
-      element={<CampaigningGalleryManager />}
-    />
+    <Route path="government-banner" element={<GovernmentBannerManager />} />
+    <Route path="government-gallery" element={<GovernmentGalleryManager />} />
+    {/* Campaigning */}
+    <Route path="campaigning-banner" element={<CampaigningBannerManager />} />
+    <Route path="campaigning-gallery" element={<CampaigningGalleryManager />} />
 
-    
+    {/* Audio Studio */}
+    <Route path="audio/audioproduction-banner" element={<AudioProductionBannerManager />} />
+    <Route path="audio/audioproduction-gallery" element={<AudioProductionGalleryManager />} />
+    <Route path="audio/audioeducational-banner" element={<EducationalBannerManager />} />
+    <Route path="audio/audioeducational-gallery" element={<EducationalGalleryManager />} />
+    <Route path="audio/audiomusic-banner" element={<MusicEntertainmentBannerManager />} />
+    <Route path="audio/audiomusic-gallery" element={<MusicEntertainmentGalleryManager />} />
+    <Route path="audio/audioadvertise-banner" element={<AdvertisingBannerManager />} />
+    <Route path="audio/audioadvertise-gallery" element={<AdvertisingGalleryManager />} />
   </Route>
-  
 );

@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../HomePage/Navbar";
 import AudioProductionBanner from "./AudioProductionBanner";
 import AudioProductionGallery from "./AudioProductionGallery";
 
@@ -8,8 +7,6 @@ const AudioProductionPage = () => {
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
     >
-      <Navbar />
-      
       <main className="flex-grow">
         <AudioProductionBanner />
         <AudioProductionGallery />

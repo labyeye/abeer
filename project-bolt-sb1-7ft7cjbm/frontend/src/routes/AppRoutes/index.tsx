@@ -24,6 +24,10 @@ import PhoBookPage from "../../components/Photography/PhotoBook/PhoBookPage";
 import LiveStreamPage from "../../components/Live Streaming/LiveStreamlPage";
 import GovernmentPage from "../../components/Government/GovernmentPage";
 import CampaigningPage from "../../components/Campaigning/CampaigningPage";
+import AdvertisingPage from "../../components/Audio Studio/Advertising/AdvertisingPage";
+import EducationalPage from "../../components/Audio Studio/Educational/EducationalPage";
+import MusicEntertainmentPage from "../../components/Audio Studio/MusicEntertainment/MusicEntertainmentPage";
+import AudioProductionPage from "../../components/Audio Studio/AudioProduction/AudioProductionPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -54,6 +58,10 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/photography/sports" element={<PhoSportsPage />} />
     <Route path="/photography/political" element={<PhoPoliticalPage />} />
     <Route path="/photography/album" element={<PhoBookPage />} />
+    <Route path="/audiostudio/advertise" element={<AdvertisingPage />} />
+    <Route path="/audiostudio/education" element={<EducationalPage />} />
+    <Route path="/audiostudio/production" element={<AudioProductionPage />} />
+    <Route path="/audiostudio/music" element={<MusicEntertainmentPage />} />
 
     {/* Auth Route */}
     <Route path="/login" element={<Login />} />

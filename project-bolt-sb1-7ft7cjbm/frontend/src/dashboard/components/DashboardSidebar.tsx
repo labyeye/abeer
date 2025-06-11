@@ -14,6 +14,7 @@ import {
   FiCamera,
   FiLink,
   FiShield,
+  FiMusic,
 } from "react-icons/fi";
 
 export const DashboardSidebar = () => {
@@ -133,6 +134,28 @@ export const DashboardSidebar = () => {
       children: [
         { name: "Live Stream Banner", path: "/dashboard/livestream-banner" },
         { name: "Live Stream Gallery", path: "/dashboard/livestream-gallery" },
+      ],
+    },
+    {
+      name: "Audio Studio",
+      icon: <FiMusic className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Advertise Banner", path: "audio/audioadvertise-banner" },
+        { name: "Advertise Gallery", path: "audio/audioadvertise-gallery" },
+        { name: "Educational Banner", path: "audio/audioeducational-banner" },
+        {
+          name: "Educational Gallery",
+          path: "audio/audioeducational-gallery",
+        },
+        { name: "Music Banner", path: "audio/audiomusic-banner" },
+        {
+          name: "Music Gallery",
+          path: "audio/audiomusic-banner",
+        },
+        { name: "Audio Production Banner", path: "audio/audioproduction-banner" },
+        { name: "Audio Production Gallery", path: "audio/audioproduction-gallery" },
+        
       ],
     },
     {
