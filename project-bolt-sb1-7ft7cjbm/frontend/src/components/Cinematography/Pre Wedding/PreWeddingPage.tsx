@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../HomePage/Navbar";
 import PreWeddingBanner from "./PreWeddingBanner";
 import PreWeddingGallery from "./PreWeddingGallery";
 
@@ -7,9 +6,7 @@ const PreWeddingPage = () => {
   return (
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
-    >
-      <Navbar />
-      
+    >      
       <main className="flex-grow">
         <PreWeddingBanner />
         <PreWeddingGallery />

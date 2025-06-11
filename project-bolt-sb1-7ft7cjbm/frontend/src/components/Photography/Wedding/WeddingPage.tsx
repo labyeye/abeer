@@ -8,7 +8,6 @@ const PhoWeddingPage = () => {
     <div 
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center"
     >
-      <Navbar />
       
       <main className="flex-grow">
         <WeddingBanner />
