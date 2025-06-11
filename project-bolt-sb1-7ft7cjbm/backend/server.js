@@ -55,7 +55,14 @@ const liveStreamBannerRoutes = require('./routes/LiveStream/LiveStreamBannerRout
 const liveStreamGalleryRoutes = require('./routes/LiveStream/LiveStreamgalleryRoutes');
 const governmentBannerRoutes = require('./routes/Government/GovernmentBannerRoutes');
 const governmentGalleryRoutes = require('./routes/Government/GovernmentgalleryRoutes');
-
+const AdvertisingBannerRoutes = require('./routes/Audio Studio/Advertising/AdvertisingBannerRoutes');
+const AdvertisinggalleryRoutes = require('./routes/Audio Studio/Advertising/AdvertisinggalleryRoutes');
+const EducationalBannerRoutes = require('./routes/Audio Studio/Educational/EducationalBannerRoutes');
+const EducationalgalleryRoutes = require('./routes/Audio Studio/Educational/EducationalgalleryRoutes');
+const AudioProductionBannerRoutes = require('./routes/Audio Studio/AudioProduction/AudioProductionBannerRoutes');
+const AudioProductiongalleryRoutes = require('./routes/Audio Studio/AudioProduction/AudioProductiongalleryRoutes');
+const MusicEntertainmentBannerRoutes = require('./routes/Audio Studio/MusicEntertainment/MusicEntertainmentBannerRoutes');
+const MusicEntertainmentgalleryRoutes = require('./routes/Audio Studio/MusicEntertainment/MusicEntertainmentgalleryRoutes');
 const app = express();
 
 connectDB();
@@ -124,6 +131,14 @@ app.use('/api/government-banner', governmentBannerRoutes);
 app.use('/api/government-gallery', governmentGalleryRoutes);
 app.use('/api/campaigning-banner', require('./routes/Campaigning/CampaigningBannerRoutes'));
 app.use('/api/campaigning-gallery', require('./routes/Campaigning/CampaigninggalleryRoutes'));
+app.use('/api/audio-advertising-banner', AdvertisingBannerRoutes);
+app.use('/api/audio-advertising-gallery', AdvertisinggalleryRoutes);
+app.use('/api/audio-educational-banner', EducationalBannerRoutes);
+app.use('/api/audio-educational-gallery', EducationalgalleryRoutes);
+app.use('/api/audio-production-banner', AudioProductionBannerRoutes);
+app.use('/api/audio-production-gallery', AudioProductiongalleryRoutes);
+app.use('/api/audio-entertainment-banner', MusicEntertainmentBannerRoutes);
+app.use('/api/audio-entertainment-gallery', MusicEntertainmentgalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 
