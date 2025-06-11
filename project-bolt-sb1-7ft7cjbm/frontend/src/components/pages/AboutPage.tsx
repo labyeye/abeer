@@ -6,7 +6,6 @@ import { Camera, Film, Users, Award, Mic, Video, Monitor } from "lucide-react";
 const AboutPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       
       <main className="flex-grow">
         {/* Hero Section */}
