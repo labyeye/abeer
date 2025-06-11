@@ -62,7 +62,7 @@ const WeddingGallery = () => {
             >
               <div className="relative">
                 <img
-                  src={item.thumbnail}
+                  src={`${item.thumbnail}?v=${item._id}`}
                   alt={item.title}
                   className="w-full h-80 object-cover"
                 />
