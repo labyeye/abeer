@@ -46,7 +46,7 @@ function AppContent() {
 
   return (
     <div className="font-sans">
-      {!isDashboardRoute && <Navbar isCampaigningActive isLiveStreamingActive={hasGalleryItems} />}
+      {!isDashboardRoute && <Navbar isLiveStreamingActive={hasGalleryItems} />}
       <main>
         <AppRoutes categories={categories} />
       </main>
