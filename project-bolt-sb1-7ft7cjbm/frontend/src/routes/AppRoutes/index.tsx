@@ -28,6 +28,9 @@ import AdvertisingPage from "../../components/Audio Studio/Advertising/Advertisi
 import EducationalPage from "../../components/Audio Studio/Educational/EducationalPage";
 import MusicEntertainmentPage from "../../components/Audio Studio/MusicEntertainment/MusicEntertainmentPage";
 import AudioProductionPage from "../../components/Audio Studio/AudioProduction/AudioProductionPage";
+import CrainPage from "../../components/Cine Equipment/Crain/CrainPage";
+import Wallledp3Page from "../../components/Cine Equipment/Wallledp3/Wallledp3Page";
+import CinemaLightPage from "../../components/Cine Equipment/CinemaLight/CinemaLightPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -39,7 +42,7 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/about" element={<AboutPage />} />
     <Route path="/livestream" element={<LiveStreamPage />} />
     <Route path="/government" element={<GovernmentPage />} />
-     <Route path="/campaigning" element={<CampaigningPage />} />
+    <Route path="/campaigning" element={<CampaigningPage />} />
     <Route path="/cinematography/wedding" element={<WeddingPage />} />
     <Route path="/cinematography/prewedding" element={<PreWeddingPage />} />
     <Route path="/cinematography/babyshower" element={<BabyshowerPage />} />
@@ -62,6 +65,9 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/audiostudio/education" element={<EducationalPage />} />
     <Route path="/audiostudio/production" element={<AudioProductionPage />} />
     <Route path="/audiostudio/music" element={<MusicEntertainmentPage />} />
+    <Route path="/cineequipment/crain" element={<CrainPage />} />
+    <Route path="/cineequipment/wallledp3" element={<Wallledp3Page />} />
+    <Route path="/cineequipment/cinemalight" element={<CinemaLightPage />} />
 
     {/* Auth Route */}
     <Route path="/login" element={<Login />} />

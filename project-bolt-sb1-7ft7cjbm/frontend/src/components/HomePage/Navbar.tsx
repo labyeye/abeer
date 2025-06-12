@@ -6,6 +6,20 @@ interface NavbarProps {
   hasFeaturedItems: boolean;
 }
 
+interface DropdownItem {
+  category: string;
+  link?: string;
+  services?: string[];
+  serviceLinks?: string[]; // Added for service-specific links
+}
+
+interface NavItem {
+  label: string;
+  link?: string;
+  isLive?: boolean;
+  dropdown?: DropdownItem[];
+}
+
 const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: "Home", link: "/" },
     { label: "About", link: "/about" },
     {
@@ -107,69 +121,36 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       label: "Cine Equipment",
       dropdown: [
         {
-          category: "Sony FX3",
+          category: "Wall Led p3",
+          link: "/cineequipment/wallledp3",
+        },
+        {
+          category: "Crain",
+          link: "/cineequipment/crain",
+        },
+        {
+          category: "Cinema Camera",
+          link: "/cineequipment/cinemacamera",
           services: [
-            "Cinema Camera Rental",
-            "4K Recording",
-            "Professional Video",
-            "Documentary Production",
-            "Wedding Cinematography",
-            "Commercial Production",
-            "Live Events",
-            "Streaming Setup",
+            "Sony Fx3",
+            "Sony FX6",
+            "Burano",
+            "Venice 2",
+            "Red Camera",
+            "Arri Camera",
+          ],
+          serviceLinks: [
+            "/cineequipment/cinemacamera/sony-fx3",
+            "/cineequipment/cinemacamera/sony-fx6",
+            "/cineequipment/cinemacamera/burano",
+            "/cineequipment/cinemacamera/venice-2",
+            "/cineequipment/cinemacamera/red-camera",
+            "/cineequipment/cinemacamera/arri-camera",
           ],
         },
         {
-          category: "Sony FX6",
-          services: [
-            "Professional Cinema",
-            "6K Recording",
-            "Broadcast Quality",
-            "Corporate Video",
-            "Documentary Films",
-            "Television Production",
-            "Streaming Content",
-            "Commercial Work",
-          ],
-        },
-        {
-          category: "Burano",
-          services: [
-            "8K Full Frame",
-            "Venice Color Science",
-            "Professional Cinema",
-            "High-End Production",
-            "Feature Films",
-            "Commercial Production",
-            "Broadcast TV",
-            "Premium Content",
-          ],
-        },
-        {
-          category: "Venice 2",
-          services: [
-            "8.6K Full Frame",
-            "Hollywood Standard",
-            "Feature Film Production",
-            "High-End Commercials",
-            "Television Series",
-            "Luxury Content",
-            "Premium Documentation",
-            "Cinema Quality",
-          ],
-        },
-        {
-          category: "Red Camera",
-          services: [
-            "High Resolution",
-            "Professional Cinema",
-            "Feature Films",
-            "Commercial Advertising",
-            "Music Videos",
-            "Documentary Films",
-            "Television Production",
-            "Digital Cinema",
-          ],
+          category: "Cinema Light",
+          link: "/cineequipment/cinemalight",
         },
       ],
     },
@@ -404,23 +385,23 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       dropdown: [
         {
           category: "Political Campaigning",
-          link: "/campaigning",
+          link: "/campaigning/political",
         },
         {
           category: "Business & Brand Campaigning",
-          link: "/campaigning",
+          link: "/campaigning/business",
         },
         {
           category: "Social & Awareness Campaigning",
-          link: "/campaigning",
+          link: "/campaigning/social",
         },
         {
           category: "Religious & Cultural Campaigning",
-          link: "/campaigning",
+          link: "/campaigning/religious",
         },
         {
           category: "Political & Corporate Surveys & Data Collection",
-          link: "/campaigning",
+          link: "/campaigning/surveys",
         },
       ],
     },
@@ -535,7 +516,13 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
                           <>
                             <div className="flex items-center justify-between p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200">
                               <h4 className="text-sm font-semibold text-gray-900 group-hover/sub:text-orange-400">
-                                {category.category}
+                                {category.link ? (
+                                  <a href={category.link}>
+                                    {category.category}
+                                  </a>
+                                ) : (
+                                  category.category
+                                )}
                               </h4>
                               <svg
                                 className="w-2.5 h-2.5 text-gray-500 group-hover/sub:text-orange-400 transition-colors"
@@ -554,22 +541,13 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
                                   {category.category} Services
                                 </h5>
                                 <div className="grid grid-cols-1 gap-1">
-                                  {category.services.map(
+                                  {category.services?.map(
                                     (service, serviceIdx) => {
-                                      let link =
-                                        "link" in category
-                                          ? category.link
-                                          : "#";
-
-                                      if (item.label === "Live Streaming") {
-                                        link = "/livestream";
-                                      } else if (item.label === "Campaigning") {
-                                        link = "/campaign";
-                                      } else if (
-                                        item.label === "Government Tender"
-                                      ) {
-                                        link = "/government";
-                                      }
+                                      // Use service-specific link if available, otherwise fallback to category link or default
+                                      const link =
+                                        category.serviceLinks?.[serviceIdx] ||
+                                        category.link ||
+                                        "#";
 
                                       return (
                                         <a
@@ -587,7 +565,6 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
                             </div>
                           </>
                         ) : (
-                          // Render as simple link if no services
                           <a
                             href={category.link || "#"}
                             className="block p-2 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
@@ -660,20 +637,31 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
                     {item.dropdown.slice(0, 3).map((category, subIdx) => (
                       <div key={subIdx} className="text-gray-700 text-sm">
                         <div className="font-medium py-1 text-orange-400">
-                          {category.category}
+                          {category.link ? (
+                            <a href={category.link}>{category.category}</a>
+                          ) : (
+                            category.category
+                          )}
                         </div>
                         {"services" in category && category.services && (
                           <div className="ml-4 space-y-1">
                             {category.services
                               .slice(0, 2)
-                              .map((service, serviceIdx) => (
-                                <div
-                                  key={serviceIdx}
-                                  className="text-xs text-gray-600 hover:text-gray-900 py-1"
-                                >
-                                  {service}
-                                </div>
-                              ))}
+                              .map((service, serviceIdx) => {
+                                const link =
+                                  category.serviceLinks?.[serviceIdx] ||
+                                  category.link ||
+                                  "#";
+                                return (
+                                  <a
+                                    key={serviceIdx}
+                                    href={link}
+                                    className="text-xs text-gray-600 hover:text-gray-900 py-1 block"
+                                  >
+                                    {service}
+                                  </a>
+                                );
+                              })}
                             <div className="text-xs text-orange-300">
                               +{category.services.length - 2} more services...
                             </div>

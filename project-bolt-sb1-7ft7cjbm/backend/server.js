@@ -63,6 +63,12 @@ const AudioProductionBannerRoutes = require('./routes/Audio Studio/AudioProducti
 const AudioProductiongalleryRoutes = require('./routes/Audio Studio/AudioProduction/AudioProductiongalleryRoutes');
 const MusicEntertainmentBannerRoutes = require('./routes/Audio Studio/MusicEntertainment/MusicEntertainmentBannerRoutes');
 const MusicEntertainmentgalleryRoutes = require('./routes/Audio Studio/MusicEntertainment/MusicEntertainmentgalleryRoutes');
+const CrainBannerRoutes = require('./routes/Cine Equipment/Crain/CrainBannerRoutes');
+const CrainGalleryRoutes = require('./routes/Cine Equipment/Crain/CrainGalleryRoutes');
+const WallLedp3BannerRoutes = require('./routes/Cine Equipment/WallLedp3/WallLedp3BannerRoutes');
+const WallLedp3GalleryRoutes = require('./routes/Cine Equipment/WallLedp3/WallLedp3galleryRoutes');
+const CinemaLightBannerRoutes = require('./routes/Cine Equipment/Cinema Light/CinemaLightBannerRoutes');
+const CinemaLightGalleryRoutes = require('./routes/Cine Equipment/Cinema Light/CinemaLightgalleryRoutes');
 const app = express();
 
 connectDB();
@@ -139,6 +145,12 @@ app.use('/api/audio-production-banner', AudioProductionBannerRoutes);
 app.use('/api/audio-production-gallery', AudioProductiongalleryRoutes);
 app.use('/api/audio-entertainment-banner', MusicEntertainmentBannerRoutes);
 app.use('/api/audio-entertainment-gallery', MusicEntertainmentgalleryRoutes);
+app.use('/api/cineequip-crain-banner', CrainBannerRoutes);
+app.use('/api/cineequip-crain-gallery', CrainGalleryRoutes);
+app.use('/api/cineequip-wall-banner', WallLedp3BannerRoutes);
+app.use('/api/cineequip-wall-gallery', WallLedp3GalleryRoutes);
+app.use('/api/cineequip-light-banner', CinemaLightBannerRoutes);
+app.use('/api/cineequip-light-gallery', CinemaLightGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 

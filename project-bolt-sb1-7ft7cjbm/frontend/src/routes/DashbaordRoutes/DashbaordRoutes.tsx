@@ -59,7 +59,12 @@ import MusicEntertainmentBannerManager from "../../dashboard/components/Audio St
 import MusicEntertainmentGalleryManager from "../../dashboard/components/Audio Studio/MusicEntertainment/MusicEntertainmentGalleryManager";
 import AudioProductionBannerManager from "../../dashboard/components/Audio Studio/AudioProduction/AudioProductionBannerManager";
 import AudioProductionGalleryManager from "../../dashboard/components/Audio Studio/AudioProduction/AudioProductionGalleryManager";
-
+import CinemaLightBannerManager from "../../dashboard/components/Cine Equipment/CinemaLight/CinemaLightBannerManager";
+import CinemaLightGalleryManager from "../../dashboard/components/Cine Equipment/CinemaLight/CinemaLightGalleryManager";
+import CrainBannerManager from "../../dashboard/components/Cine Equipment/Crain/CrainBannerManager";
+import CrainGalleryManager from "../../dashboard/components/Cine Equipment/Crain/CrainGalleryManager";
+import Wallledp3BannerManager from "../../dashboard/components/Cine Equipment/WallLedp3/WallLedp3BannerManager";
+import Wallledp3GalleryManager from "../../dashboard/components/Cine Equipment/WallLedp3/WallLedp3GalleryManager";
 export const DashboardRoutes = (
   <Route path="/dashboard" element={<DashboardLayout />}>
     {/* Main Dashboard Routes */}
@@ -284,5 +289,13 @@ export const DashboardRoutes = (
     <Route path="audio/audiomusic-gallery" element={<MusicEntertainmentGalleryManager />} />
     <Route path="audio/audioadvertise-banner" element={<AdvertisingBannerManager />} />
     <Route path="audio/audioadvertise-gallery" element={<AdvertisingGalleryManager />} />
+
+    {/* Cine Equipment */}
+    <Route path="cine-equip/cinema-light-banner" element={<CinemaLightBannerManager />} />
+    <Route path="cine-equip/cinema-light-gallery" element={<CinemaLightGalleryManager />} />
+    <Route path="cine-equip/crain-banner" element={<CrainBannerManager />} />
+    <Route path="cine-equip/crain-gallery" element={<CrainGalleryManager />} />
+    <Route path="cine-equip/wallledp3-banner" element={<Wallledp3BannerManager />} />
+    <Route path="cine-equip/wallledp3-gallery" element={<Wallledp3GalleryManager />} />
   </Route>
 );

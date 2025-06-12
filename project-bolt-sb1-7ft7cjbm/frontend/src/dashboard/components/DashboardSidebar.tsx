@@ -15,6 +15,7 @@ import {
   FiLink,
   FiShield,
   FiMusic,
+  FiArchive,
 } from "react-icons/fi";
 
 export const DashboardSidebar = () => {
@@ -159,6 +160,20 @@ export const DashboardSidebar = () => {
       ],
     },
     {
+      name: "Cine Equipment",
+      icon: <FiBox className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Crain Banner", path: "cine-equip/crain-banner" },
+        { name: "Crain Gallery", path: "cine-equip/crain-gallery" },
+        { name: "Wallledp3 Banner", path: "cine-equip/wallledp3-banner" },
+        { name: "Wallledp3 Gallery", path: "cine-equip/wallledp3-gallery" },
+        { name: "Cinema Light Banner", path: "cine-equip/cinema-light-banner" },
+        { name: "Cinema Light Gallery", path: "cine-equip/cinema-light-gallery" },
+        
+      ],
+    },
+    {
       name: "Government Tandor",
       icon: <FiShield className="w-5 h-5" />,
       path: null,
@@ -169,7 +184,7 @@ export const DashboardSidebar = () => {
     },
     {
       name: "Campaigning",
-      icon: <FiShield className="w-5 h-5" />,
+      icon: <FiArchive className="w-5 h-5" />,
       path: null,
       children: [
         { name: "Campaigning Banner", path: "/dashboard/campaigning-banner" },
