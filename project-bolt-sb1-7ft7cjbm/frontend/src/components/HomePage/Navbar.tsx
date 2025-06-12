@@ -3,14 +3,10 @@ import { Menu, X, Search } from "lucide-react";
 import logo from "../../assets/images/logo.png";
 
 interface NavbarProps {
-  isLiveStreamingActive?: boolean;
-  isCampaigningActive?: boolean;
+  hasFeaturedItems: boolean;
 }
 
-const Navbar = ({
-  isLiveStreamingActive = false,
-  isCampaigningActive = false,
-}: NavbarProps) => {
+const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -180,7 +176,7 @@ const Navbar = ({
     {
       label: "Live Streaming",
       link: "/livestream",
-      isLive: isLiveStreamingActive,
+      isLive: hasFeaturedItems,
       dropdown: [
         {
           category: "Political Event",
@@ -405,7 +401,6 @@ const Navbar = ({
     },
     {
       label: "Campaigning",
-      isLive: isCampaigningActive,
       dropdown: [
         {
           category: "Political Campaigning",

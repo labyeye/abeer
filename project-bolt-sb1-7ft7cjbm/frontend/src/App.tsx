@@ -7,7 +7,6 @@ import Footer from "./components/HomePage/Footer";
 import { AppRoutes } from "./routes/AppRoutes/index";
 import axios from "axios";
 
-// In App.tsx
 function AppContent() {
   const location = useLocation();
   const isDashboardRoute =
@@ -15,7 +14,7 @@ function AppContent() {
     location.pathname === "/login";
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [hasGalleryItems, setHasGalleryItems] = useState(false);
+  const [hasFeaturedItems, setHasFeaturedItems] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +24,9 @@ function AppContent() {
           axios.get("https://abeer.onrender.com/api/livestream-gallery")
         ]);
         setCategories(categoriesRes.data);
-        setHasGalleryItems(galleryRes.data && galleryRes.data.length > 0);
+        // Check if there are any featured items
+        const featuredItemsExist = galleryRes.data.some((item: any) => item.isFeatured);
+        setHasFeaturedItems(featuredItemsExist);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -46,7 +47,7 @@ function AppContent() {
 
   return (
     <div className="font-sans">
-      {!isDashboardRoute && <Navbar isLiveStreamingActive={hasGalleryItems} />}
+      {!isDashboardRoute && <Navbar hasFeaturedItems={hasFeaturedItems} />}
       <main>
         <AppRoutes categories={categories} />
       </main>
