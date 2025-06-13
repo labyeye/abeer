@@ -28,7 +28,7 @@ export const GalleryManager = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const { register, handleSubmit, reset } = useForm<Omit<GalleryImage, "_id" | "order">>();
-  const categories = ["portrait", "creative", "nature", "video"];
+  const categories = ["wedding", "pre wedding", "event","government & political event","filmmaking"];
 
   useEffect(() => {
     fetchImages();
