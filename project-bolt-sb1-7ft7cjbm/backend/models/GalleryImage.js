@@ -4,7 +4,7 @@ const GalleryImageSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['portrait', 'creative', 'nature', 'video']
+    enum: ['wedding', 'pre wedding', 'event','government & political event','filmmaking']
   },
   image: {
     type: String,
