@@ -139,14 +139,6 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
             "Red Camera",
             "Arri Camera",
           ],
-          serviceLinks: [
-            "/cineequipment/cinemacamera/sony-fx3",
-            "/cineequipment/cinemacamera/sony-fx6",
-            "/cineequipment/cinemacamera/burano",
-            "/cineequipment/cinemacamera/venice-2",
-            "/cineequipment/cinemacamera/red-camera",
-            "/cineequipment/cinemacamera/arri-camera",
-          ],
         },
         {
           category: "Cinema Light",

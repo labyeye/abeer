@@ -77,6 +77,14 @@ const RecordBannerRoutes = require('./routes/Post Production/Record/RecordBanner
 const RecordGalleryRoutes = require('./routes/Post Production/Record/RecordgalleryRoutes');
 const VFXBannerRoutes = require('./routes/Post Production/VFX/VFXBannerRoutes');
 const VFXGalleryRoutes = require('./routes/Post Production/VFX/VFXgalleryRoutes');
+const CinemaCameraBannerRoutes = require('./routes/Cine Equipment/Cinema Camera/CinemaCameraBannerRoutes');
+const ArrigalleryRoutes = require('./routes/Cine Equipment/Cinema Camera/ArrigalleryRoutes');
+const BurranogalleryRoutes = require('./routes/Cine Equipment/Cinema Camera/BurranogalleryRoutes');
+const FX3galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/FX3galleryRoutes');
+const FX6galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/FX6galleryRoutes');
+const RedCameragalleryRoutes = require('./routes/Cine Equipment/Cinema Camera/RedCameragalleryRoutes');
+const Vennice2galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/Vennice2galleryRoutes');
+
 const app = express();
 
 connectDB();
@@ -159,6 +167,13 @@ app.use('/api/cineequip-wall-banner', WallLedp3BannerRoutes);
 app.use('/api/cineequip-wall-gallery', WallLedp3GalleryRoutes);
 app.use('/api/cineequip-light-banner', CinemaLightBannerRoutes);
 app.use('/api/cineequip-light-gallery', CinemaLightGalleryRoutes);
+app.use('/api/cineequip-camera-banner', CinemaCameraBannerRoutes);
+app.use('/api/cineequip-arri-banner', ArrigalleryRoutes);
+app.use('/api/cineequip-burrano-banner', BurranogalleryRoutes);
+app.use('/api/cineequip-fx3-banner', FX3galleryRoutes);
+app.use('/api/cineequip-fx6-banner', FX6galleryRoutes);
+app.use('/api/cineequip-redcamera-banner', RedCameragalleryRoutes);
+app.use('/api/cineequip-vennice2-banner', Vennice2galleryRoutes);
 app.use('/api/postproduction-fcpx-banner', FCPXBannerRoutes);
 app.use('/api/postproduction-fcpx-gallery', FCPXGalleryRoutes);
 app.use('/api/postproduction-grading-banner', GradingBannerRoutes);
@@ -167,6 +182,7 @@ app.use('/api/postproduction-record-banner', RecordBannerRoutes);
 app.use('/api/postproduction-record-gallery', RecordGalleryRoutes);
 app.use('/api/postproduction-vfx-banner', VFXBannerRoutes);
 app.use('/api/postproduction-vfx-gallery', VFXGalleryRoutes);
+
 
 const PORT = process.env.PORT || 2500;
 

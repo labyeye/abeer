@@ -35,6 +35,7 @@ import FCPXPage from "../../components/Post Production/FCPX/FCPXPage";
 import VFXPage from "../../components/Post Production/VFX/VFXPage";
 import GradingPage from "../../components/Post Production/Grading/GradingPage";
 import RecordPage from "../../components/Post Production/Record/RecordPage";
+import CinemaCameraPage from "../../components/Cine Equipment/Cinema Camera/CinemaCameraPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -72,6 +73,8 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/cineequipment/crain" element={<CrainPage />} />
     <Route path="/cineequipment/wallledp3" element={<Wallledp3Page />} />
     <Route path="/cineequipment/cinemalight" element={<CinemaLightPage />} />
+        <Route path="/cineequipment/cinemacamera" element={<CinemaCameraPage />} />
+
     <Route path="/postproduction/fcpx" element={<FCPXPage />} />
     <Route path="/postproduction/vfx" element={<VFXPage />} />
     <Route path="/postproduction/grading" element={<GradingPage />} />

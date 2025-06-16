@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
-import aboutBg from "../../../assets/images/about-bg.jpg";
+import aboutBg from "../../../../assets/images/about-bg.jpg";
 
 type GalleryItem = {
   _id: string;
@@ -24,7 +24,7 @@ const FX3Gallery = () => {
     console.log("Fetching Sony FX3 gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cine-babyshower-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/cineequip-fx3-banner");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -61,7 +61,7 @@ const FX3Gallery = () => {
       {/* Content container */}
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-[#263f49] mb-12 text-center">
-          Our Baby Shower / Baby Shoot / Birthday Films
+          Our FX3 Camera Films
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

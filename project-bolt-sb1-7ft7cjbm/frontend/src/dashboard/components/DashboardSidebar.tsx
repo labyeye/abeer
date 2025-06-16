@@ -169,6 +169,13 @@ export const DashboardSidebar = () => {
       icon: <FiBox className="w-5 h-5" />,
       path: null,
       children: [
+        { name: "Cinema Camera Banner", path: "cine-equip/cine-camera-banner" },
+        { name: "Arri Gallery", path: "cine-equip/arri-gallery" },
+        { name: "Burrano Gallery", path: "cine-equip/burrano-gallery" },
+        { name: "FX3 Gallery", path: "cine-equip/fx3-gallery" },
+        { name: "FX6 Gallery", path: "cine-equip/fx6-gallery" },
+        { name: "Red Camera Gallery", path: "cine-equip/redcamera-gallery" },
+        { name: "Vennice 2 Gallery", path: "cine-equip/vennice2-gallery" },
         { name: "Crain Banner", path: "cine-equip/crain-banner" },
         { name: "Crain Gallery", path: "cine-equip/crain-gallery" },
         { name: "Wallledp3 Banner", path: "cine-equip/wallledp3-banner" },

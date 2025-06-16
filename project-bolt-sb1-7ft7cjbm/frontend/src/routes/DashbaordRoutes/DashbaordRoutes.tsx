@@ -73,6 +73,17 @@ import GradingBannerManager from "../../dashboard/components/Post Production/Gra
 import GradingGalleryManager from "../../dashboard/components/Post Production/Grading/GradingGalleryManager";
 import RecordBannerManager from "../../dashboard/components/Post Production/Record/RecordBannerManager";
 import RecordGalleryManager from "../../dashboard/components/Post Production/Record/RecordGalleryManager";
+import ArriGalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/Arri/ArriGalleryManager";
+import BuranoGalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/Burano/BuranoGalleryManager";
+import FX3GalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/FX3/FX3GalleryManager";
+import FX6GalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/FX6/FX6GalleryManager";
+import RedCameraGalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/Red Camera/RedCameraGalleryManager";
+import Venice2GalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/Venice 2/Venice2GalleryManager";
+import CinemaCameraBannerManager from "../../dashboard/components/Cine Equipment/CinemaCamera/CinemaCameraBannerManager";
+
+
+
+
 export const DashboardRoutes = (
   <Route path="/dashboard" element={<DashboardLayout />}>
     {/* Main Dashboard Routes */}
@@ -305,6 +316,14 @@ export const DashboardRoutes = (
     <Route path="cine-equip/crain-gallery" element={<CrainGalleryManager />} />
     <Route path="cine-equip/wallledp3-banner" element={<Wallledp3BannerManager />} />
     <Route path="cine-equip/wallledp3-gallery" element={<Wallledp3GalleryManager />} />
+    <Route path="cine-equip/arri-gallery" element={<ArriGalleryManager />} />
+    <Route path="cine-equip/burrano-gallery" element={<BuranoGalleryManager />} />
+    <Route path="cine-equip/fx3-gallery" element={<FX3GalleryManager />} />
+    <Route path="cine-equip/fx6-gallery" element={<FX6GalleryManager />} />
+    <Route path="cine-equip/vennice2-gallery" element={<Venice2GalleryManager />} />
+    <Route path="cine-equip/redcamera-gallery" element={<RedCameraGalleryManager />} />
+    <Route path="cine-equip/cine-camera-banner" element={<CinemaCameraBannerManager />} />
+    
 
     {/* Post Production */}
     <Route path="post-production/fcpx-banner" element={<FCPXBannerManager />} />
