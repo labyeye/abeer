@@ -65,6 +65,14 @@ import CrainBannerManager from "../../dashboard/components/Cine Equipment/Crain/
 import CrainGalleryManager from "../../dashboard/components/Cine Equipment/Crain/CrainGalleryManager";
 import Wallledp3BannerManager from "../../dashboard/components/Cine Equipment/WallLedp3/WallLedp3BannerManager";
 import Wallledp3GalleryManager from "../../dashboard/components/Cine Equipment/WallLedp3/WallLedp3GalleryManager";
+import FCPXBannerManager from "../../dashboard/components/Post Production/FCPX/FCPXBannerManager";
+import FCPXGalleryManager from "../../dashboard/components/Post Production/FCPX/FCPXGalleryManager";
+import VFXBannerManager from "../../dashboard/components/Post Production/VFX/VFXBannerManager";
+import VFXGalleryManager from "../../dashboard/components/Post Production/VFX/VFXGalleryManager";
+import GradingBannerManager from "../../dashboard/components/Post Production/Grading/GradingBannerManager";
+import GradingGalleryManager from "../../dashboard/components/Post Production/Grading/GradingGalleryManager";
+import RecordBannerManager from "../../dashboard/components/Post Production/Record/RecordBannerManager";
+import RecordGalleryManager from "../../dashboard/components/Post Production/Record/RecordGalleryManager";
 export const DashboardRoutes = (
   <Route path="/dashboard" element={<DashboardLayout />}>
     {/* Main Dashboard Routes */}
@@ -297,5 +305,15 @@ export const DashboardRoutes = (
     <Route path="cine-equip/crain-gallery" element={<CrainGalleryManager />} />
     <Route path="cine-equip/wallledp3-banner" element={<Wallledp3BannerManager />} />
     <Route path="cine-equip/wallledp3-gallery" element={<Wallledp3GalleryManager />} />
+
+    {/* Post Production */}
+    <Route path="post-production/fcpx-banner" element={<FCPXBannerManager />} />
+    <Route path="post-production/fcpx-gallery" element={<FCPXGalleryManager />} />
+    <Route path="post-production/vfx-banner" element={<VFXBannerManager />} />
+    <Route path="post-production/vfx-gallery" element={<VFXGalleryManager />} />
+    <Route path="post-production/grading-banner" element={<GradingBannerManager />} />
+    <Route path="post-production/grading-gallery" element={<GradingGalleryManager />} />
+    <Route path="post-production/record-banner" element={<RecordBannerManager />} />
+    <Route path="post-production/record-gallery" element={<RecordGalleryManager />} />
   </Route>
 );

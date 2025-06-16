@@ -31,6 +31,10 @@ import AudioProductionPage from "../../components/Audio Studio/AudioProduction/A
 import CrainPage from "../../components/Cine Equipment/Crain/CrainPage";
 import Wallledp3Page from "../../components/Cine Equipment/Wallledp3/Wallledp3Page";
 import CinemaLightPage from "../../components/Cine Equipment/CinemaLight/CinemaLightPage";
+import FCPXPage from "../../components/Post Production/FCPX/FCPXPage";
+import VFXPage from "../../components/Post Production/VFX/VFXPage";
+import GradingPage from "../../components/Post Production/Grading/GradingPage";
+import RecordPage from "../../components/Post Production/Record/RecordPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -68,7 +72,10 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/cineequipment/crain" element={<CrainPage />} />
     <Route path="/cineequipment/wallledp3" element={<Wallledp3Page />} />
     <Route path="/cineequipment/cinemalight" element={<CinemaLightPage />} />
-
+    <Route path="/postproduction/fcpx" element={<FCPXPage />} />
+    <Route path="/postproduction/vfx" element={<VFXPage />} />
+    <Route path="/postproduction/grading" element={<GradingPage />} />
+    <Route path="/postproduction/record" element={<RecordPage />} />
     {/* Auth Route */}
     <Route path="/login" element={<Login />} />
 

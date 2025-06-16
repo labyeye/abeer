@@ -69,6 +69,14 @@ const WallLedp3BannerRoutes = require('./routes/Cine Equipment/WallLedp3/WallLed
 const WallLedp3GalleryRoutes = require('./routes/Cine Equipment/WallLedp3/WallLedp3galleryRoutes');
 const CinemaLightBannerRoutes = require('./routes/Cine Equipment/Cinema Light/CinemaLightBannerRoutes');
 const CinemaLightGalleryRoutes = require('./routes/Cine Equipment/Cinema Light/CinemaLightgalleryRoutes');
+const FCPXBannerRoutes = require('./routes/Post Production/FCPX/FCPXBannerRoutes');
+const FCPXGalleryRoutes = require('./routes/Post Production/FCPX/FCPXgalleryRoutes');
+const GradingBannerRoutes = require('./routes/Post Production/Grading/GradingBannerRoutes');
+const GradingGalleryRoutes = require('./routes/Post Production/Grading/GradinggalleryRoutes');
+const RecordBannerRoutes = require('./routes/Post Production/Record/RecordBannerRoutes');
+const RecordGalleryRoutes = require('./routes/Post Production/Record/RecordgalleryRoutes');
+const VFXBannerRoutes = require('./routes/Post Production/VFX/VFXBannerRoutes');
+const VFXGalleryRoutes = require('./routes/Post Production/VFX/VFXgalleryRoutes');
 const app = express();
 
 connectDB();
@@ -151,6 +159,14 @@ app.use('/api/cineequip-wall-banner', WallLedp3BannerRoutes);
 app.use('/api/cineequip-wall-gallery', WallLedp3GalleryRoutes);
 app.use('/api/cineequip-light-banner', CinemaLightBannerRoutes);
 app.use('/api/cineequip-light-gallery', CinemaLightGalleryRoutes);
+app.use('/api/postproduction-fcpx-banner', FCPXBannerRoutes);
+app.use('/api/postproduction-fcpx-gallery', FCPXGalleryRoutes);
+app.use('/api/postproduction-grading-banner', GradingBannerRoutes);
+app.use('/api/postproduction-grading-gallery', GradingGalleryRoutes);
+app.use('/api/postproduction-record-banner', RecordBannerRoutes);
+app.use('/api/postproduction-record-gallery', RecordGalleryRoutes);
+app.use('/api/postproduction-vfx-banner', VFXBannerRoutes);
+app.use('/api/postproduction-vfx-gallery', VFXGalleryRoutes);
 
 const PORT = process.env.PORT || 2500;
 

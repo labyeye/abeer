@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import {
   FiHome,
-  FiImage,
   FiSettings,
   FiVideo,
   FiUsers,
@@ -16,6 +15,7 @@ import {
   FiShield,
   FiMusic,
   FiArchive,
+  FiPackage,
 } from "react-icons/fi";
 
 export const DashboardSidebar = () => {
@@ -154,9 +154,14 @@ export const DashboardSidebar = () => {
           name: "Music Gallery",
           path: "audio/audiomusic-banner",
         },
-        { name: "Audio Production Banner", path: "audio/audioproduction-banner" },
-        { name: "Audio Production Gallery", path: "audio/audioproduction-gallery" },
-        
+        {
+          name: "Audio Production Banner",
+          path: "audio/audioproduction-banner",
+        },
+        {
+          name: "Audio Production Gallery",
+          path: "audio/audioproduction-gallery",
+        },
       ],
     },
     {
@@ -169,8 +174,10 @@ export const DashboardSidebar = () => {
         { name: "Wallledp3 Banner", path: "cine-equip/wallledp3-banner" },
         { name: "Wallledp3 Gallery", path: "cine-equip/wallledp3-gallery" },
         { name: "Cinema Light Banner", path: "cine-equip/cinema-light-banner" },
-        { name: "Cinema Light Gallery", path: "cine-equip/cinema-light-gallery" },
-        
+        {
+          name: "Cinema Light Gallery",
+          path: "cine-equip/cinema-light-gallery",
+        },
       ],
     },
     {
@@ -178,8 +185,14 @@ export const DashboardSidebar = () => {
       icon: <FiShield className="w-5 h-5" />,
       path: null,
       children: [
-        { name: "Government Tandor Banner", path: "/dashboard/government-banner" },
-        { name: "Government Tandor Gallery", path: "/dashboard/government-gallery" },
+        {
+          name: "Government Tandor Banner",
+          path: "/dashboard/government-banner",
+        },
+        {
+          name: "Government Tandor Gallery",
+          path: "/dashboard/government-gallery",
+        },
       ],
     },
     {
@@ -191,7 +204,27 @@ export const DashboardSidebar = () => {
         { name: "Campaigning Gallery", path: "/dashboard/campaigning-gallery" },
       ],
     },
-    
+    {
+      name: "Post Production",
+      icon: <FiPackage className="w-5 h-5" />,
+      path: null,
+      children: [
+        {
+          name: "Record Gallery",
+          path: "/dashboard/post-production/record-gallery",
+        },
+        {
+          name: "Edit Gallery",
+          path: "/dashboard/post-production/edit-gallery",
+        },
+        {
+          name: "Color Gallery",
+          path: "/dashboard/post-production/color-gallery",
+        },
+        { name: "VFX Gallery", path: "/dashboard/post-production/vfx-gallery" },
+      ],
+    },
+
     {
       name: "Users",
       icon: <FiUsers className="w-5 h-5" />,
