@@ -210,16 +210,32 @@ export const DashboardSidebar = () => {
       path: null,
       children: [
         {
+          name: "Record Banner",
+          path: "/dashboard/post-production/record-banner",
+        },
+        {
           name: "Record Gallery",
           path: "/dashboard/post-production/record-gallery",
         },
         {
-          name: "Edit Gallery",
-          path: "/dashboard/post-production/edit-gallery",
+          name: "FCPX Banner",
+          path: "/dashboard/post-production/fcpx-banner",
         },
         {
-          name: "Color Gallery",
-          path: "/dashboard/post-production/color-gallery",
+          name: "FCPX Gallery",
+          path: "/dashboard/post-production/fcpx-gallery",
+        },
+        {
+          name: "Color Grading Banner",
+          path: "/dashboard/post-production/grading-banner",
+        },
+        {
+          name: "Color Grading Gallery",
+          path: "/dashboard/post-production/grading-gallery",
+        },
+        {
+          name: "VFX Banner",
+          path: "/dashboard/post-production/vfx-banner",
         },
         { name: "VFX Gallery", path: "/dashboard/post-production/vfx-gallery" },
       ],
