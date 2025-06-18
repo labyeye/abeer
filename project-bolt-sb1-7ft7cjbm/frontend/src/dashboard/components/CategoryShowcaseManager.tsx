@@ -50,7 +50,7 @@ export const CategoryShowcaseManager = () => {
       title: "",
       description: "",
       category: "",
-      images: Array(5)
+      images: Array(10)
         .fill(null)
         .map((_, index) => ({
           id: index + 1,
@@ -540,7 +540,7 @@ export const CategoryShowcaseManager = () => {
                   Category Media (At least 1 image or video required)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {Array.from({ length: 10 }).map((_, index) => (
                     <div key={index} className="bg-gray-50 p-4 rounded-md">
                       <h4 className="font-medium mb-3">Media {index + 1}</h4>
                       <div className="space-y-3">

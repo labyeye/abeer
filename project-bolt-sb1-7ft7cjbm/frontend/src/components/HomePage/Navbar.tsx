@@ -334,23 +334,23 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       dropdown: [
         {
           category: "Political Campaigning",
-          link: "/campaigning/political",
+          link: "/campaigning",
         },
         {
           category: "Business & Brand Campaigning",
-          link: "/campaigning/business",
+          link: "/campaigning",
         },
         {
           category: "Social & Awareness Campaigning",
-          link: "/campaigning/social",
+          link: "/campaigning",
         },
         {
           category: "Religious & Cultural Campaigning",
-          link: "/campaigning/religious",
+          link: "/campaigning",
         },
         {
           category: "Political & Corporate Surveys & Data Collection",
-          link: "/campaigning/surveys",
+          link: "/campaigning",
         },
       ],
     },
@@ -359,6 +359,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       dropdown: [
         {
           category: "IT & Software Development Tenders",
+          link: "/government",
           services: [
             "Website Development & Maintenance",
             "E-Governance Solutions",
@@ -369,6 +370,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Electrical & Power Supply Tenders",
+          link: "/government",
           services: [
             "Solar Power Projects",
             "Electricity Transmission & Distribution",
@@ -378,6 +380,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Defense & Security Tenders",
+          link: "/government",
           services: [
             "Defense Equipment Supply",
             "CCTV & Surveillance System",
@@ -387,6 +390,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Transport & Logistics Tenders",
+          link: "/government",
           services: [
             "Public Transport Services",
             "Railway Cargo & Freight Services",
@@ -395,6 +399,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Education & Training Tenders",
+          link: "/government",
           services: [
             "School & College Construction",
             "Smart Classroom Setup",
@@ -403,6 +408,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Printing & Stationery Tenders",
+          link: "/government",
           services: [
             "Books & Study Material Printing",
             "Office Stationery Supply",
@@ -411,6 +417,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Advertising & Media Tenders",
+          link: "/government",
           services: [
             "Digital Marketing & Social Media Promotion",
             "Radio & TV Advertisements",

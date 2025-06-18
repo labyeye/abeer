@@ -73,7 +73,7 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/cineequipment/crain" element={<CrainPage />} />
     <Route path="/cineequipment/wallledp3" element={<Wallledp3Page />} />
     <Route path="/cineequipment/cinemalight" element={<CinemaLightPage />} />
-        <Route path="/cineequipment/cinemacamera" element={<CinemaCameraPage />} />
+    <Route path="/cineequipment/cinemacamera" element={<CinemaCameraPage />} />
 
     <Route path="/postproduction/fcpx" element={<FCPXPage />} />
     <Route path="/postproduction/vfx" element={<VFXPage />} />
