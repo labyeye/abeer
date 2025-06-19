@@ -212,6 +212,15 @@ export const DashboardSidebar = () => {
       ],
     },
     {
+      name: "Image Selection",
+      icon: <FiArchive className="w-5 h-5" />,
+      path: null,
+      children: [
+        { name: "Folder Manage", path: "/dashboard/folder" },
+        { name: "Selection Viewer", path: "/dashboard/selection" },
+      ],
+    },
+    {
       name: "Post Production",
       icon: <FiPackage className="w-5 h-5" />,
       path: null,

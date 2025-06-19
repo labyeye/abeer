@@ -80,6 +80,8 @@ import FX6GalleryManager from "../../dashboard/components/Cine Equipment/CinemaC
 import RedCameraGalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/Red Camera/RedCameraGalleryManager";
 import Venice2GalleryManager from "../../dashboard/components/Cine Equipment/CinemaCamera/Venice 2/Venice2GalleryManager";
 import CinemaCameraBannerManager from "../../dashboard/components/Cine Equipment/CinemaCamera/CinemaCameraBannerManager";
+import FolderManager from "../../dashboard/components/FolderManager";
+import SelectionsViewer from "../../dashboard/components/SelectionsViewer";
 
 
 
@@ -92,7 +94,8 @@ export const DashboardRoutes = (
     <Route path="homeslides" element={<HeroSliderManager />} />
     <Route path="homeslides/new" element={<HeroSliderManager />} />
     <Route path="categories" element={<CategoryShowcaseManager />} />
-    <Route path="categories/new" element={<CategoryShowcaseManager />} />
+    <Route path="folder" element={<FolderManager />} />
+    <Route path="selection" element={<SelectionsViewer />} />
 
     {/* Cinematography - Wedding */}
     <Route

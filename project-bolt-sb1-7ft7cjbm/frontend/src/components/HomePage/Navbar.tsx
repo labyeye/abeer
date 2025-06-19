@@ -428,8 +428,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       ],
     },
     {
-      label: "Review",
-      link: "/review",
+      label: "Image Selector",
+      link: "/image-selector",
       isLive: hasFeaturedItems,
     },
     { label: "Contact", link: "#" },

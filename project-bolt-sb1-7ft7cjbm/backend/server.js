@@ -85,8 +85,11 @@ const FX6galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/FX6galle
 const RedCameragalleryRoutes = require('./routes/Cine Equipment/Cinema Camera/RedCameragalleryRoutes');
 const Vennice2galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/Vennice2galleryRoutes');
 const ReviewRoutes = require('./routes/reviewRoutes');
-
+const folderRoutes = require('./routes/folderRoutes');
+const selectionRoutes = require('./routes/selectionRoutes');
 const app = express();
+const { google } = require('googleapis');
+const path = require('path');
 
 connectDB();
 
@@ -96,7 +99,22 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
+const auth = new google.auth.GoogleAuth({
+  keyFile: process.env.GOOGLE_DRIVE_CREDENTIALS_PATH || './config/hallowed-oven-463416-v9-987e956be3bc.json',
+  scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+});
 
+// Make drive client available to routes
+app.use(async (req, res, next) => {
+  try {
+    const authClient = await auth.getClient();
+    req.drive = google.drive({ version: 'v3', auth: authClient });
+    next();
+  } catch (error) {
+    console.error('Google Drive auth failed:', error);
+    next(error);
+  }
+});
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/gallery', galleryRoutes);
@@ -184,6 +202,8 @@ app.use('/api/postproduction-record-gallery', RecordGalleryRoutes);
 app.use('/api/postproduction-vfx-banner', VFXBannerRoutes);
 app.use('/api/postproduction-vfx-gallery', VFXGalleryRoutes);
 app.use('/api/reviews', ReviewRoutes);
+app.use('/api/folders', folderRoutes);
+app.use('/api/selections', selectionRoutes);
 
 
 const PORT = process.env.PORT || 2500;
