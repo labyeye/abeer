@@ -100,7 +100,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 const auth = new google.auth.GoogleAuth({
-  keyFile: process.env.GOOGLE_DRIVE_CREDENTIALS_PATH || './config/hallowed-oven-463416-v9-987e956be3bc.json',
+  keyFile: './config/hallowed-oven-463416-v9-987e956be3bc.json',
   scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 });
 
