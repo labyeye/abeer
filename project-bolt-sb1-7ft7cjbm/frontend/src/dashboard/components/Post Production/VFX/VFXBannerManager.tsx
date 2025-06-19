@@ -64,7 +64,7 @@ const VFXBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/postproduction-vfx-banner",
+        "http://localhost:2500/api/postproduction-vfx-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const VFXBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/postproduction-vfx-banner/${editingId}`,
+          `http://localhost:2500/api/postproduction-vfx-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const VFXBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/postproduction-vfx-banner",
+          "http://localhost:2500/api/postproduction-vfx-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const VFXBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/postproduction-vfx-banner/${id}`,
+          `http://localhost:2500/api/postproduction-vfx-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

@@ -25,7 +25,7 @@ const CinemaLightGallery = () => {
     const fetchGalleryItems = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/cineequip-light-gallery"
+          "http://localhost:2500/api/cineequip-light-gallery"
         );
         setGalleryItems(response.data);
         setLoading(false);

@@ -64,7 +64,7 @@ const LiveStreamBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/livestream-banner",
+        "http://localhost:2500/api/livestream-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const LiveStreamBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/livestream-banner/${editingId}`,
+          `http://localhost:2500/api/livestream-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const LiveStreamBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/livestream-banner",
+          "http://localhost:2500/api/livestream-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const LiveStreamBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/livestream-banner/${id}`,
+          `http://localhost:2500/api/livestream-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

@@ -34,7 +34,7 @@ const FX6GalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/cineequip-fx6-banner");
+      const response = await axios.get("http://localhost:2500/api/cineequip-fx6-banner");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const FX6GalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/cineequip-fx6-banner/${editingId}`, formData);
+        await axios.put(`http://localhost:2500/api/cineequip-fx6-banner/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/cineequip-fx6-banner", formData);
+        await axios.post("http://localhost:2500/api/cineequip-fx6-banner", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const FX6GalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/cineequip-fx6-banner/${id}`);
+        await axios.delete(`http://localhost:2500/api/cineequip-fx6-banner/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {

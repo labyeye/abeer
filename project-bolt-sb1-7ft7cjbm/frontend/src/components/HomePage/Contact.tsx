@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
+import ReviewForm from "./ReviewForm";
 
 const Contact: React.FC = () => {
   return (
@@ -154,6 +155,7 @@ const Contact: React.FC = () => {
             ></iframe>
           </div>
         </div>
+        <ReviewForm/>
 
         {/* Contact Form */}
       </div>

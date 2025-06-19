@@ -24,7 +24,7 @@ const GovernmentGallery = () => {
     console.log("Fetching Films gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/government-gallery");
+        const response = await axios.get("http://localhost:2500/api/government-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

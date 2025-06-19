@@ -11,7 +11,7 @@ const CampaigningPage = () => {
   useEffect(() => {
     const checkGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/campaigning-gallery");
+        const response = await axios.get("http://localhost:2500/api/campaigning-gallery");
         setHasGalleryItems(response.data && response.data.length > 0);
       } catch (error) {
         console.error("Error checking gallery items:", error);

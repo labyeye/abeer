@@ -64,7 +64,7 @@ const PhoEventBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/pho-event-banner",
+        "http://localhost:2500/api/pho-event-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoEventBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/pho-event-banner/${editingId}`,
+          `http://localhost:2500/api/pho-event-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoEventBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/pho-event-banner",
+          "http://localhost:2500/api/pho-event-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoEventBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/pho-event-banner/${id}`,
+          `http://localhost:2500/api/pho-event-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

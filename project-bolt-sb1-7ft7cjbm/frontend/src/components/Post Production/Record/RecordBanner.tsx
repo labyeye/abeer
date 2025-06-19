@@ -16,7 +16,7 @@ const RecordBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/postproduction-record-banner/active"
+          "http://localhost:2500/api/postproduction-record-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

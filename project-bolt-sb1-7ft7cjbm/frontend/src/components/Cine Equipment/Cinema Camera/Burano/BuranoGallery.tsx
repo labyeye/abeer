@@ -24,7 +24,7 @@ const BuranoGallery = () => {
     console.log("Fetching Burano gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cineequip-burrano-banner");
+        const response = await axios.get("http://localhost:2500/api/cineequip-burrano-banner");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

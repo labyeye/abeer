@@ -16,7 +16,7 @@ const BirthdayBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/pho-birthday-banner/active"
+          "http://localhost:2500/api/pho-birthday-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

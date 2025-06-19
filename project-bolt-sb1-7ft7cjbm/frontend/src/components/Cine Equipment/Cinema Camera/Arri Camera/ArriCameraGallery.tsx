@@ -24,7 +24,7 @@ const ArriCameraGallery = () => {
     console.log("Fetching ArriCamera gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cineequip-arri-banner");
+        const response = await axios.get("http://localhost:2500/api/cineequip-arri-banner");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
