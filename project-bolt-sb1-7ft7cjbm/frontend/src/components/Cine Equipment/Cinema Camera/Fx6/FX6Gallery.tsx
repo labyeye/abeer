@@ -24,7 +24,7 @@ const FX6Gallery = () => {
     console.log("Fetching Sony FX6 gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/cineequip-fx6-banner");
+        const response = await axios.get("https://abeer.onrender.com/api/cineequip-fx6-banner");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

@@ -64,7 +64,7 @@ const PhoSportsBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/pho-sports-banner",
+        "https://abeer.onrender.com/api/pho-sports-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoSportsBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/pho-sports-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-sports-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoSportsBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/pho-sports-banner",
+          "https://abeer.onrender.com/api/pho-sports-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoSportsBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/pho-sports-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-sports-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

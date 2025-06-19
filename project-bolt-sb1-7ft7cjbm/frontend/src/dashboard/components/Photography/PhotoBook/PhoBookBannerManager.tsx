@@ -64,7 +64,7 @@ const PhoBookBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/pho-book-banner",
+        "https://abeer.onrender.com/api/pho-book-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoBookBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/pho-book-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-book-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoBookBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/pho-book-banner",
+          "https://abeer.onrender.com/api/pho-book-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoBookBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/pho-book-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-book-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

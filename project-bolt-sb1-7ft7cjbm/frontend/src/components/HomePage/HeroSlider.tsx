@@ -23,7 +23,7 @@ const HeroSlider: React.FC = () => {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        const { data } = await axios.get("http://localhost:2500/api/slides");
+        const { data } = await axios.get("https://abeer.onrender.com/api/slides");
         setSlides(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Failed to fetch slides", error);

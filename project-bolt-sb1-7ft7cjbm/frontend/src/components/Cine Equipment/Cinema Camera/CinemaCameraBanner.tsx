@@ -16,7 +16,7 @@ const CinemaCameraBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/cineequip-camera-banner/active"
+          "https://abeer.onrender.com/api/cineequip-camera-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

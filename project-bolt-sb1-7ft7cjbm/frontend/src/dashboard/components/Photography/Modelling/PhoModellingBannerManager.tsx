@@ -64,7 +64,7 @@ const PhoModellingBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/pho-model-banner",
+        "https://abeer.onrender.com/api/pho-model-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoModellingBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/pho-model-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-model-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoModellingBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/pho-model-banner",
+          "https://abeer.onrender.com/api/pho-model-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoModellingBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/pho-model-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-model-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

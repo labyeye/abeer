@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Button, Card, Select, Input, Form, message, Spin, Divider } from 'antd';
+import { Button, Card, Select, Input, Form, message, Spin, Divider, Row, Col } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
 interface DriveImage {
@@ -8,28 +8,37 @@ interface DriveImage {
   name: string;
   thumbnailLink: string;
   webContentLink: string;
+  size?: number;
+  mimeType?: string;
+}
+
+interface DriveFolder {
+  id: string;
+  name: string;
 }
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 const ImageSelector = () => {
-  const [folders, setFolders] = useState<any[]>([]);
-  const [selectedFolder, setSelectedFolder] = useState<any>(null);
+  const [rootFolders, setRootFolders] = useState<any[]>([]);
+  const [subFolders, setSubFolders] = useState<any[]>([]);
+  const [selectedRootFolder, setSelectedRootFolder] = useState<any>(null);
+  const [selectedSubFolder, setSelectedSubFolder] = useState<any>(null);
   const [images, setImages] = useState<DriveImage[]>([]);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
 
   useEffect(() => {
-    fetchFolders();
+    fetchRootFolders();
   }, []);
 
-  const fetchFolders = async () => {
+  const fetchRootFolders = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:2500/api/folders');
-      setFolders(response.data);
+      const response = await axios.get('https://abeer.onrender.com/api/folders/roots');
+      setRootFolders(response.data);
     } catch (error) {
       message.error('Failed to load folders');
     } finally {
@@ -37,28 +46,45 @@ const ImageSelector = () => {
     }
   };
 
-  const fetchFolderImages = async (folderId: string) => {
-  setLoading(true);
-  try {
-    const response = await axios.get(`http://localhost:2500/api/folders/${folderId}/contents`);
-    if (response.data && response.data.files) {
-      setImages(response.data.files.map((file: any) => ({
-        id: file.id,
-        name: file.name,
-        thumbnailLink: file.thumbnailLink,
-        webContentLink: file.webContentLink
-      })));
-    } else {
+  const fetchSubFolders = async (folderId: string) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`https://abeer.onrender.com/api/folders/${folderId}/subfolders`);
+      setSubFolders(response.data);
+      setSelectedSubFolder(null);
       setImages([]);
-      message.warning('No images found in this folder');
+    } catch (error) {
+      message.error('Failed to load subfolders');
+      setSubFolders([]);
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    message.error('Failed to load images');
-    setImages([]);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
+
+  const fetchFolderImages = async (folderId: string) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`https://abeer.onrender.com/api/folders/${folderId}/contents`);
+      if (response.data.files) {
+        setImages(response.data.files.map((file: any) => ({
+          id: file.id,
+          name: file.name,
+          thumbnailLink: file.thumbnailLink,
+          webContentLink: file.webContentLink,
+          size: file.size,
+          mimeType: file.mimeType
+        })));
+      } else {
+        setImages([]);
+        message.warning('No images found in this folder');
+      }
+    } catch (error) {
+      message.error('Failed to load images');
+      setImages([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const toggleImageSelection = (imageId: string) => {
     setSelectedImages(prev => 
@@ -71,11 +97,12 @@ const ImageSelector = () => {
   const handleSubmit = async (values: any) => {
     try {
       const selectedImageDetails = images.filter(img => selectedImages.includes(img.id));
-      await axios.post('http://localhost:2500/api/selections', {
+      await axios.post('https://abeer.onrender.com/api/selections', {
         ...values,
         images: selectedImageDetails,
-        folderId: selectedFolder._id,
-        folderUrl: selectedFolder.url
+        folderId: selectedSubFolder?._id || selectedRootFolder?._id,
+        folderUrl: selectedSubFolder?.url || selectedRootFolder?.url,
+        folderName: selectedSubFolder?.name || selectedRootFolder?.name
       });
       
       message.success('Your selection has been submitted successfully!');
@@ -85,35 +112,58 @@ const ImageSelector = () => {
       message.error('Failed to submit selection');
     }
   };
-
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '24px' }}>Select Your Images</h1>
       
       <Card title="Select Folder" style={{ marginBottom: '24px' }}>
-        <Select
-          style={{ width: '100%' }}
-          placeholder="Select a folder"
-          onChange={(value) => {
-            const folder = folders.find(f => f._id === value);
-            setSelectedFolder(folder);
-            if (folder) fetchFolderImages(folder._id);
-          }}
-          value={selectedFolder?._id}
-          loading={loading}
-        >
-          {folders.map(folder => (
-            <Option key={folder._id} value={folder._id}>
-              {folder.url}
-            </Option>
-          ))}
-        </Select>
+        <Row gutter={16}>
+          <Col span={12}>
+            <Select
+              style={{ width: '100%' }}
+              placeholder="Select main folder"
+              onChange={(value) => {
+                const folder = rootFolders.find(f => f._id === value);
+                setSelectedRootFolder(folder);
+                if (folder) fetchSubFolders(folder._id);
+              }}
+              value={selectedRootFolder?._id}
+              loading={loading}
+            >
+              {rootFolders.map(folder => (
+                <Option key={folder._id} value={folder._id}>
+                  {folder.name}
+                </Option>
+              ))}
+            </Select>
+          </Col>
+          <Col span={12}>
+            <Select
+              style={{ width: '100%' }}
+              placeholder="Select subfolder (optional)"
+              onChange={(value) => {
+                const folder = subFolders.find(f => f._id === value);
+                setSelectedSubFolder(folder);
+                if (folder) fetchFolderImages(folder._id);
+              }}
+              value={selectedSubFolder?._id}
+              loading={loading}
+              disabled={!selectedRootFolder || subFolders.length === 0}
+            >
+              {subFolders.map(folder => (
+                <Option key={folder._id} value={folder._id}>
+                  {folder.name}
+                </Option>
+              ))}
+            </Select>
+          </Col>
+        </Row>
       </Card>
 
-      {selectedFolder && (
+      {(selectedRootFolder && (selectedSubFolder || subFolders.length === 0)) && (
         <>
           <Card 
-            title={`Images in ${selectedFolder.url}`}
+            title={`Images in ${selectedSubFolder?.name || selectedRootFolder.name}`}
             style={{ marginBottom: '24px' }}
             loading={loading}
           >
@@ -152,6 +202,7 @@ const ImageSelector = () => {
                         ? `${image.name.substring(0, 20)}...` 
                         : image.name
                       }
+                      description={`${(image.size / (1024 * 1024)).toFixed(2)} MB`}
                     />
                   </Card>
                 ))}

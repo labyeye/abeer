@@ -46,7 +46,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ onSubmitSuccess, className }) =
   const onSubmit = async (data: ReviewFormData) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:2500/api/reviews", {
+      const response = await fetch("https://abeer.onrender.com/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

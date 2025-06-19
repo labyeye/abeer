@@ -16,7 +16,7 @@ const PreWeddingBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/pho-pre-wedding-banner/active"
+          "https://abeer.onrender.com/api/pho-pre-wedding-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

@@ -24,7 +24,7 @@ const CampaigningGallery = () => {
     console.log("Fetching Films gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/campaigning-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/campaigning-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

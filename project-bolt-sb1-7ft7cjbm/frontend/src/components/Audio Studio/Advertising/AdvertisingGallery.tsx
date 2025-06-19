@@ -24,7 +24,7 @@ const AdvertisingGallery = () => {
     console.log("Fetching prewedding gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/audio-advertising-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/audio-advertising-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

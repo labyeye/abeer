@@ -17,7 +17,7 @@ interface GalleryImage {
 const createAuthAxios = () => {
   const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: "http://localhost:2500/api",
+    baseURL: "https://abeer.onrender.com/api",
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -37,7 +37,7 @@ export const GalleryManager = () => {
   const fetchImages = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get("http://localhost:2500/api/gallery");
+      const { data } = await axios.get("https://abeer.onrender.com/api/gallery");
       setImages(Array.isArray(data) ? data : []);
     } catch (error) {
       toast.error("Failed to fetch images");

@@ -25,7 +25,7 @@ const GradingGallery = () => {
     const fetchGalleryItems = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/postproduction-grading-gallery"
+          "https://abeer.onrender.com/api/postproduction-grading-gallery"
         );
         setGalleryItems(response.data);
         setLoading(false);

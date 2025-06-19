@@ -34,7 +34,7 @@ const LiveStreamGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("http://localhost:2500/api/livestream-gallery");
+      const response = await axios.get("https://abeer.onrender.com/api/livestream-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const LiveStreamGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:2500/api/livestream-gallery/${editingId}`, formData);
+        await axios.put(`https://abeer.onrender.com/api/livestream-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("http://localhost:2500/api/livestream-gallery", formData);
+        await axios.post("https://abeer.onrender.com/api/livestream-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const LiveStreamGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`http://localhost:2500/api/livestream-gallery/${id}`);
+        await axios.delete(`https://abeer.onrender.com/api/livestream-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {

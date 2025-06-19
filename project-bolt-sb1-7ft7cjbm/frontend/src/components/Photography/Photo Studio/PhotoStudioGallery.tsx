@@ -22,7 +22,7 @@ const PhotoStudioGallery = () => {
     console.log("Fetching PhotoStudio gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/pho-studio-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/pho-studio-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

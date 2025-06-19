@@ -64,7 +64,7 @@ const AdvertisingBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/audio-advertising-banner",
+        "https://abeer.onrender.com/api/audio-advertising-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const AdvertisingBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/audio-advertising-banner/${editingId}`,
+          `https://abeer.onrender.com/api/audio-advertising-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const AdvertisingBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/audio-advertising-banner",
+          "https://abeer.onrender.com/api/audio-advertising-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const AdvertisingBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/audio-advertising-banner/${id}`,
+          `https://abeer.onrender.com/api/audio-advertising-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

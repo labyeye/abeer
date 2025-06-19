@@ -20,8 +20,8 @@ function AppContent() {
     const fetchData = async () => {
       try {
         const [categoriesRes, galleryRes] = await Promise.all([
-          axios.get("http://localhost:2500/api/categories"),
-          axios.get("http://localhost:2500/api/livestream-gallery")
+          axios.get("https://abeer.onrender.com/api/categories"),
+          axios.get("https://abeer.onrender.com/api/livestream-gallery")
         ]);
         setCategories(categoriesRes.data);
         // Check if there are any featured items
