@@ -24,7 +24,7 @@ const FCPXGallery = () => {
     console.log("Fetching Event gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/postproduction-fcpx-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/postproduction-fcpx-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

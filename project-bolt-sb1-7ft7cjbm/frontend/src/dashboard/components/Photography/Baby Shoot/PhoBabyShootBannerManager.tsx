@@ -64,7 +64,7 @@ const PhoBabyShootBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/cine-babyshoot-banner",
+        "https://abeer.onrender.com/api/cine-babyshoot-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoBabyShootBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/cine-babyshoot-banner/${editingId}`,
+          `https://abeer.onrender.com/api/cine-babyshoot-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoBabyShootBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/cine-babyshoot-banner",
+          "https://abeer.onrender.com/api/cine-babyshoot-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoBabyShootBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/cine-babyshoot-banner/${id}`,
+          `https://abeer.onrender.com/api/cine-babyshoot-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

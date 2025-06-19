@@ -64,7 +64,7 @@ const PhoPoliticalBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:2500/api/pho-political-banner",
+        "https://abeer.onrender.com/api/pho-political-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const PhoPoliticalBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:2500/api/pho-political-banner/${editingId}`,
+          `https://abeer.onrender.com/api/pho-political-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const PhoPoliticalBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2500/api/pho-political-banner",
+          "https://abeer.onrender.com/api/pho-political-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const PhoPoliticalBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `http://localhost:2500/api/pho-political-banner/${id}`,
+          `https://abeer.onrender.com/api/pho-political-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

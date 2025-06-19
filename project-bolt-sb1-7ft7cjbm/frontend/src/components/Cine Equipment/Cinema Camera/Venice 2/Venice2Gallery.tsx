@@ -24,7 +24,7 @@ const Venice2Gallery = () => {
     console.log("Fetching Babyshower gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/cineequip-vennice2-banner");
+        const response = await axios.get("https://abeer.onrender.com/api/cineequip-vennice2-banner");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

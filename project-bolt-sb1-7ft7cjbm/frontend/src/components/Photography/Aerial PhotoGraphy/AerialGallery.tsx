@@ -22,7 +22,7 @@ const FilmsGallery = () => {
     const fetchGalleryItems = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:2500/api/pho-aerial-gallery"
+          "https://abeer.onrender.com/api/pho-aerial-gallery"
         );
         setGalleryItems(response.data);
         setLoading(false);

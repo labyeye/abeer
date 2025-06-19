@@ -23,7 +23,7 @@ const VFXGallery = () => {
   useEffect(() => {
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("http://localhost:2500/api/postproduction-vfx-gallery");
+        const response = await axios.get("https://abeer.onrender.com/api/postproduction-vfx-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
