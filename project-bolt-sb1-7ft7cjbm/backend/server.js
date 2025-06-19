@@ -84,6 +84,7 @@ const FX3galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/FX3galle
 const FX6galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/FX6galleryRoutes');
 const RedCameragalleryRoutes = require('./routes/Cine Equipment/Cinema Camera/RedCameragalleryRoutes');
 const Vennice2galleryRoutes = require('./routes/Cine Equipment/Cinema Camera/Vennice2galleryRoutes');
+const ReviewRoutes = require('./routes/reviewRoutes');
 
 const app = express();
 
@@ -182,6 +183,7 @@ app.use('/api/postproduction-record-banner', RecordBannerRoutes);
 app.use('/api/postproduction-record-gallery', RecordGalleryRoutes);
 app.use('/api/postproduction-vfx-banner', VFXBannerRoutes);
 app.use('/api/postproduction-vfx-gallery', VFXGalleryRoutes);
+app.use('/api/reviews', ReviewRoutes);
 
 
 const PORT = process.env.PORT || 2500;

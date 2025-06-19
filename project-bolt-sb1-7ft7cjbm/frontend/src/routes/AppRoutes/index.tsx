@@ -36,6 +36,7 @@ import VFXPage from "../../components/Post Production/VFX/VFXPage";
 import GradingPage from "../../components/Post Production/Grading/GradingPage";
 import RecordPage from "../../components/Post Production/Record/RecordPage";
 import CinemaCameraPage from "../../components/Cine Equipment/Cinema Camera/CinemaCameraPage";
+import ReviewPage from "../../components/pages/ReviewPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -48,6 +49,7 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/livestream" element={<LiveStreamPage />} />
     <Route path="/government" element={<GovernmentPage />} />
     <Route path="/campaigning" element={<CampaigningPage />} />
+    <Route path="/review" element={<ReviewPage />} />
     <Route path="/cinematography/wedding" element={<WeddingPage />} />
     <Route path="/cinematography/prewedding" element={<PreWeddingPage />} />
     <Route path="/cinematography/babyshower" element={<BabyshowerPage />} />

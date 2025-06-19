@@ -35,6 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
   const navItems: NavItem[] = [
     { label: "Home", link: "/" },
     { label: "About", link: "/about" },
+    
     {
       label: "Cinematography",
       dropdown: [
@@ -425,6 +426,11 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
           ],
         },
       ],
+    },
+    {
+      label: "Review",
+      link: "/review",
+      isLive: hasFeaturedItems,
     },
     { label: "Contact", link: "#" },
   ];
