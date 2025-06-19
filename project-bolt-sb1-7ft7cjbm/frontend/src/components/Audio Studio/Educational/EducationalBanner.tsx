@@ -16,7 +16,7 @@ const EducationalBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/audio-educational-banner/active"
+          "http://localhost:2500/api/audio-educational-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

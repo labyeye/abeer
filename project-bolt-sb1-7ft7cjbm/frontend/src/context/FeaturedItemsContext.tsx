@@ -19,7 +19,7 @@ export const FeaturedItemsProvider: React.FC<{children: React.ReactNode}> = ({ c
 
   const checkFeaturedItems = async () => {
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/livestream-gallery");
+      const response = await axios.get("http://localhost:2500/api/livestream-gallery");
       const hasFeatured = response.data.some((item: any) => item.isFeatured);
       setHasFeaturedItems(hasFeatured);
     } catch (error) {

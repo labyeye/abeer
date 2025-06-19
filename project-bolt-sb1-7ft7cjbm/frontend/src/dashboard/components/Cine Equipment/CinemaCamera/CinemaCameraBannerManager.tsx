@@ -64,7 +64,7 @@ const CinemaCameraBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cineequip-camera-banner",
+        "http://localhost:2500/api/cineequip-camera-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const CinemaCameraBannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cineequip-camera-banner/${editingId}`,
+          `http://localhost:2500/api/cineequip-camera-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const CinemaCameraBannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/cineequip-camera-banner",
+          "http://localhost:2500/api/cineequip-camera-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const CinemaCameraBannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/cineequip-camera-banner/${id}`,
+          `http://localhost:2500/api/cineequip-camera-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

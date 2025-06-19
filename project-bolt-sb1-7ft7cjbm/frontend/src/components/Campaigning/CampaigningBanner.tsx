@@ -16,7 +16,7 @@ const CampaigningBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/campaigning-banner/active"
+          "http://localhost:2500/api/campaigning-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

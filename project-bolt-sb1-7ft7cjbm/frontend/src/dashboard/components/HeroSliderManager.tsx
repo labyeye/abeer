@@ -16,7 +16,7 @@ interface Slide {
 const createAuthAxios = () => {
   const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: "https://abeer.onrender.com/api",
+    baseURL: "http://localhost:2500/api",
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -35,7 +35,7 @@ export const HeroSliderManager = () => {
   const fetchSlides = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get("https://abeer.onrender.com/api/slides");
+      const { data } = await axios.get("http://localhost:2500/api/slides");
       setSlides(Array.isArray(data) ? data : []);
     } catch (error) {
       toast.error("Failed to fetch slides");
@@ -68,7 +68,7 @@ export const HeroSliderManager = () => {
   const handleDelete = async (id: string) => {
     try {
       const authAxios = createAuthAxios();
-      await authAxios.delete(`https://abeer.onrender.com/api/slides/${id}`);
+      await authAxios.delete(`http://localhost:2500/api/slides/${id}`);
       toast.success("Slide deleted successfully");
       fetchSlides();
     } catch (error) {
@@ -95,7 +95,7 @@ export const HeroSliderManager = () => {
 
     try {
       const authAxios = createAuthAxios();
-      await authAxios.post("https://abeer.onrender.com/api/slides/reorder", {
+      await authAxios.post("http://localhost:2500/api/slides/reorder", {
         orderedIds: items.map((item) => item._id),
       });
       toast.success("Slides reordered successfully");

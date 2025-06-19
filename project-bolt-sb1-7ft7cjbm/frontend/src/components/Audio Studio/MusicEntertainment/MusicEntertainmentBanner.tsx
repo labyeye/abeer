@@ -16,7 +16,7 @@ const MusicEntertainmentBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/audio-entertainment-banner/active"
+          "http://localhost:2500/api/audio-entertainment-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

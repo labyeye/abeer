@@ -8,7 +8,7 @@ const FolderManager = () => {
 
   const fetchFolders = async () => {
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/folders");
+      const response = await axios.get("http://localhost:2500/api/folders");
       setFolders(response.data);
     } catch (error) {
       console.error("Error fetching folders:", error);
@@ -19,7 +19,7 @@ const FolderManager = () => {
     e.preventDefault();
     try {
       const folderId = extractFolderId(folderUrl);
-      await axios.post("https://abeer.onrender.com/api/folders", {
+      await axios.post("http://localhost:2500/api/folders", {
         url: folderUrl,
         folderId,
       });

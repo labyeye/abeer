@@ -24,7 +24,7 @@ const EducationalGallery = () => {
     console.log("Fetching Event gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/audio-educational-gallery");
+        const response = await axios.get("http://localhost:2500/api/audio-educational-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

@@ -64,7 +64,7 @@ const GradingBannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/postproduction-grading-banner",
+        "http://localhost:2500/api/postproduction-grading-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -134,7 +134,7 @@ const isValidImageUrl = (url: string) => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/postproduction-grading-banner/${editingId}`,
+          `http://localhost:2500/api/postproduction-grading-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -142,7 +142,7 @@ const isValidImageUrl = (url: string) => {
         );
         toast.success("Banner updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/postproduction-grading-banner", formData, {
+        await axios.post("http://localhost:2500/api/postproduction-grading-banner", formData, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner created successfully");
@@ -181,7 +181,7 @@ const isValidImageUrl = (url: string) => {
 
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/postproduction-grading-banner/${id}`, {
+        await axios.delete(`http://localhost:2500/api/postproduction-grading-banner/${id}`, {
           headers: getAuthHeaders(),
         });
         toast.success("Banner deleted successfully");

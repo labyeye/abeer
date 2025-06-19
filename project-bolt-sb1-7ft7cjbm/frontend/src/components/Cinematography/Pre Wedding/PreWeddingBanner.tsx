@@ -16,7 +16,7 @@ const PreWeddingBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/cine-prewedding-banner/active"
+          "http://localhost:2500/api/cine-prewedding-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

@@ -28,7 +28,7 @@ const ImageSelector = () => {
   const fetchFolders = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('https://abeer.onrender.com/api/folders');
+      const response = await axios.get('http://localhost:2500/api/folders');
       setFolders(response.data);
     } catch (error) {
       message.error('Failed to load folders');
@@ -40,7 +40,7 @@ const ImageSelector = () => {
   const fetchFolderImages = async (folderId: string) => {
   setLoading(true);
   try {
-    const response = await axios.get(`https://abeer.onrender.com/api/folders/${folderId}/contents`);
+    const response = await axios.get(`http://localhost:2500/api/folders/${folderId}/contents`);
     if (response.data && response.data.files) {
       setImages(response.data.files.map((file: any) => ({
         id: file.id,
@@ -71,7 +71,7 @@ const ImageSelector = () => {
   const handleSubmit = async (values: any) => {
     try {
       const selectedImageDetails = images.filter(img => selectedImages.includes(img.id));
-      await axios.post('https://abeer.onrender.com/api/selections', {
+      await axios.post('http://localhost:2500/api/selections', {
         ...values,
         images: selectedImageDetails,
         folderId: selectedFolder._id,

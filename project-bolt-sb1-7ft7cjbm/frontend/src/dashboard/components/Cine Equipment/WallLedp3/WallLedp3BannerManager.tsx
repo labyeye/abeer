@@ -64,7 +64,7 @@ const WallLedp3BannerManager = () => {
 
     try {
       const response = await axios.get(
-        "https://abeer.onrender.com/api/cineequip-wall-banner",
+        "http://localhost:2500/api/cineequip-wall-banner",
         {
           headers: getAuthHeaders(),
         }
@@ -136,7 +136,7 @@ const WallLedp3BannerManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `https://abeer.onrender.com/api/cineequip-wall-banner/${editingId}`,
+          `http://localhost:2500/api/cineequip-wall-banner/${editingId}`,
           formData,
           {
             headers: getAuthHeaders(),
@@ -145,7 +145,7 @@ const WallLedp3BannerManager = () => {
         toast.success("Banner updated successfully");
       } else {
         await axios.post(
-          "https://abeer.onrender.com/api/cineequip-wall-banner",
+          "http://localhost:2500/api/cineequip-wall-banner",
           formData,
           {
             headers: getAuthHeaders(),
@@ -188,7 +188,7 @@ const WallLedp3BannerManager = () => {
     if (window.confirm("Are you sure you want to delete this banner?")) {
       try {
         await axios.delete(
-          `https://abeer.onrender.com/api/cineequip-wall-banner/${id}`,
+          `http://localhost:2500/api/cineequip-wall-banner/${id}`,
           {
             headers: getAuthHeaders(),
           }

@@ -34,7 +34,7 @@ const PhoBabyshowerGalleryManager = () => {
   const fetchItems = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://abeer.onrender.com/api/pho-baby-sour-gallery");
+      const response = await axios.get("http://localhost:2500/api/pho-baby-sour-gallery");
       setItems(response.data);
     } catch (error) {
       toast.error("Failed to fetch gallery items");
@@ -58,10 +58,10 @@ const PhoBabyshowerGalleryManager = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://abeer.onrender.com/api/pho-baby-sour-gallery/${editingId}`, formData);
+        await axios.put(`http://localhost:2500/api/pho-baby-sour-gallery/${editingId}`, formData);
         toast.success("Gallery item updated successfully");
       } else {
-        await axios.post("https://abeer.onrender.com/api/pho-baby-sour-gallery", formData);
+        await axios.post("http://localhost:2500/api/pho-baby-sour-gallery", formData);
         toast.success("Gallery item added successfully");
       }
       setFormData({
@@ -89,7 +89,7 @@ const PhoBabyshowerGalleryManager = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await axios.delete(`https://abeer.onrender.com/api/pho-baby-sour-gallery/${id}`);
+        await axios.delete(`http://localhost:2500/api/pho-baby-sour-gallery/${id}`);
         toast.success("Gallery item deleted successfully");
         fetchItems();
       } catch (error) {

@@ -16,7 +16,7 @@ const PoliticalBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/pho-political-banner/active"
+          "http://localhost:2500/api/pho-political-banner/active"
         );
         setBanner(response.data);
       } catch (error) {

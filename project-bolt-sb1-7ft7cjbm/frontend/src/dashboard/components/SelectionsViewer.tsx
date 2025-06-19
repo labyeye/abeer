@@ -14,7 +14,7 @@ const SelectionsViewer = () => {
 
   const fetchSelections = async () => {
     try {
-      const response = await axios.get('https://abeer.onrender.com/api/selections');
+      const response = await axios.get('http://localhost:2500/api/selections');
       setSelections(response.data);
     } catch (error) {
       console.error('Error fetching selections:', error);
@@ -27,7 +27,7 @@ const SelectionsViewer = () => {
     setIsDownloading(true);
     try {
       const response = await axios.post(
-        'https://abeer.onrender.com/api/selections/download',
+        'http://localhost:2500/api/selections/download',
         { imageIds: selection.images.map((img: any) => img.id) },
         { responseType: 'blob' }
       );

@@ -24,7 +24,7 @@ const Wallledp3Gallery = () => {
     console.log("Fetching Films gallery...");
     const fetchGalleryItems = async () => {
       try {
-        const response = await axios.get("https://abeer.onrender.com/api/cineequip-wall-gallery");
+        const response = await axios.get("http://localhost:2500/api/cineequip-wall-gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {

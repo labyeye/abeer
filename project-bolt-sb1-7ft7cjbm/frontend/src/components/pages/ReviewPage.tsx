@@ -48,7 +48,7 @@ const ReviewPage: React.FC = () => {
   React.useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch("https://abeer.onrender.com/api/reviews");
+        const response = await fetch("http://localhost:2500/api/reviews");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -69,7 +69,7 @@ const ReviewPage: React.FC = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      const response = await fetch("https://abeer.onrender.com/api/reviews", {
+      const response = await fetch("http://localhost:2500/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

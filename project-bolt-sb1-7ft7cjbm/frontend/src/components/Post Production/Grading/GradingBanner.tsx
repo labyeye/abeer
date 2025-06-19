@@ -16,7 +16,7 @@ const GradingBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          "https://abeer.onrender.com/api/postproduction-grading-banner/active"
+          "http://localhost:2500/api/postproduction-grading-banner/active"
         );
         setBanner(response.data);
       } catch (error) {
