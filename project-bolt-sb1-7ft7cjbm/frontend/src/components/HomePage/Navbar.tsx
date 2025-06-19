@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
   const navItems: NavItem[] = [
     { label: "Home", link: "/" },
     { label: "About", link: "/about" },
-    
+
     {
       label: "Cinematography",
       dropdown: [
@@ -154,6 +154,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       dropdown: [
         {
           category: "Political Event",
+          link: "/livestream",
+
           services: [
             "Election Campaigning",
             "Press Conference",
@@ -163,6 +165,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Religious & Cultural Programs",
+          link: "/livestream",
+
           services: [
             "Bhagwat Katha, Ram Katha, Shiv Katha",
             "Jagran, Bhajan Sandhya",
@@ -173,6 +177,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Corporate & Educational",
+          link: "/livestream",
+
           services: [
             "Business Conferences & Seminars",
             "Product Launch & Brand Promotion",
@@ -183,6 +189,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Entertainment & Public",
+          link: "/livestream",
+
           services: [
             "Music Concerts & Live Shows",
             "Dance Competitions & Talent Shows",
@@ -192,6 +200,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Government & Public Awareness",
+          link: "/livestream",
+
           services: [
             "Sarkari Yojana Awareness Programs",
             "Government Meetings & Announcements",
@@ -201,6 +211,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Sports",
+          link: "/livestream",
+
           services: [
             "Cricket Matches",
             "Football Matches",
