@@ -9,7 +9,7 @@ async function initializeDrive() {
   if (!drive) {
     try {
       const auth = new google.auth.GoogleAuth({
-        keyFile: path.join(__dirname, '../config/hallowed-oven-463416-v9-987e956be3bc.json'),
+        keyFile: path.join(__dirname, '../config/hallowed-oven-463416-v9-52ecc42eb005.json'),
         scopes: ['https://www.googleapis.com/auth/drive.readonly'],
       });
       drive = google.drive({ version: 'v3', auth });
