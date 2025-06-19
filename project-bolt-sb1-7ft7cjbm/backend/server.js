@@ -100,7 +100,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 const auth = new google.auth.GoogleAuth({
-  keyFile: './config/hallowed-oven-463416-v9-52ecc42eb005.json',
+  keyFile: './key/hallowed-oven-463416-v9-52ecc42eb005.json',
   scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 });
 
