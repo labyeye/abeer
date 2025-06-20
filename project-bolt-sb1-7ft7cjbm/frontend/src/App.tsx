@@ -34,7 +34,7 @@ const [fadeOutPreloader, setFadeOutPreloader] = useState(false);
       // Start fade out first
       setFadeOutPreloader(true);
       // Then remove preloader after fade duration (e.g., 1s)
-      setTimeout(() => setLoading(false), 1000); 
+      setTimeout(() => setLoading(false), 5000); 
     }
   };
 
