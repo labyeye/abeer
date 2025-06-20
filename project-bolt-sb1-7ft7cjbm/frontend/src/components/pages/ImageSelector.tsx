@@ -194,7 +194,7 @@ const ImageSelector = () => {
                     onClick={() => toggleImageSelection(image.id)}
                     style={{
                       cursor: 'pointer',
-                      borderColor: selectedImages.includes(image.id) ? '#1890ff' : '#f0f0f0'
+                      borderColor: selectedImages.includes(image.id) ? 'red' : '#f0f0f0'
                     }}
                   >
                     <Card.Meta 

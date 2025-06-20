@@ -142,6 +142,11 @@ const Footer: React.FC = () => {
                     Privacy Policy
                   </a>
                 </li>
+                <li>
+                  <a href="/image-selector" className={hoverLinkStyle}>
+                    Image Selector
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

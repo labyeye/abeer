@@ -303,15 +303,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
       label: "Filmmaking",
       dropdown: [
         {
-          category: "Feature Films",
+          category: "Feature / Short / Documentary Films",
           link: "/cinematography/film",
-        },
-        {
-          category: "Short Films",
-          link: "/cinematography/film",
-        },
-        {
-          category: "Documentary Films",
         },
         {
           category: "Corporate & Business Films",
@@ -335,6 +328,8 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
         {
           category: "Experimental & Creative Films",
+          link: "/cinematography/film",
+
         },
         {
           category: "Distribution & Marketing Services",
@@ -439,11 +434,11 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         },
       ],
     },
-    {
-      label: "Image Selector",
-      link: "/image-selector",
-      isLive: hasFeaturedItems,
-    },
+    // {
+    //   label: "Image Selector",
+    //   link: "/image-selector",
+    //   isLive: hasFeaturedItems,
+    // },
     { label: "Contact", link: "#" },
   ];
 
