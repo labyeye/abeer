@@ -148,27 +148,32 @@ const ReviewCard: React.FC<{
   className?: string 
 }> = ({ review, renderStars, className = '' }) => {
   return (
-    <div className={`bg-white rounded-xl p-6 shadow-md transition-all duration-300 ${className}`}>
-      <div className="flex items-center mb-4">
-        <div className="bg-[#263f49] text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
-          {review.name.charAt(0).toUpperCase()}
-        </div>
-        <div>
-          <h3 className="font-semibold text-lg">{review.name}</h3>
-          <div className="flex items-center">
-            {renderStars(review.rating)}
-            <span className="text-xs text-gray-500 ml-2">
-              {new Date(review.createdAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-              })}
-            </span>
-          </div>
-        </div>
-      </div>
-      <p className="text-gray-700 italic">"{review.message}"</p>
+    <div className={`bg-white h-64 w-64 rounded-xl p-6 shadow-md transition-all duration-300 flex flex-col ${className}`}>
+  {/* Avatar and header section - unchanged */}
+  <div className="flex items-center mb-4">
+    <div className="bg-[#263f49] text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+      {review.name.charAt(0).toUpperCase()}
     </div>
+    <div>
+      <h3 className="font-semibold text-lg">{review.name}</h3>
+      <div className="flex items-center">
+        {renderStars(review.rating)}
+        <span className="text-xs text-gray-500 ml-2">
+          {new Date(review.createdAt).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })}
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  {/* Review message section with better spacing */}
+  <div className="flex-grow overflow-y-auto pt-2 pb-2">
+    <p className="text-gray-700 italic leading-snug">"{review.message}"</p>
+  </div>
+</div>
   );
 };
 
