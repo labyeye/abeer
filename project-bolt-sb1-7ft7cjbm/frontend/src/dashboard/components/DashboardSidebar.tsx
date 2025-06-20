@@ -179,16 +179,16 @@ export const DashboardSidebar = () => {
       ],
     },
     {
-      name: "Government Tandor",
+      name: "Government Tender",
       icon: <FiShield className="w-5 h-5" />,
       path: null,
       children: [
         {
-          name: "Government Tandor Banner",
+          name: "Government Tender Banner",
           path: "/dashboard/government-banner",
         },
         {
-          name: "Government Tandor Gallery",
+          name: "Government Tender Gallery",
           path: "/dashboard/government-gallery",
         },
       ],

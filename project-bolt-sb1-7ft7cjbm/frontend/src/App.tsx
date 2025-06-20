@@ -7,6 +7,7 @@ import Footer from "./components/HomePage/Footer";
 import { AppRoutes } from "./routes/AppRoutes/index";
 import axios from "axios";
 import Preloader from "./components/HomePage/Preloader";
+
 function AppContent() {
   const location = useLocation();
   const isDashboardRoute =
@@ -15,8 +16,9 @@ function AppContent() {
 
   const [categories, setCategories] = useState<any[]>([]);
   const [hasFeaturedItems, setHasFeaturedItems] = useState(false);
-  const [loading, setLoading] = useState(isHomePage); // only start loading on home page
+  const [loading, setLoading] = useState(isHomePage);
   const [fadeOutPreloader, setFadeOutPreloader] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false); // New state to track data loading
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,18 +30,23 @@ function AppContent() {
         setCategories(categoriesRes.data);
         const featuredItemsExist = galleryRes.data.some((item: any) => item.isFeatured);
         setHasFeaturedItems(featuredItemsExist);
+        setDataLoaded(true); // Mark data as loaded
       } catch (error) {
         console.error("Error fetching data:", error);
-      } finally {
-        if (isHomePage) {
-          setFadeOutPreloader(true);
-          setTimeout(() => setLoading(false), 1000); // short fade time
-        }
+        setDataLoaded(true); // Even if error occurs, we should proceed
       }
     };
 
     fetchData();
   }, [isHomePage]);
+
+  useEffect(() => {
+    // Only start fade out when data is loaded and we're on home page
+    if (dataLoaded && isHomePage) {
+      setFadeOutPreloader(true);
+      setTimeout(() => setLoading(false), 3500); // Adjust timing as needed
+    }
+  }, [dataLoaded, isHomePage]);
 
   if (loading && isHomePage) {
     return <Preloader isFadingOut={fadeOutPreloader} />;
@@ -56,7 +63,6 @@ function AppContent() {
     </div>
   );
 }
-
 
 function App() {
   return (

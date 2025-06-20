@@ -28,7 +28,7 @@ const Preloader: React.FC<Props> = ({ isFadingOut }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLogo((prev) => (prev + 1) % logos.length);
-    }, 800);
+    }, 600);
     return () => clearInterval(interval);
   }, []);
 

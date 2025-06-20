@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const galleryController = require('../../controllers/Government Tandor/GovernmentGalleryController');
+const galleryController = require('../../controllers/Government Tender/GovernmentGalleryController');
 
 // Get all gallery items
 router.get('/', galleryController.getAllGalleryItems);

@@ -47,8 +47,8 @@ import PhoBookBannerManager from "../../dashboard/components/Photography/PhotoBo
 import PhoBookGalleryManager from "../../dashboard/components/Photography/PhotoBook/PhoBookGalleryManager";
 import LiveStreamBannerManager from "../../dashboard/components/Live Stream/LiveStreamBannerManager";
 import LiveStreamGalleryManager from "../../dashboard/components/Live Stream/LiveStreamGalleryManager";
-import GovernmentBannerManager from "../../dashboard/components/Government Tandor/GovernmentBannerManager";
-import GovernmentGalleryManager from "../../dashboard/components/Government Tandor/GovernmentGalleryManager";
+import GovernmentBannerManager from "../../dashboard/components/Government Tender/GovernmentBannerManager";
+import GovernmentGalleryManager from "../../dashboard/components/Government Tender/GovernmentGalleryManager";
 import CampaigningBannerManager from "../../dashboard/components/Campaigning/CampaigningBannerManager";
 import CampaigningGalleryManager from "../../dashboard/components/Campaigning/CampaigningGalleryManager";
 import AdvertisingBannerManager from "../../dashboard/components/Audio Studio/Advertising/AdvertisingBannerManager";
@@ -295,7 +295,7 @@ export const DashboardRoutes = (
     {/* Live Streaming */}
     <Route path="livestream-banner" element={<LiveStreamBannerManager />} />
     <Route path="livestream-gallery" element={<LiveStreamGalleryManager />} />
-    {/* Government Tandor */}
+    {/* Government Tender */}
     <Route path="government-banner" element={<GovernmentBannerManager />} />
     <Route path="government-gallery" element={<GovernmentGalleryManager />} />
     {/* Campaigning */}

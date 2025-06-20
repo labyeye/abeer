@@ -14,6 +14,7 @@ const ReviewPreviewSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout>();
 
   // Fetch reviews
@@ -37,7 +38,7 @@ const ReviewPreviewSlider: React.FC = () => {
   // Auto-rotation
   useEffect(() => {
     if (reviews.length > 1) {
-      intervalRef.current = setInterval(goToNext, 5000);
+      intervalRef.current = setInterval(goToNext, 1800);
       return () => { if (intervalRef.current) clearInterval(intervalRef.current) };
     }
   }, [reviews.length, currentIndex]);
@@ -52,9 +53,14 @@ const ReviewPreviewSlider: React.FC = () => {
     resetInterval();
   };
 
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+    resetInterval();
+  };
+
   const resetInterval = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(goToNext, 1500);
+    intervalRef.current = setInterval(goToNext, 5000);
   };
 
   const renderStars = (rating: number) => (
@@ -72,61 +78,62 @@ const ReviewPreviewSlider: React.FC = () => {
   if (error) return <div className="text-center py-12 text-red-500">{error}</div>;
   if (reviews.length === 0) return <div className="text-center py-12">No reviews yet</div>;
 
-  // Calculate adjacent indices
-  const prevIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-  const nextIndex = (currentIndex + 1) % reviews.length;
-
   return (
-    <div className="relative max-w-5xl mx-auto px-4 py-8">
+    <div className="relative max-w-5xl mx-auto px-4 py-8 overflow-hidden">
       <h2 className="text-3xl font-bold text-center mb-12 text-[#263f49]">
         Customer Reviews
       </h2>
       
-      <div className="relative h-96">
-        {/* Previous Review (left side) */}
-        {reviews.length > 1 && (
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1/3 opacity-70 scale-90 z-10">
-            <ReviewCard 
-              review={reviews[prevIndex]} 
-              renderStars={renderStars}
-              className="bg-gray-50"
-            />
-          </div>
-        )}
-
-        {/* Current Review (center) */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 w-2/3 z-20 shadow-lg">
-          <ReviewCard 
-            review={reviews[currentIndex]} 
-            renderStars={renderStars}
-            className="bg-white border-2 border-[#263f49]"
-          />
+      <div className="relative">
+        {/* Slider container */}
+        <div 
+          ref={sliderRef}
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {reviews.map((review, index) => (
+            <div 
+              key={review._id} 
+              className="w-full flex-shrink-0 px-4"
+            >
+              <ReviewCard 
+                review={review} 
+                renderStars={renderStars}
+                className={`mx-auto max-w-md ${index === currentIndex ? 'opacity-100' : 'opacity-0 absolute'}`}
+              />
+            </div>
+          ))}
         </div>
-
-        {/* Next Review (right side) */}
+        
+        {/* Navigation arrows */}
         {reviews.length > 1 && (
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/3 opacity-70 scale-90 z-10">
-            <ReviewCard 
-              review={reviews[nextIndex]} 
-              renderStars={renderStars}
-              className="bg-gray-50"
-            />
-          </div>
+          <>
+            <button 
+              onClick={goToPrev}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 z-10"
+            >
+              <FiChevronLeft className="w-6 h-6 text-[#263f49]" />
+            </button>
+            <button 
+              onClick={goToNext}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 z-10"
+            >
+              <FiChevronRight className="w-6 h-6 text-[#263f49]" />
+            </button>
+          </>
         )}
       </div>
 
       {/* Indicators */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex justify-center mt-8 space-x-2">
         {reviews.map((_, index) => (
           <button
             key={index}
-            onClick={() => {
-              setCurrentIndex(index);
-              resetInterval();
-            }}
+            onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
               index === currentIndex ? 'bg-[#263f49] w-6' : 'bg-gray-300'
             }`}
+            aria-label={`Go to review ${index + 1}`}
           />
         ))}
       </div>
@@ -134,14 +141,14 @@ const ReviewPreviewSlider: React.FC = () => {
   );
 };
 
-// Separate card component for cleaner code
-const ReviewCard: React.FC<{ review: Review; renderStars: (rating: number) => React.ReactNode; className?: string }> = ({ 
-  review, 
-  renderStars,
-  className = '' 
-}) => {
+// Review Card Component
+const ReviewCard: React.FC<{ 
+  review: Review; 
+  renderStars: (rating: number) => React.ReactNode; 
+  className?: string 
+}> = ({ review, renderStars, className = '' }) => {
   return (
-    <div className={`rounded-xl p-6 transition-all ${className}`}>
+    <div className={`bg-white rounded-xl p-6 shadow-md transition-all duration-300 ${className}`}>
       <div className="flex items-center mb-4">
         <div className="bg-[#263f49] text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
           {review.name.charAt(0).toUpperCase()}

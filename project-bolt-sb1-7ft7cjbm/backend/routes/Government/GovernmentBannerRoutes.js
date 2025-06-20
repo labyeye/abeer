@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const GovernmentBannerControllerr = require('../../controllers/Government Tandor/GovernmentBannerController');
+const GovernmentBannerControllerr = require('../../controllers/Government Tender/GovernmentBannerController');
 const auth = require('../../middleware/auth');
 
 // Public routes
