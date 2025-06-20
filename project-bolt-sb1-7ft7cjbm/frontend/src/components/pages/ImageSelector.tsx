@@ -134,8 +134,16 @@ const ImageSelector = () => {
     }
   };
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "20px" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "24px" }}>
+    <div style={{flex:1,backgroundColor: "#23456b"}}>
+      <div
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "20px",
+        backgroundColor: "#23456b",
+      }}
+    >
+      <h1 style={{ textAlign: "center", marginBottom: "24px" ,marginTop: 150, color: "white"}}>
         Select Your Images
       </h1>
 
@@ -286,6 +294,7 @@ const ImageSelector = () => {
           </Card>
         </>
       )}
+    </div>
     </div>
   );
 };
