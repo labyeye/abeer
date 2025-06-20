@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
             >
               &times;
             </button>
-            <ReviewForm 
+            <ReviewForm
               onSubmitSuccess={() => setShowReviewForm(false)}
               initialRating={rating}
             />
@@ -122,117 +122,126 @@ const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <div>
-            <h4 className="text-[#263f49] text-lg font-semibold mb-6">
-              Quick Links
-            </h4>
-            <div className="grid grid-cols-2 gap-4">
-              <ul className="space-y-3">
-                <li>
-                  <a href="/" className={hoverLinkStyle}>
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="/about" className={hoverLinkStyle}>
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="/cinematography/wedding" className={hoverLinkStyle}>
-                    Cinematography
-                  </a>
-                </li>
-                <li>
-                  <a href="/photography/wedding" className={hoverLinkStyle}>
-                    Photography 
-                  </a>
-                </li>
-                <li>
-                  <a href="/livestream" className={hoverLinkStyle}>
-                    Live Streaming
-                  </a>
-                </li>
-                <li>
-                  <a href="/audiostudio/production" className={hoverLinkStyle}>
-                    Audio Studio
-                  </a>
-                </li>
-              </ul>
-              <ul className="space-y-3">
-                <li>
-                  <a href="/postproduction/grading" className={hoverLinkStyle}>
-                    Post Production
-                  </a>
-                </li>
-                <li>
-                  <a href="/cinematography/film" className={hoverLinkStyle}>
-                    Filmmaking
-                  </a>
-                </li>
-                <li>
-                  <a href="/campaigning" className={hoverLinkStyle}>
-                    Camping
-                  </a>
-                </li>
-                <li>
-                  <a href="/government" className={hoverLinkStyle}>
-                    Government Tander
-                  </a>
-                </li>
-                
-                <li>
-                  <a href="/image-selector" className={hoverLinkStyle}>
-                    Image Selector
-                  </a>
-                </li>
-              </ul>
+              <h4 className="text-[#263f49] text-lg font-semibold mb-6">
+                Quick Links
+              </h4>
+              <div className="grid grid-cols-2 gap-4">
+                <ul className="space-y-3">
+                  <li>
+                    <a href="/" className={hoverLinkStyle}>
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/about" className={hoverLinkStyle}>
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/cinematography/wedding"
+                      className={hoverLinkStyle}
+                    >
+                      Cinematography
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/photography/wedding" className={hoverLinkStyle}>
+                      Photography
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/livestream" className={hoverLinkStyle}>
+                      Live Streaming
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/audiostudio/production"
+                      className={hoverLinkStyle}
+                    >
+                      Audio Studio
+                    </a>
+                  </li>
+                </ul>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="/postproduction/grading"
+                      className={hoverLinkStyle}
+                    >
+                      Post Production
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/cinematography/film" className={hoverLinkStyle}>
+                      Filmmaking
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/campaigning" className={hoverLinkStyle}>
+                      Camping
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/government" className={hoverLinkStyle}>
+                      Government Tander
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/image-selector" className={hoverLinkStyle}>
+                      Image Selector
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Services - remains the same */}
           <div>
             <ul className="space-y-3">
               <div>
-            <h4 className="text-[#263f49] text-lg font-semibold mb-6">
-              Our Services
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="/photography/wedding" className={hoverLinkStyle}>
-                  Wedding Photography
-                </a>
-              </li>
-              <li>
-                <a href="/cinematography/event" className={hoverLinkStyle}>
-                  Event Coverage
-                </a>
-              </li>
-              <li>
-                <a href="/photography/studio" className={hoverLinkStyle}>
-                  Portrait Sessions
-                </a>
-              </li>
-              <li>
-                <a href="/photography/event" className={hoverLinkStyle}>
-                  Commercial Photography
-                </a>
-              </li>
-              <li>
-                <a href="/postproduction/fcpx" className={hoverLinkStyle}>
-                  Video Production
-                </a>
-              </li>
-              <li>
-                <a href="/photography/album" className={hoverLinkStyle}>
-                  Photo Editing
-                </a>
-              </li>
-            </ul>
-          </div>
+                <h4 className="text-[#263f49] text-lg font-semibold mb-6">
+                  Our Services
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <a href="/photography/wedding" className={hoverLinkStyle}>
+                      Wedding Photography
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/cinematography/event" className={hoverLinkStyle}>
+                      Event Coverage
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/photography/studio" className={hoverLinkStyle}>
+                      Portrait Sessions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/photography/event" className={hoverLinkStyle}>
+                      Commercial Photography
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/postproduction/fcpx" className={hoverLinkStyle}>
+                      Video Production
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/photography/album" className={hoverLinkStyle}>
+                      Photo Editing
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </ul>
           </div>
 
@@ -272,11 +281,21 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="pt-8 border-t border-gray-200 text-center">
           <p className="text-gray-500">
-            &copy; {new Date().getFullYear()} Abeer Motion Picture Pvt Ltd. All
-            Rights Reserved.
+            &copy; {new Date().getFullYear()} Abeer Motion Pictures Pvt. Ltd.
+            All rights reserved.
+          </p>
+          <p className="text-gray-500">
+            Designed & Developed by{" "}
+            <a
+              href="https://pixelatenest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black font-medium hover:underline"
+            >
+              Pixelate Nest
+            </a>
           </p>
         </div>
       </div>
