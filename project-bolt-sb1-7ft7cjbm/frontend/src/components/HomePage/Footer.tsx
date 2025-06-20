@@ -131,67 +131,58 @@ const Footer: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/" className={hoverLinkStyle}>
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/about" className={hoverLinkStyle}>
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/cinematography/wedding" className={hoverLinkStyle}>
                     Cinematography
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
-                    Photography
+                  <a href="/photography/wedding" className={hoverLinkStyle}>
+                    Photography 
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/livestream" className={hoverLinkStyle}>
                     Live Streaming
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/audiostudio/production" className={hoverLinkStyle}>
                     Audio Studio
                   </a>
                 </li>
               </ul>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/postproduction/grading" className={hoverLinkStyle}>
                     Post Production
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/cinematography/film" className={hoverLinkStyle}>
                     Filmmaking
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/campaigning" className={hoverLinkStyle}>
                     Camping
                   </a>
                 </li>
                 <li>
-                  <a href="#" className={hoverLinkStyle}>
+                  <a href="/government" className={hoverLinkStyle}>
                     Government Tander
                   </a>
                 </li>
-                <li>
-                  <a href="#" className={hoverLinkStyle}>
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className={hoverLinkStyle}>
-                    Privacy Policy
-                  </a>
-                </li>
+                
                 <li>
                   <a href="/image-selector" className={hoverLinkStyle}>
                     Image Selector
@@ -211,32 +202,32 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className={hoverLinkStyle}>
+                <a href="/photography/wedding" className={hoverLinkStyle}>
                   Wedding Photography
                 </a>
               </li>
               <li>
-                <a href="#" className={hoverLinkStyle}>
+                <a href="/cinematography/event" className={hoverLinkStyle}>
                   Event Coverage
                 </a>
               </li>
               <li>
-                <a href="#" className={hoverLinkStyle}>
+                <a href="/photography/studio" className={hoverLinkStyle}>
                   Portrait Sessions
                 </a>
               </li>
               <li>
-                <a href="#" className={hoverLinkStyle}>
+                <a href="/photography/event" className={hoverLinkStyle}>
                   Commercial Photography
                 </a>
               </li>
               <li>
-                <a href="#" className={hoverLinkStyle}>
+                <a href="/postproduction/fcpx" className={hoverLinkStyle}>
                   Video Production
                 </a>
               </li>
               <li>
-                <a href="#" className={hoverLinkStyle}>
+                <a href="/photography/album" className={hoverLinkStyle}>
                   Photo Editing
                 </a>
               </li>
