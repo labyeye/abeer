@@ -31,9 +31,7 @@ const [fadeOutPreloader, setFadeOutPreloader] = useState(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
-      // Start fade out first
       setFadeOutPreloader(true);
-      // Then remove preloader after fade duration (e.g., 1s)
       setTimeout(() => setLoading(false), 5000); 
     }
   };
