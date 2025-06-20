@@ -38,6 +38,10 @@ import RecordPage from "../../components/Post Production/Record/RecordPage";
 import CinemaCameraPage from "../../components/Cine Equipment/Cinema Camera/CinemaCameraPage";
 import ReviewPage from "../../components/pages/ReviewPage";
 import ImageSelector from "../../components/pages/ImageSelector";
+import WeddingCategoryPage from "../../components/Category/WeddingPage";
+import PreWeddingCategoryPage from "../../components/Category/PreWeddingPage";
+import PoliticalCategoryPage from "../../components/Category/PoliticalPage";
+import EventCategoryPage from "../../components/Category/Event";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -50,6 +54,11 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/livestream" element={<LiveStreamPage />} />
     <Route path="/government" element={<GovernmentPage />} />
     <Route path="/campaigning" element={<CampaigningPage />} />
+    <Route path="/category/wedding" element={<WeddingCategoryPage />} />
+    <Route path="/category/pre-wedding" element={<PreWeddingCategoryPage />} />
+    <Route path="/category/event" element={<EventCategoryPage />} />
+    <Route path="/category/filmmaking" element={<CinemaPage />} />
+     <Route path="/category/government-&-political-event" element={<PoliticalCategoryPage />} />
     <Route path="/review" element={<ReviewPage />} />
     <Route path="/image-selector" element={<ImageSelector />} />
     <Route path="/cinematography/wedding" element={<WeddingPage />} />

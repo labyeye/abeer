@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import ReactPlayer from "react-player";
+import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -31,6 +32,7 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
   bgImage,
   images = [],
 }) => {
+  const navigate = useNavigate();
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const [swiperReady, setSwiperReady] = useState(false);
@@ -67,6 +69,12 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
     }
   };
 
+  const handleExploreClick = () => {
+    // Convert category to lowercase and handle special cases
+    const categoryPath = category.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/category/${categoryPath}`);
+  };
+
   return (
     <section
       className="relative py-28 transition-all duration-500"
@@ -83,7 +91,10 @@ const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({
         <div className="text-white">
           <h2 className="text-7xl font-denton-bold mb-10 mr-10">{title}</h2>
           <p className="text-2s mb-10">{description}</p>
-          <button className="bg-blue-600 text-white hover:bg-white hover:text-[#263f49] px-6 py-3 rounded-lg transition mb-30">
+          <button 
+            className="bg-blue-600 text-white hover:bg-white hover:text-[#263f49] px-6 py-3 rounded-lg transition mb-30"
+            onClick={handleExploreClick}
+          >
             Explore Now
           </button>
         </div>

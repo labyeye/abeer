@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
+import { FiStar } from "react-icons/fi";
 import logo from "../../assets/images/logoblack.png";
+import ReviewForm from "./ReviewForm";
 
 const hoverLinkStyle = `
   relative inline-block text-gray-700 transition-colors duration-300 cursor-pointer
@@ -18,17 +20,65 @@ const socialIconClass = `
 `;
 
 const Footer: React.FC = () => {
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+
+  const renderStars = () => {
+    return (
+      <div className="flex items-center mb-2">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <button
+            key={star}
+            type="button"
+            onClick={() => {
+              setRating(star);
+              setShowReviewForm(true);
+            }}
+            onMouseEnter={() => setHoverRating(star)}
+            onMouseLeave={() => setHoverRating(0)}
+            className="focus:outline-none"
+          >
+            <FiStar
+              className={`w-5 h-5 ${
+                star <= (hoverRating || rating)
+                  ? "text-yellow-400 fill-yellow-400"
+                  : "text-gray-300"
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+    );
+  };
+
   return (
-    <footer className="bg-white text-gray-800 pt-16 pb-8 border-t border-[#d1d5db]">
+    <footer className="bg-white text-gray-800 pt-16 pb-8 border-t border-[#d1d5db] relative">
+      {/* Review Form Modal */}
+      {showReviewForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full p-6 relative">
+            <button
+              onClick={() => setShowReviewForm(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              &times;
+            </button>
+            <ReviewForm 
+              onSubmitSuccess={() => setShowReviewForm(false)}
+              initialRating={rating}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* About */}
+          {/* About - remains the same */}
           <div>
             <div className="flex items-center justify-center mb-6 min-h-[60px]">
-              <img src={logo} className="h-[230px] w-auto" />
+              <img src={logo} className="h-[230px] w-auto" alt="Company Logo" />
             </div>
-
-            
             <div className="flex space-x-4">
               <a
                 href="https://m.facebook.com/people/Abeer-Motion-Picture-Pvt-Ltd/61552202668767/"
@@ -72,9 +122,9 @@ const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-
-          {/* Quick Links */}
+          
           <div>
+            <div>
             <h4 className="text-[#263f49] text-lg font-semibold mb-6">
               Quick Links
             </h4>
@@ -150,9 +200,12 @@ const Footer: React.FC = () => {
               </ul>
             </div>
           </div>
+          </div>
 
-          {/* Services */}
+          {/* Services - remains the same */}
           <div>
+            <ul className="space-y-3">
+              <div>
             <h4 className="text-[#263f49] text-lg font-semibold mb-6">
               Our Services
             </h4>
@@ -189,9 +242,21 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
+            </ul>
+          </div>
 
-          {/* Newsletter */}
+          {/* Newsletter with Rating */}
           <div>
+            <div className="mb-6">
+              <h4 className="text-[#263f49] text-lg font-semibold mb-2">
+                Rate Our Service
+              </h4>
+              {renderStars()}
+              <p className="text-sm text-gray-600 mt-1">
+                Click on stars to leave a review
+              </p>
+            </div>
+
             <h4 className="text-[#263f49] text-lg font-semibold mb-6">
               Subscribe to Newsletter
             </h4>
