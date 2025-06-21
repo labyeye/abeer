@@ -148,7 +148,7 @@ export const DashboardSidebar = () => {
         { name: "Music Banner", path: "audio/audiomusic-banner" },
         {
           name: "Music Gallery",
-          path: "audio/audiomusic-banner",
+          path: "audio/audiomusic-gallery",
         },
         {
           name: "Audio Production Banner",
