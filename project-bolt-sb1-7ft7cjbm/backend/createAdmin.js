@@ -4,7 +4,7 @@ const User = require('./models/User'); // Adjust path as needed
 async function createNewUser() {
   try {
     // Connect to MongoDB (adjust connection string as needed)
-    await mongoose.connect("mongodb+srv://labhbother12:13801234@cluster0.zxmvexr.mongodb.net/");
+    await mongoose.connect("mongodb+srv://reportabeermotionpicture:report123@abeer9.b82cn9x.mongodb.net/");
     
     // Delete existing admin user (optional)
     await User.deleteOne({ username: 'admin' });

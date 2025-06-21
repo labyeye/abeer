@@ -175,7 +175,7 @@ useEffect(() => {
                 <SwiperSlide key={img.id}>
                   {({ isActive }) => (
                     <div
-                      className={`block h-[300px] md:h-[500px] w-full max-w-[280px] md:w-[370px] transition-all duration-300 transform-origin-center ${
+                      className={`block h-[300px] md:h-[500px] w-full max-w-[340px] md:w-[370px] transition-all duration-300 transform-origin-center ${
                         isActive ? "scale-100 z-20" : "scale-90 md:scale-75 opacity-80 md:opacity-60 z-10"
                       } rounded-xl overflow-hidden shadow-lg border-2 md:border-4 border-white cursor-pointer`}
                       onClick={() => openModal(img)}
