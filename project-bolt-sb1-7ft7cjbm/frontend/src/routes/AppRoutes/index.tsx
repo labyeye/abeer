@@ -42,6 +42,7 @@ import WeddingCategoryPage from "../../components/Category/WeddingPage";
 import PreWeddingCategoryPage from "../../components/Category/PreWeddingPage";
 import PoliticalCategoryPage from "../../components/Category/PoliticalPage";
 import EventCategoryPage from "../../components/Category/Event";
+import ContactPage from "../../components/pages/ContactPage";
 interface AppRoutesProps {
   categories: any[];
 }
@@ -54,6 +55,7 @@ export const AppRoutes = ({ categories }: AppRoutesProps) => (
     <Route path="/livestream" element={<LiveStreamPage />} />
     <Route path="/government" element={<GovernmentPage />} />
     <Route path="/campaigning" element={<CampaigningPage />} />
+    <Route path="/contact" element={<ContactPage />} />
     <Route path="/category/wedding" element={<WeddingCategoryPage />} />
     <Route path="/category/pre-wedding" element={<PreWeddingCategoryPage />} />
     <Route path="/category/event" element={<EventCategoryPage />} />

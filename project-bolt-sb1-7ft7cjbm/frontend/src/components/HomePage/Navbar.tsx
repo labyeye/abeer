@@ -329,7 +329,6 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
         {
           category: "Experimental & Creative Films",
           link: "/cinematography/film",
-
         },
         {
           category: "Distribution & Marketing Services",
@@ -439,7 +438,7 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
     //   link: "/image-selector",
     //   isLive: hasFeaturedItems,
     // },
-    { label: "Contact", link: "#" },
+    { label: "Contact", link: "/contact" },
   ];
 
   return (
@@ -504,7 +503,17 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
                             </div>
 
                             {/* Sub-dropdown with left-to-right animation */}
-                            <div className="absolute left-full top-0 ml-2 w-80 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover/sub:opacity-100 invisible group-hover/sub:visible transition-all duration-300 transform translate-x-[-10px] group-hover/sub:translate-x-0 z-60">
+                            <div
+                              className={`absolute ${
+                                item.label === "Government Tender"
+                                  ? "right-full mr-2"
+                                  : "left-full ml-2"
+                              } top-0 w-80 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 opacity-0 group-hover/sub:opacity-100 invisible group-hover/sub:visible transition-all duration-300 transform ${
+                                item.label === "Government Tender"
+                                  ? "translate-x-[10px] group-hover/sub:translate-x-0"
+                                  : "translate-x-[-10px] group-hover/sub:translate-x-0"
+                              } z-60`}
+                            >
                               <div className="p-4">
                                 <h5 className="text-sm font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
                                   {category.category} Services
@@ -586,60 +595,60 @@ const Navbar: React.FC<NavbarProps> = ({ hasFeaturedItems }) => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-  <div className="lg:hidden bg-white absolute top-full left-0 right-0 py-4 z-40 max-h-[80vh] overflow-y-auto">
-    <nav className="container mx-auto px-4 flex flex-col space-y-4">
-      {navItems.map((item, idx) => (
-        <div key={idx}>
-          <a
-            href={item.link || "#"}
-            className="text-gray-900 hover:text-orange-400 transition-colors py-2 block font-medium flex items-center"
-          >
-            {item.label}
-            {item.isLive && (
-              <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
-                LIVE
-              </span>
-            )}
-          </a>
-          {item.dropdown && (
-            <div className="ml-4 mt-2 space-y-2">
-              {item.dropdown.map((category, subIdx) => (
-                <div key={subIdx} className="text-gray-700 text-sm">
-                  <div className="font-medium py-1 text-orange-400">
-                    {category.link ? (
-                      <a href={category.link}>{category.category}</a>
-                    ) : (
-                      category.category
-                    )}
-                  </div>
-                  {"services" in category && category.services && (
-                    <div className="ml-4 space-y-1">
-                      {category.services.map((service, serviceIdx) => {
-                        const link =
-                          category.serviceLinks?.[serviceIdx] ||
-                          category.link ||
-                          "#";
-                        return (
-                          <a
-                            key={serviceIdx}
-                            href={link}
-                            className="text-xs text-gray-600 hover:text-gray-900 py-1 block"
-                          >
-                            {service}
-                          </a>
-                        );
-                      })}
-                    </div>
+        <div className="lg:hidden bg-white absolute top-full left-0 right-0 py-4 z-40 max-h-[80vh] overflow-y-auto">
+          <nav className="container mx-auto px-4 flex flex-col space-y-4">
+            {navItems.map((item, idx) => (
+              <div key={idx}>
+                <a
+                  href={item.link || "#"}
+                  className="text-gray-900 hover:text-orange-400 transition-colors py-2 block font-medium flex items-center"
+                >
+                  {item.label}
+                  {item.isLive && (
+                    <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
+                      LIVE
+                    </span>
                   )}
-                </div>
-              ))}
-            </div>
-          )}
+                </a>
+                {item.dropdown && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {item.dropdown.map((category, subIdx) => (
+                      <div key={subIdx} className="text-gray-700 text-sm">
+                        <div className="font-medium py-1 text-orange-400">
+                          {category.link ? (
+                            <a href={category.link}>{category.category}</a>
+                          ) : (
+                            category.category
+                          )}
+                        </div>
+                        {"services" in category && category.services && (
+                          <div className="ml-4 space-y-1">
+                            {category.services.map((service, serviceIdx) => {
+                              const link =
+                                category.serviceLinks?.[serviceIdx] ||
+                                category.link ||
+                                "#";
+                              return (
+                                <a
+                                  key={serviceIdx}
+                                  href={link}
+                                  className="text-xs text-gray-600 hover:text-gray-900 py-1 block"
+                                >
+                                  {service}
+                                </a>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
         </div>
-      ))}
-    </nav>
-  </div>
-)}
+      )}
     </header>
   );
 };
